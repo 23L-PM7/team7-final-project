@@ -1,6 +1,6 @@
 export default function signUp() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-40 h-40 justify-center items-center">
       <div className="flex">
         <button>X</button>
         <h1>Log in or sign up</h1>
@@ -13,7 +13,7 @@ export default function signUp() {
           <p>Country code</p>
           <p>Mongolia (976)</p>
         </div>
-        <div className="dropdown dropdown-right dropdown-end">
+        <div className="dropdown dropdown-left">
           <div tabIndex={0} role="button" className="btn m-1">
             Click
           </div>
