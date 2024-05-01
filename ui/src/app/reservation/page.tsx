@@ -1,14 +1,128 @@
+"use client";
+
+import * as React from "react";
+import Box from "@mui/joy/Box";
+import Sheet from "@mui/joy/Sheet";
+import Button from "@mui/joy/Button";
+import RadioGroup from "@mui/joy/RadioGroup";
+import Radio from "@mui/joy/Radio";
+import Typography from "@mui/joy/Typography";
+import { VariantProp } from "@mui/joy/styles";
+import { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
+import { ImAppleinc } from "react-icons/im";
+import { AiFillFacebook } from "react-icons/ai";
+import { MdOutlineMail } from "react-icons/md";
+
 export default function Reservation() {
+  const [variant, setVariant] = React.useState<VariantProp>("solid");
+
   return (
-    <div className="mx-auto w-2/4 border-2 rounded h-screen justify-center">
-      <div className="flex justify-start items-center">Confirm and pay</div>
-      <div className="flex mx-auto w-2/4 border-2 rounded h-screen justify-center">
-<div></div>
-        <div className="w-2/5 flex flex-col border-2 rounded h-52 justify-center p-5">
-          <div className="flex">
-            <div>
+    <div className="mx-auto w-[1200px] border-2 rounded h-screen justify-center font-circular">
+      <div className="flex justify-start items-center h-[116px] text-[32px] font-extrabold">
+        Confirm and pay
+      </div>
+      <div className="flex w-full">
+        <div className="w-1/2 flex flex-col">
+          <div className="mb-10 flex flex-col w-full h-48 border-2 rounded-xl justify-between ">
+            <h3 className="text-[22px] font-bold">Your trip</h3>
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="font-bold">Dates</h3>
+                <h3 className="font-[16px]">May 19-24</h3>
+              </div>
+              <div>
+                <button className="font-bold underline">Edit</button>
+              </div>
+            </div>
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="font-bold">Guests</h3>
+                <h3>1 guest</h3>
+              </div>
+              <div>
+                <button className="font-bold underline">Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-10 flex flex-col w-full h-48 border-2 rounded-xl justify-between">
+            <h3 className="text-[22px] font-bold">Choose how to pay</h3>
+            <div className="flex justify-between border-2 rounded p-5">
+              <h3 className="font-medium">Pay $134.01 now</h3>
+              <Radio color="neutral" size="lg" variant="solid" defaultChecked />
+            </div>
+
+            <div className="flex justify-between p-5">
+              <div>
+                <h3 className="font-medium">Pay part now, part later</h3>
+                <h3 className="text-md">
+                  $67.01 due today, $67.00 on May 6, 2024. No extra fees. More
+                  info
+                </h3>
+              </div>
+
+              <Radio color="neutral" size="lg" variant="solid" />
+            </div>
+          </div>
+
+          <div className=" flex flex-col w-full h-48 border-2 rounded-xl justify-between">
+            <h3 className="text-[22px] font-bold">Log in or sign up to book</h3>
+            <div className="flex justify-between">
+              <div>
+                <p className="text-sm">Country code</p>
+                <select name="" id="">
+                  <option value="">Mongolia</option>
+                  <option value="">Russia</option>
+                  <option value="">China</option>
+                </select>
+              </div>
+
+              <h3>check</h3>
+            </div>
+            <div className="flex justify-between">
+              <div>
+                <h3 className="text-sm">Phone number</h3>
+                <h3>976</h3>
+              </div>
+            </div>
+          </div>
+          <p className="text-xs mb-10">
+            We’ll call or text you to confirm your number. Standard message and
+            data rates apply. Privacy Policy
+          </p>
+
+          <Button size="md" variant={variant} color="danger">
+            Continue
+          </Button>
+
+          <div className="flex flex-col">
+            <div className="w-full flex justify-evenly gap-3 mt-10">
+              <div className="border-2 rounded w-1/3 h-[52px] flex justify-center items-center">
+                <AiFillFacebook />
+              </div>
+              <div className="border-2 rounded w-1/3 h-[52px] flex justify-center items-center">
+                <FcGoogle />
+              </div>
+              <div className="border-2 rounded w-1/3 h-[52px] flex justify-center items-center">
+                <ImAppleinc />
+              </div>
+            </div>
+            <div className="border-2 rounded w-full mt-10 flex justify-between">
+              <div className="w-1/2 items-center">
+                <MdOutlineMail />
+              </div>
+              <p className="w-3/4 flex">Continue with email</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-1/2 flex flex-col border-2 rounded-xl h-80 p-5">
+          <div className="flex gap-5">
+            <div className="border-2 rounded-xl w-[104px] h-[104px]">
               <img
-                className="w-48 h-20"
+                className="w-full h-full"
                 src="/images/zostel.avif"
                 alt="zostel"
               />
@@ -20,17 +134,17 @@ export default function Reservation() {
             </div>
           </div>
           <div>
-            <h3>Price details</h3>
+            <h3 className="py-5 text-[22px] font-bold">Price details</h3>
             <div className="flex justify-between">
               <h3>$23.96 x 5 nights</h3>
               <h3>$119.80</h3>
             </div>
-            <div className="flex justify-between">
+            <div className=" py-3 flex justify-between">
               <h3>Taxes</h3>
               <h3>$14.38</h3>
             </div>
           </div>
-          <div className="flex justify-between">
+          <div className=" py-3 flex justify-between">
             <h3>Total (USD)</h3>
             <h3>$134.18</h3>
           </div>
