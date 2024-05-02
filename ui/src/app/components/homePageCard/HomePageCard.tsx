@@ -5,7 +5,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { images } from "../../lib/images";
+import { images } from "../../../lib/images";
 import { HeartButton } from "./HeartButton";
 import React from "react";
 
@@ -57,11 +57,13 @@ export function HomePageCards() {
     },
   ];
 
+  const toggleFavorite = () => {};
+
   return (
-    <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-25 2xl:p-32 ">
-      <div className="flex gap-[40px] mx-auto">
+    <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
+      <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mx-auto gap-10">
         {cards.slice(currentIndex, currentIndex + 6).map((card, index) => (
-          <div key={index} className="flex flex-col  items-center">
+          <div key={index} className="flex flex-col items-center">
             <Swiper
               cssMode={true}
               navigation={true}
@@ -79,7 +81,10 @@ export function HomePageCards() {
                       alt={image.alt}
                       className="w-full flex items-center max-w-xs transition duration-300 ease-in-out hover:scale-110 h-full object-cover"
                     />
-                    <div className="absolute top-3 right-3">
+                    <div
+                      onClick={toggleFavorite}
+                      className="absolute top-3 right-3"
+                    >
                       <HeartButton />
                     </div>
                   </div>

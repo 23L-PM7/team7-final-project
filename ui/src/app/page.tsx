@@ -1,4 +1,4 @@
-import { HomePageCards } from "@/components/homePageCard/HomePageCard";
+import { HomePageCards } from "./components/homePageCard/HomePageCard";
 
 export default function Home() {
   return (
