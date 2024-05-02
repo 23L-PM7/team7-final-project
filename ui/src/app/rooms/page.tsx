@@ -1,62 +1,59 @@
-"use client"
+"use client";
 
-import * as React from 'react';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-import { Button, Grid, Typography } from '@mui/joy';
-import { useCheckIn, useCheckOut } from '../globals';
-import { ShareIcon } from '../../../public/icons/share';
+import * as React from "react";
+import { Button, Divider, Typography } from "@mui/joy";
 import { LuHeart, LuShare } from "react-icons/lu";
+import { RoomImage } from "./roomImage";
+import { RoomReview } from "./roomReview";
+import { RoomLocation } from "./roomLocation";
+import { RoomHost } from "./roomHost";
+import { RoomRules } from "./roomRules";
+import { RoomIntroduction } from "./roomIntroduction";
 
 export default function BasicDateCalendar() {
 
-    const { checkIn, setCheckIn }: any = useCheckIn();
-    const { checkOut, setCheckOut }: any = useCheckOut();
 
-    console.log(checkIn);
-    console.log(checkOut);
-
-    return (
-        <div className="container mx-auto grid gap-6 my-6">
-
-            <div className='flex justify-between items-center my-4 border-2'>
-                <Typography level="h3">
-                    Room Title
-                </Typography>
-                <div className="flex gap-2">
-                    <Button startDecorator={<LuShare />} variant="plain">
-                        Share
-                    </Button>
-                    <Button startDecorator={<LuHeart />} variant="plain">
-                        Save
-                    </Button>
-                </div>
-            </div>
-
-            <div className='w-full border-2'>
-                Image
-            </div>
-
-            <div className='border-2 flex'>
-                <div className='w-4/6 border-2'>
-                    <div className='flex'>
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DateCalendar onChange={(newValue) => setCheckIn(newValue)} />
-                        </LocalizationProvider>
-
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DateCalendar onChange={(newValue) => setCheckOut(newValue)} />
-                        </LocalizationProvider>
-                    </div>
-                </div>
-                <div className='w-2/6 border-2'>
-                    hello
-                </div>
-            </div>
-
-
+  return (
+    <div className="container mx-auto grid gap-6 my-6">
+      <div className="flex justify-between items-center">
+        <Typography level="h3">Nomadic stay at Orkhon Valley</Typography>
+        <div className="flex gap-2">
+          <Button startDecorator={<LuShare />} variant="plain" color="neutral">
+            Share
+          </Button>
+          <Button startDecorator={<LuHeart />} variant="plain" color="neutral">
+            Save
+          </Button>
         </div>
+      </div>
 
-    );
+      <div className="w-full">
+        <RoomImage />
+      </div>
+
+      <div className="w-full">
+        <RoomIntroduction />
+      </div>
+
+      <Divider />
+
+      <div className="w-full">
+        <RoomReview />
+      </div>
+
+      <Divider />
+
+      <div className="w-full">
+        <RoomLocation />
+      </div>
+
+      <div className="w-full">
+        <RoomHost />
+      </div>
+
+      <div className="w-full">
+        <RoomRules />
+      </div>
+    </div>
+  );
 }
