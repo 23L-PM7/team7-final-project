@@ -22,11 +22,13 @@ import Sheet from "@mui/joy/Sheet";
 import { FaRegHeart } from "react-icons/fa";
 import Input from "@mui/joy/Input";
 import Stack from "@mui/joy/Stack";
+import Divider from "@mui/material/Divider";
 import { useState } from "react";
 
 export function HeartButton() {
   const [open, setOpen] = React.useState<boolean>(false);
   const [name, setName] = useState("");
+  const [count, setCount] = useState("");
 
   function deleteAll() {
     setName("");
@@ -71,18 +73,19 @@ export function HeartButton() {
 
           <Stack spacing={1}>
             <Input
-              onChange={(event) => setName(event.target.value)}
-              value={name}
+              value={count}
               size="lg"
+              onChange={(event) => setCount(event.target.value)}
               placeholder="Name"
               className="w-full"
             />
           </Stack>
-          <p className="font-light text-neutral-500"> 0/50 characters</p>
+          <p className="font-light text-neutral-500"> /50 characters</p>
           <div className="divider m-0"></div>
+
           <div className="flex justify-between">
             <button onClick={deleteAll}>Clear</button>
-            <button className="border p-2 mt-5 w-[100px] rounded-md bg-gray-500 hover:bg-black text-white">
+            <button className="border p-2 max-w-32 rounded bg-gray-500 hover:bg-black text-white">
               Create
             </button>
           </div>
