@@ -19,13 +19,13 @@ export default function Reservation() {
   const [variant, setVariant] = React.useState<VariantProp>("solid");
 
   return (
-    <div className="mx-auto w-[1200px] border-2 rounded h-screen justify-center font-circular">
+    <div className="mx-auto w-[1300px] h-screen justify-center font-circular">
       <div className="flex justify-start items-center h-[116px] text-[32px] font-extrabold">
         Confirm and pay
       </div>
       <div className="flex w-full">
         <div className="w-1/2 flex flex-col">
-          <div className="mb-10 flex flex-col w-full h-48 border-2 rounded-xl justify-between ">
+          <div className="mb-5 pb-5 flex flex-col w-full h-48 border-b-2 justify-between ">
             <h3 className="text-[22px] font-bold">Your trip</h3>
             <div className="flex justify-between">
               <div className="flex flex-col">
@@ -47,14 +47,14 @@ export default function Reservation() {
             </div>
           </div>
 
-          <div className="mb-10 flex flex-col w-full h-48 border-2 rounded-xl justify-between">
+          <div className="mb-8 flex flex-col w-full h-56 border-b-2 ">
             <h3 className="text-[22px] font-bold">Choose how to pay</h3>
-            <div className="flex justify-between border-2 rounded p-5">
+            <div className="flex justify-between border-2 rounded p-5 ">
               <h3 className="font-medium">Pay $134.01 now</h3>
               <Radio color="neutral" size="lg" variant="solid" defaultChecked />
             </div>
 
-            <div className="flex justify-between p-5">
+            <div className="flex justify-between border-2 rounded p-5">
               <div>
                 <h3 className="font-medium">Pay part now, part later</h3>
                 <h3 className="text-md">
@@ -67,59 +67,58 @@ export default function Reservation() {
             </div>
           </div>
 
-          <div className=" flex flex-col w-full h-48 border-2 rounded-xl justify-between">
+          <div className=" flex flex-col w-full h-48  justify-between">
             <h3 className="text-[22px] font-bold">Log in or sign up to book</h3>
-            <div className="flex justify-between">
+            <div className="flex justify-between border-2 rounded p-4">
               <div>
                 <p className="text-sm">Country code</p>
                 <select name="" id="">
-                  <option value="">Mongolia</option>
-                  <option value="">Russia</option>
-                  <option value="">China</option>
+                  <option value="">Mongolia (+976)</option>
+                  <option value="">Russia (+976)</option>
+                  <option value="">China (+976)</option>
                 </select>
               </div>
-
               <h3>check</h3>
             </div>
-            <div className="flex justify-between">
-              <div>
-                <h3 className="text-sm">Phone number</h3>
-                <h3>976</h3>
-              </div>
-            </div>
+
+            <input
+              className="flex justify-between border-2 rounded p-3 h-full"
+              type="text"
+              placeholder="Phone number"
+            />
           </div>
-          <p className="text-xs mb-10">
+          <p className="text-xs mb-10 flex justify-center">
             We’ll call or text you to confirm your number. Standard message and
             data rates apply. Privacy Policy
           </p>
 
-          <Button size="md" variant={variant} color="danger">
+          <button className="w-full bg-red-500 h-[52px] rounded text-white font-bold">
             Continue
-          </Button>
+          </button>
 
-          <div className="flex flex-col">
+          <div className="flex flex-col border-t-2 mt-8">
             <div className="w-full flex justify-evenly gap-3 mt-10">
-              <div className="border-2 rounded w-1/3 h-[52px] flex justify-center items-center">
-                <AiFillFacebook />
-              </div>
-              <div className="border-2 rounded w-1/3 h-[52px] flex justify-center items-center">
-                <FcGoogle />
-              </div>
-              <div className="border-2 rounded w-1/3 h-[52px] flex justify-center items-center">
-                <ImAppleinc />
-              </div>
+              <button className="border-2 rounded w-1/3 h-[52px] flex justify-center items-center fill-blue-600">
+                <AiFillFacebook className="w-6 h-6" />
+              </button>
+              <button className="border-2 rounded w-1/3 h-[52px] flex justify-center items-center">
+                <FcGoogle className="w-6 h-6" />
+              </button>
+              <button className="border-2 rounded w-1/3 h-[52px] flex justify-center items-center">
+                <ImAppleinc className="w-6 h-6" />
+              </button>
             </div>
-            <div className="border-2 rounded w-full mt-10 flex justify-between">
-              <div className="w-1/2 items-center">
-                <MdOutlineMail />
+            <button className="border-2 rounded w-full mt-10 flex justify-between p-4 items-center">
+              <div className="w-1/2 flex items-center">
+                <MdOutlineMail className="w-6 h-6" />
               </div>
-              <p className="w-3/4 flex">Continue with email</p>
-            </div>
+              <p className="w-3/4 flex font-semibold">Continue with email</p>
+            </button>
           </div>
         </div>
 
-        <div className="w-1/2 flex flex-col border-2 rounded-xl h-80 p-5">
-          <div className="flex gap-5">
+        <div className="ml-28 w-1/2 flex flex-col border-2 rounded-xl h-96 p-5">
+          <div className="flex gap-5 pb-5 border-b-2">
             <div className="border-2 rounded-xl w-[104px] h-[104px]">
               <img
                 className="w-full h-full"
@@ -127,15 +126,20 @@ export default function Reservation() {
                 alt="zostel"
               />
             </div>
-            <div>
-              <h3>Zostel Shangarh | Standard Private Room</h3>
-              <h3>Private Room</h3>
+            <div className="flex flex-col justify-around">
+              <div>
+                <h3 className="font-semibold">
+                  Zostel Shangarh | Standard Private Room
+                </h3>
+                <h3 className="font-semibold">Private Room</h3>
+              </div>
+
               <h3>Room in hostel</h3>
             </div>
           </div>
           <div>
             <h3 className="py-5 text-[22px] font-bold">Price details</h3>
-            <div className="flex justify-between">
+            <div className="flex justify-between py-3 ">
               <h3>$23.96 x 5 nights</h3>
               <h3>$119.80</h3>
             </div>
@@ -144,7 +148,7 @@ export default function Reservation() {
               <h3>$14.38</h3>
             </div>
           </div>
-          <div className=" py-3 flex justify-between">
+          <div className=" py-3 flex justify-between border-t-2">
             <h3>Total (USD)</h3>
             <h3>$134.18</h3>
           </div>
