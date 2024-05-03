@@ -14,9 +14,12 @@ import { FaApple } from "react-icons/fa";
 import { ImAppleinc } from "react-icons/im";
 import { AiFillFacebook } from "react-icons/ai";
 import { MdOutlineMail } from "react-icons/md";
+import Modal from "@mui/joy/Modal";
+import ModalClose from "@mui/joy/ModalClose";
 
 export default function Reservation() {
   const [variant, setVariant] = React.useState<VariantProp>("solid");
+  const [open, setOpen] = React.useState<boolean>(false);
 
   return (
     <div className="mx-auto w-[1300px] h-screen justify-center font-circular">
@@ -33,7 +36,54 @@ export default function Reservation() {
                 <h3 className="font-[16px]">May 19-24</h3>
               </div>
               <div>
-                <button className="font-bold underline">Edit</button>
+                <React.Fragment>
+                  <Button
+                    variant="outlined"
+                    color="neutral"
+                    onClick={() => setOpen(true)}
+                    className="font-bold"
+                  >
+                    Edit
+                  </Button>
+                  <Modal
+                    aria-labelledby="modal-title"
+                    aria-describedby="modal-desc"
+                    open={open}
+                    onClose={() => setOpen(false)}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Sheet
+                      variant="outlined"
+                      sx={{
+                        maxWidth: 500,
+                        borderRadius: "md",
+                        p: 3,
+                        boxShadow: "lg",
+                      }}
+                    >
+                      <ModalClose variant="plain" sx={{ m: 1 }} />
+                      <Typography
+                        component="h2"
+                        id="modal-title"
+                        level="h4"
+                        textColor="inherit"
+                        fontWeight="lg"
+                        mb={1}
+                      >
+                        This is the modal title
+                      </Typography>
+                      <Typography id="modal-desc" textColor="text.tertiary">
+                        Make sure to use <code>aria-labelledby</code> on the
+                        modal dialog with an optional{" "}
+                        <code>aria-describedby</code> attribute.
+                      </Typography>
+                    </Sheet>
+                  </Modal>
+                </React.Fragment>
               </div>
             </div>
             <div className="flex justify-between">
@@ -42,7 +92,53 @@ export default function Reservation() {
                 <h3>1 guest</h3>
               </div>
               <div>
-                <button className="font-bold underline">Edit</button>
+                <React.Fragment>
+                  <Button
+                    variant="outlined"
+                    color="neutral"
+                    onClick={() => setOpen(true)}
+                  >
+                    Edit
+                  </Button>
+                  <Modal
+                    aria-labelledby="modal-title"
+                    aria-describedby="modal-desc"
+                    open={open}
+                    onClose={() => setOpen(false)}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Sheet
+                      variant="outlined"
+                      sx={{
+                        maxWidth: 500,
+                        borderRadius: "md",
+                        p: 3,
+                        boxShadow: "lg",
+                      }}
+                    >
+                      <ModalClose variant="plain" sx={{ m: 1 }} />
+                      <Typography
+                        component="h2"
+                        id="modal-title"
+                        level="h4"
+                        textColor="inherit"
+                        fontWeight="lg"
+                        mb={1}
+                      >
+                        This is the modal title
+                      </Typography>
+                      <Typography id="modal-desc" textColor="text.tertiary">
+                        Make sure to use <code>aria-labelledby</code> on the
+                        modal dialog with an optional{" "}
+                        <code>aria-describedby</code> attribute.
+                      </Typography>
+                    </Sheet>
+                  </Modal>
+                </React.Fragment>
               </div>
             </div>
           </div>
