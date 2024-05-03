@@ -7,7 +7,7 @@
   border-radius: 100%;
   width: 30px !important;
   height: 30px !important;
-  font-size: 18px !important;
+  font-size: 15px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,12 +19,11 @@
   border-radius: 100%;
   width: 30px !important;
   height: 30px !important;
-  font-size: 18px !important;
+  font-size: 15px !important;
   display: flex;
   justify-content: center;
   align-items: center;
   color: black;
-  display: none;
 }
 
 .swiper-button-next {
@@ -46,4 +45,20 @@
 .swiper-pagination-bullet {
   margin-bottom: 10px !important;
   color: black;
+}
+
+.swiper .swiper-button-prev {
+  visibility: hidden;
+}
+
+.swiper:hover .swiper-button-prev {
+  visibility: visible;
+}
+
+.swiper .swiper-button-next {
+  visibility: hidden;
+}
+
+.swiper:hover .swiper-button-next {
+  visibility: visible;
 }

@@ -5,9 +5,9 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { images } from "../../../lib/images";
+import { images } from "../../lib/images";
 import { HeartButton } from "./HeartButton";
-import React from "react";
+import React, { useState } from "react";
 import { ShareButton } from "./ShareButton";
 
 export function HomePageCards() {
@@ -58,11 +58,8 @@ export function HomePageCards() {
     },
   ];
 
-  const toggleFavorite = () => {};
-
   return (
     <>
-      {/* <a href="/rooms"> */}
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
         <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-6 mx-auto gap-10">
           {cards.slice(currentIndex, currentIndex + 6).map((card, index) => (
@@ -74,21 +71,19 @@ export function HomePageCards() {
                 keyboard={true}
                 pagination={true}
                 modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-                onSwiper={(swiper) => console.log(swiper)}
+                // onSwiper={(swiper) => console.log(swiper)}
                 className="h-80 w-[300px] rounded-lg !mx-0"
               >
                 {images.map((image, index) => (
                   <SwiperSlide key={index}>
                     <div className="aspect-square w-full flex justify-start items-start relative overflow-hidden rounded-xl">
                       <Image
+                        id="img"
                         src={image.src}
                         alt={image.alt}
-                        className="w-full flex items-center max-w-xs transition duration-300 ease-in-out hover:scale-110 h-full object-cover"
+                        className={`w-full flex items-center max-w-xs transition duration-300 ease-in-out hover:scale-110 h-full object-cove`}
                       />
-                      <div
-                        onClick={toggleFavorite}
-                        className="!absolute !top-3 !right-3"
-                      >
+                      <div className="!absolute !top-3 !right-3">
                         {/* <HeartButton /> */}
                         <ShareButton />
                       </div>
@@ -108,7 +103,6 @@ export function HomePageCards() {
           ))}
         </div>
       </div>
-      {/* </a> */}
     </>
   );
 }
