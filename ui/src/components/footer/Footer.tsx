@@ -21,7 +21,7 @@ const Footer = () => {
           <button className="flex hover:underline">
             <RiGlobalLine className="w-6 h-6" />
             <h3>English (US)</h3>
-          </button>/œ
+          </button>
           <button className="hover:underline">$ USD</button>
           <FaSquareFacebook className="w-6 h-6" />
           <FaSquareTwitter className="w-6 h-6" />
