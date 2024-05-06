@@ -1,5 +1,5 @@
 import axios from "axios";
-import { dbRequest } from "../dbRequest";
+import { dbRequest } from "../../../utils/dbRequest";
 
 export async function GET(request: Request) {
   const data = await dbRequest("reservation", "find");
