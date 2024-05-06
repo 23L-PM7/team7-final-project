@@ -10,6 +10,7 @@ import { NumericFormat } from "react-number-format";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
+import { GuestCounter } from "@/components/GuestCounter";
 
 export function RoomIntroduction() {
   const { checkIn, setCheckIn }: any = useCheckIn();
@@ -47,16 +48,19 @@ export function RoomIntroduction() {
           <Typography>night</Typography>
         </div>
         <div className="rounded-xl border-[1px] border-[#000000] grid gap-6">
-          <DatePicker
-            label="Controlled picker"
-            value={checkIn}
-            onChange={(newValue) => setCheckIn(newValue)}
-          />
-          <DatePicker
-            label="Controlled picker"
-            value={checkOut}
-            onChange={(newValue) => setCheckOut(newValue)}
-          />
+          {/* <LocalizationProvider>
+            <DatePicker
+              label="Controlled picker"
+              value={checkIn}
+              onChange={(newValue) => setCheckIn(newValue)}
+            />
+            <DatePicker
+              label="Controlled picker"
+              value={checkOut}
+              onChange={(newValue) => setCheckOut(newValue)}
+            />
+          </LocalizationProvider> */}
+          <GuestCounter />
         </div>
         <div>
           <Typography>CANCELLATION POLICIES</Typography>
