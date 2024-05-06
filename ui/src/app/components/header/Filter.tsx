@@ -11,7 +11,7 @@ import {
   GiCampingTent
 } from "react-icons/gi";
 import { FaSkiing , FaHotel } from "react-icons/fa";
-import { BsSnow } from "react-icons/bs";
+import { BsSnow, BsTicketPerforatedFill} from "react-icons/bs";
 import { MdOutlineVilla , MdBedroomParent , MdMuseum } from "react-icons/md";
 
 import Container from "../Container";
@@ -19,6 +19,11 @@ import CategoryBox from "../CategoryBox";
 import { Category } from "@/types";
 
 export const categories: Category[] = [
+  {
+    label: "Icons",
+    icon: BsTicketPerforatedFill,
+    description: "",
+  },
   {
     label: "Beach",
     icon: TbBeach,
@@ -58,11 +63,6 @@ export const categories: Category[] = [
     label: "Skiing",
     icon: FaSkiing,
     description: "This property has skiing activies!",
-  },
-  {
-    label: "Camping",
-    icon: GiCampingTent,
-    description: "This property is an ancient castle!",
   },
   {
     label: "Caves",

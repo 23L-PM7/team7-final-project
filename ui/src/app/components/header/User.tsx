@@ -30,10 +30,12 @@ const User = () => {
             <Avatar />
           </div>
         </MenuButton>
+        
+       
         <Menu className="w-1/12">
-        <MenuItem>Sign-up</MenuItem>
-        <MenuItem>Login</MenuItem>
-      </Menu>
+          <MenuItem>Sign-up</MenuItem>
+          <MenuItem>Login</MenuItem>
+        </Menu>
       </div>
     </div>
     </Dropdown>

@@ -3,7 +3,7 @@ import Button from '@mui/joy/Button';
 
 
 export default function Home() {
-  return <div>
+  return <div style={{height: 2000}}>
     
   </div>;
 }
