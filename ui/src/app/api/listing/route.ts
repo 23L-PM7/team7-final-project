@@ -2,9 +2,9 @@ import { dbRequest } from "../../../utils/dbRequest";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
-  const lists = await dbRequest("listing", "find");
+  const { documents } = await dbRequest("listing", "find");
 
-  return Response.json(lists);
+  return Response.json(documents);
 }
 
 export async function POST(request: Request) {

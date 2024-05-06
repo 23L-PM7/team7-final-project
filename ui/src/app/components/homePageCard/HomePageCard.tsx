@@ -7,56 +7,24 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { images } from "../../../lib/images";
 import { HeartButton } from "./HeartButton";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ShareButton } from "./ShareButton";
+import axios from "axios";
 
 export function HomePageCards() {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [cards, setCards] = useState([]);
 
-  const cards = [
-    {
-      location: "Ponta Delgada, Portugal",
-      date: "2024.05.01",
-      price: "100$",
-      days: "24 night",
-    },
-    {
-      location: "Ponta Delgada, Portugal",
-      date: "2024.05.01",
-      price: "100$",
-      days: "24 night",
-    },
-    {
-      location: "Ponta Delgada, Portugal",
-      date: "2024.05.01",
-      price: "100$",
-      days: "24 night",
-    },
-    {
-      location: "Ponta Delgada, Portugal",
-      date: "2024.05.01",
-      price: "100$",
-      days: "24 night",
-    },
-    {
-      location: "Ponta Delgada, Portugal",
-      date: "2024.05.01",
-      price: "100$",
-      days: "24 night",
-    },
-    {
-      location: "Ponta Delgada, Portugal",
-      date: "2024.05.01",
-      price: "100$",
-      days: "24 night",
-    },
-    {
-      location: "Ponta Delgada, Portugal",
-      date: "2024.05.01",
-      price: "100$",
-      days: "24 night",
-    },
-  ];
+  function fetchCards() {
+    axios
+      .get("http://localhost:3000/api/listing")
+      .then((cards) => setCards(cards.data));
+  }
+
+  useEffect(() => {
+    fetchCards();
+  }, []);
+
+  console.log({ cards });
 
   const toggleFavorite = () => {};
 
@@ -65,7 +33,7 @@ export function HomePageCards() {
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
         <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-6 mx-auto gap-10">
-          {cards.slice(currentIndex, currentIndex + 6).map((card, index) => (
+          {cards.map((card: any, index) => (
             <div key={index} className="flex flex-col items-center">
               <Swiper
                 cssMode={true}
@@ -122,12 +90,14 @@ export function HomePageCards() {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <div className="flex flex-col justify-start items-start mr-20">
-                <div className="font-semibold text-lg ">{card.location}</div>
-                <div className="font-light text-neutral-500">{card.date}</div>
+              <div className="flex flex-col justify-start items-start ml-5">
+                <div className="font-semibold text-lg ">{card.title}</div>
+                <div className="font-light text-neutral-500">
+                  {card.createdAt}
+                </div>
                 <div className="flex gap-3">
                   <div className="font-medium">{card.price}</div>
-                  <div className="text-black text-md">{card.days}</div>
+                  <div className="text-black text-md"></div>
                 </div>
               </div>
             </div>

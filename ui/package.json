@@ -22,14 +22,19 @@
 =======
     "@fontsource/inter": "^5.0.18",
     "@mui/joy": "^5.0.0-beta.36",
-    "@react-icons/all-files": "^4.1.0",
     "@prisma/client": "^5.13.0",
+    "@react-icons/all-files": "^4.1.0",
     "axios": "^1.6.8",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+<<<<<<< HEAD
     "react-icons": "^5.2.0"
 >>>>>>> da6e156 (...)
+=======
+    "react-icons": "^5.2.0",
+    "swiper": "^11.1.1"
+>>>>>>> 851c006 (axios get data home cards)
   },
   "devDependencies": {
     "@types/node": "^20",
