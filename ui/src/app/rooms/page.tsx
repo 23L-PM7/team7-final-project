@@ -14,7 +14,7 @@ export default function BasicDateCalendar() {
 
 
   return (
-    <div className="container mx-auto grid gap-6 my-6">
+    <div className="container w-[1120px] mx-auto grid gap-6 my-6">
       <div className="flex justify-between items-center">
         <Typography level="h3">Nomadic stay at Orkhon Valley</Typography>
         <div className="flex gap-2">
