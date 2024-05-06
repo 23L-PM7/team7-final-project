@@ -3,7 +3,6 @@ import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
   const { documents } = await dbRequest("listing", "find");
-
   return Response.json(documents);
 }
 
