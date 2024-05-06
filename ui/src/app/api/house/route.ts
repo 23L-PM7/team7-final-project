@@ -1,5 +1,5 @@
 import axios from "axios";
-import { dbRequest } from "../dbRequest";
+import { dbRequest } from "../../../utils/dbRequest";
 
 export async function GET(request: Request) {
   const data = await dbRequest("house", "find");
@@ -8,21 +8,23 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  // request.body
   const data = await dbRequest("house", "insertOne", {
     document: {
-      id: "",
-      userId: "",
-      title: "",
-      description: "",
-      imageSrc: "",
-      createdAt: "",
-      category: "",
-      roomCount: "",
-      bathroom: "",
-      guestCount: "",
-      childrenCount: "",
-      locationValue: "",
-      price: "",
+      ...request.body,
+      //   id: "",
+      //   userId: "",
+      //   title: "",
+      //   description: "",bol
+      //   imageSrc: "",
+      //   createdAt: "",
+      //   category: "",
+      //   roomCount: "",
+      //   bathroom: "",
+      //   guestCount: "",
+      //   childrenCount: "",
+      //   locationValue: "",
+      //   price: "",
     },
   });
 
