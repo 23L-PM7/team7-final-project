@@ -22,7 +22,7 @@ export default function Reservation() {
   const [open, setOpen] = React.useState<boolean>(false);
 
   return (
-    <div className="mx-auto w-[1300px] h-screen justify-center font-circular">
+    <div className="mx-auto w-[1300px] h-screen justify-center font-circular pt-20">
       <div className="flex justify-start items-center h-[116px] text-[32px] font-extrabold">
         Confirm and pay
       </div>
