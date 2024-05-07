@@ -26,14 +26,12 @@ export function HomePageCards() {
 
   console.log({ cards });
 
-  const toggleFavorite = () => {};
-
   return (
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
-        <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-6 mx-auto gap-10">
+        <div className="grid mt-32 grid-cols-1  sm:grid-cols-2 md:grid-cols-4 mx-auto gap-8">
           {cards.map((card: any, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="flex flex-col ">
               <Swiper
                 cssMode={true}
                 navigation={true}
@@ -46,7 +44,7 @@ export function HomePageCards() {
               >
                 {images.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <div className="aspect-square w-full flex justify-start items-start relative overflow-hidden rounded-xl">
+                    <div className="aspect-square  w-full flex justify-start items-start relative overflow-hidden rounded-xl">
                       <Image
                         id="img"
                         src={image.src}
@@ -61,7 +59,7 @@ export function HomePageCards() {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <div className="flex flex-col justify-start items-start ml-5">
+              <div className="flex flex-col justify-start items-start  ml-5">
                 <div className="font-semibold text-lg ">{card.title}</div>
                 <div className="font-light text-neutral-500">
                   {card.createdAt}
