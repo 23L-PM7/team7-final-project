@@ -12,6 +12,7 @@ import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import DateRange from "../LittleMenus/DateRange";
 
 const Search = () => {
   const [selected, setSelected] = useState(true)
@@ -55,7 +56,8 @@ const Search = () => {
               <p className="text-sm font-semibold ">Where</p>
               <p className="text-xs text-gray-400">Search destinations</p>
             </div>
-            <MenuButton variant="plain"  size="sm">
+            <DateRange/>
+            {/* <MenuButton variant="plain"  size="sm">
             <div  className=" border-x-[1px] px-12">
               <p className="pr-5 text-sm font-semibold hidden sm:block flex-1 ">              
                   check
@@ -70,7 +72,7 @@ const Search = () => {
               </p>
               <p className="text-xs text-gray-400">Add dates</p>
             </div>
-            </MenuButton>
+            </MenuButton> */}
         <div className="flex gap-3 justify-end flex-row text-sm text-gray-600 items-center pl-6 pr-2">
           <div className="flex flex-col justify-end">
             <p className="hidden sm:block">Any guest</p>
