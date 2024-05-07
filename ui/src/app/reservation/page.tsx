@@ -16,6 +16,9 @@ import { AiFillFacebook } from "react-icons/ai";
 import { MdOutlineMail } from "react-icons/md";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
+import Review from "@/components/review/review";
+
+
 
 export default function Reservation() {
   const [variant, setVariant] = React.useState<VariantProp>("solid");
@@ -213,6 +216,7 @@ export default function Reservation() {
           </div>
         </div>
 
+        {/* price */}
         <div className="ml-28 w-1/2 flex flex-col border-2 rounded-xl h-96 p-5">
           <div className="flex gap-5 pb-5 border-b-2">
             <div className="border-2 rounded-xl w-[104px] h-[104px]">
@@ -249,6 +253,9 @@ export default function Reservation() {
             <h3>$134.18</h3>
           </div>
         </div>
+        <button>
+          <Review />
+        </button>
       </div>
     </div>
   );
