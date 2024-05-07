@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import FramerMotion from "./components/header/FramerMotion";
 
 LicenseInfo.setLicenseKey('YOUR_LICENSE_KEY');
-
+import Footer from "../components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,19 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <body className="flex flex-col" >
-      <motion.div  
-      initial={{ scale: 0 }}
-    animate={{  scale: 1 }}
-    transition={{
-    type: "spring",
-    stiffness: 260,
-    damping: 20
-  }}>
+      <body className={inter.className}>
         <NavBar />
-      </motion.div>
-      {children}
-    </body>
-  </html>
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }

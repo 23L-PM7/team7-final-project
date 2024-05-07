@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Avatar from "../../../../providers/Avatar";
+import Avatar from "../Avatar";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineMenu } from "react-icons/ai";
 import * as React from 'react';
@@ -8,9 +8,6 @@ import Dropdown from '@mui/joy/Dropdown';
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
-
-
-
 const User = () => {
  const [ open , setOpen] = useState(false)
   return (
@@ -30,9 +27,12 @@ const User = () => {
             <Avatar />
           </div>
         </MenuButton>
-        
-       
+
+
         <Menu className="w-1/12">
+        <MenuItem>Sign-up</MenuItem>
+        <MenuItem>Login</MenuItem>
+      </Menu>
           <MenuItem>Sign-up</MenuItem>
           <MenuItem>Login</MenuItem>
         </Menu>
@@ -42,5 +42,4 @@ const User = () => {
     
   )  
 }
-
 export default User;

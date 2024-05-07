@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Button from '@mui/joy/Button';
-
+import { HomePageCards } from "./components/homePageCard/HomePageCard";
 
 export default function Home() {
-  return <div style={{height: 2000}}>
-    
-  </div>;
+  return (
+    <div>
+      <HomePageCards />
+    </div>
+  );
 }
