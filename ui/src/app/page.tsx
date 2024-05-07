@@ -1,9 +1,9 @@
-import { HomePageCards } from "./components/homePageCard/HomePageCard";
+import { HeartButton } from "@/components/homePageCard/HeartButton";
 
 export default function Home() {
   return (
     <div>
-      <HomePageCards />
+      <HeartButton />
     </div>
   );
 }

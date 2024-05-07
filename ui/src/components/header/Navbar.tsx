@@ -2,6 +2,7 @@ import Logo from "./Logo";
 import Search from "./Search";
 import User from "./User";
 import Container from "../Container";
+import Filter from "./Filter";
 
 const NavBar = () => {
   return (
@@ -15,6 +16,7 @@ const NavBar = () => {
           </div>
         </Container>
       </div>
+      <Filter/>
     </header>
   );
 };

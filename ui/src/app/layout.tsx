@@ -2,10 +2,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "./components/header/Navbar";
+import NavBar from "@/components/header/Navbar";
 import { LicenseInfo } from '@mui/x-license';
 import { motion } from "framer-motion";
-import FramerMotion from "./components/header/FramerMotion";
 
 LicenseInfo.setLicenseKey('YOUR_LICENSE_KEY');
 import Footer from "../components/footer/Footer";
