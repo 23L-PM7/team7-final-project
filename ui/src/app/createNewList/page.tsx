@@ -73,7 +73,8 @@ export default function CreateNewList() {
         placeholder="Choose one…"
       >
         <Option value="house">House</Option>
-        <Option value="Apartment">Apartment</Option>
+        <Option value="Apartment"></Option>
+        <Option value="Apartment">Hi</Option>
       </Select>
 
       <div>What type of place will guests have?</div>
