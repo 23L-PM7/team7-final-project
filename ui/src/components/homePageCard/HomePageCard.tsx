@@ -5,7 +5,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { images } from "../../../lib/images";
+import { images } from "../../lib/images";
 import { HeartButton } from "./HeartButton";
 import React, { useEffect, useState } from "react";
 import { ShareButton } from "./ShareButton";
