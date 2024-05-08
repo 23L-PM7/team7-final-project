@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import Avatar from "../../../providers/Avatar";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineMenu } from "react-icons/ai";
+import Avatar from "@/app/components/Avatar";
 
 const User = () => {
   const [open, setOpen] = useState(false);
