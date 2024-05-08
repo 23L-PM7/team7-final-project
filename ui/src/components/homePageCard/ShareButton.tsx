@@ -27,7 +27,7 @@ export function ShareButton() {
       <div onClick={() => setOpen(true)}>
         <div className="text-white text-xl relative hover:opacity-80 transition cursor-pointer">
           {/* <FaRegHeart /> */}
-          <div className="border rounded-full p-2 bg-white text-black">
+          <div className="border rounded-full p-2 bg-white ">
             <IoShareOutline />
           </div>
         </div>

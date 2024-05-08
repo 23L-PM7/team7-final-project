@@ -68,7 +68,7 @@ export function HomePageCards() {
                 </div>
                 <div className="flex gap-3">
                   <div className="font-medium">{card.price}</div>
-                  <div className="text-black text-md"></div>
+                  <div className=" text-md"></div>
                 </div>
               </div>
             </div>
