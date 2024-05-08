@@ -110,7 +110,7 @@ const Filter = () => {
 
   return (
     <Container>
-      <div className="flex flex-row gap-6 items-center justify-between overflow-x-auto">
+      <div className="flex flex-row gap-6 items-center cursor-pointer justify-between overflow-x-auto">
         {categories.map(({ icon, label }) => (
           <CategoryBox
             key={label}
