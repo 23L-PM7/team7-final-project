@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
-import { BiSearch } from "react-icons/bi";
 import { AiOutlineMenu } from "react-icons/ai";
-import Avatar from "@/app/components/Avatar";
+import { Avatar } from "@mui/joy";
 
 const User = () => {
   const [open, setOpen] = useState(false);
