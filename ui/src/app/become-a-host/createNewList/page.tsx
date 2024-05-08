@@ -57,7 +57,7 @@ export default function CreateNewList() {
   }
 
   return (
-    <div className="container mx-auto pt-32">
+    <div className="container mx-auto pt-32 border pb-12">
       <h1>Title</h1>
       <input
         value={title}

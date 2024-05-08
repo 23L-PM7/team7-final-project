@@ -1,3 +1,7 @@
+import { HeaderLayout } from "../components/newListHeaderFooter/HeaderLayout";
+import { GetStartFooter } from "../components/newListHeaderFooter/GetStartFooter";
+import { ProgressFooter } from "../components/newListHeaderFooter/ProgressFooter";
+
 export default function Layout({
   children,
 }: Readonly<{
@@ -5,9 +9,10 @@ export default function Layout({
 }>) {
   return (
     <div>
-      header
+      <HeaderLayout />
       {children}
-      progress
+      {/* <GetStartFooter /> */}
+      <ProgressFooter />
     </div>
   );
 }
