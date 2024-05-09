@@ -8,9 +8,11 @@ import React, { useEffect, useState } from "react";
 import { ShareButton } from "./ShareButton";
 import axios from "axios";
 import { HeartButton } from "./HeartButton";
+import { useRouter } from "next/navigation";
 
 export function HomePageCards() {
   const [cards, setCards] = useState([]);
+  const router = useRouter();
 
   function fetchCards() {
     axios
@@ -22,14 +24,16 @@ export function HomePageCards() {
     fetchCards();
   }, []);
 
-  console.log({ cards });
+  const pushToListing = (_id: string) => {
+    router.push(`/rooms/${_id}`);
+  };
 
   return (
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
         <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mx-auto gap-10">
           {cards.map((card: any, index) => (
-            <div key={index} className="flex flex-col  relative">
+            <div key={card._id} className="flex flex-col  relative">
               <Swiper
                 cssMode={true}
                 navigation={true}
@@ -60,7 +64,7 @@ export function HomePageCards() {
                 <ShareButton />
               </div>
 
-              <div className="flex flex-col justify-start items-start ">
+              <div className="flex flex-col justify-start items-start " onClick={() => pushToListing(card._id)}>
                 <div className="font-semibold text-lg ">{card.title}</div>
                 <div className="font-light text-neutral-500">
                   {card.location}
