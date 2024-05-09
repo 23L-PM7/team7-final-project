@@ -13,6 +13,7 @@ import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import DateRange from "../LittleMenus/DateRange";
+import Map from "../LittleMenus/Map";
 
 const Search = () => {
   const [selected, setSelected] = useState(true)
@@ -50,12 +51,13 @@ const Search = () => {
           restDelta: 0.001
         }
       }}>
-      <div className="w-[730px] cursor-pointer mx-auto rounded-full border px-5 py-2 lg:flex hidden">
+      <div className="w-[800px] cursor-pointer mx-auto rounded-full border px-5 py-2 lg:flex hidden">
            <div className="flex flex-row items-center justify-between">
             <div className="flex flex-col justify-start pr-12">
               <p className="text-sm font-semibold ">Where</p>
               <p className="text-xs text-gray-400">Search destinations</p>
             </div>
+            {/* <Map/> */}
             <DateRange/>
             {/* <MenuButton variant="plain"  size="sm">
             <div  className=" border-x-[1px] px-12">
@@ -85,13 +87,13 @@ const Search = () => {
       </div>
       </div>
       </motion.div>
-      <Menu>
+      {/* <Menu>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={['DateRangeCalendar']}>
         <DateRangeCalendar />
       </DemoContainer>
     </LocalizationProvider>
-      </Menu>
+      </Menu> */}
       </Dropdown>
      
       
@@ -131,13 +133,13 @@ const Search = () => {
         </div>
       </div>
     </div>
-    <Menu>
+    {/* <Menu>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={['DateRangeCalendar']}>
         <DateRangeCalendar />
       </DemoContainer>
     </LocalizationProvider>
-      </Menu>
+      </Menu> */}
     </motion.div>
     </Dropdown>
 

@@ -1,4 +1,4 @@
-import { HeartButton } from "@/components/homePageCard/HeartButton";
+import { HeartButton } from "../../components/homePageCard/HeartButton";
 
 export default function Home() {
   return (
