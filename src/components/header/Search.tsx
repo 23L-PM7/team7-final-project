@@ -37,7 +37,7 @@ const Search = () => {
   console.log(selected)
   if(selected){
     return (
-      <Dropdown>
+      <div>
     <motion.div  className="box"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -51,13 +51,13 @@ const Search = () => {
           restDelta: 0.001
         }
       }}>
-      <div className="w-[800px] cursor-pointer mx-auto rounded-full border px-5 py-2 lg:flex hidden">
+      <div className="w-[760px] cursor-pointer mx-auto rounded-full border px-5 py-2 lg:flex hidden">
            <div className="flex flex-row items-center justify-between">
-            <div className="flex flex-col justify-start pr-12">
+            {/* <div className="flex flex-col justify-start pr-12">
               <p className="text-sm font-semibold ">Where</p>
               <p className="text-xs text-gray-400">Search destinations</p>
-            </div>
-            {/* <Map/> */}
+            </div> */}
+            <Map/>
             <DateRange/>
             {/* <MenuButton variant="plain"  size="sm">
             <div  className=" border-x-[1px] px-12">
@@ -94,7 +94,7 @@ const Search = () => {
       </DemoContainer>
     </LocalizationProvider>
       </Menu> */}
-      </Dropdown>
+      </div>
      
       
     )

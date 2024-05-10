@@ -11,8 +11,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Calendar from './Calendar';
 
-const DateRange = () => {
-  return <div>
+const DateRange = ({}) => {
+  return <Dropdown>
     <MenuButton variant="plain" size="sm">
       <div className=" border-x-[1px] px-12">
         <p className="pr-5 text-sm font-semibold hidden sm:block flex-1 ">
@@ -32,6 +32,6 @@ const DateRange = () => {
     <Menu>
      <Calendar/>
     </Menu>
-  </div>
+  </Dropdown>
 }
 export default DateRange

@@ -14,7 +14,7 @@ const DateRange = () =>{
     return <div>
          <MenuButton variant="plain"  size="sm">
          <div className="flex flex-col justify-start pr-12">
-              <p className="text-sm font-semibold ">Where</p>
+              <p className="text-sm font-semibold ">Any </p>
               <p className="text-xs text-gray-400">Search destinations</p>
         </div>
             </MenuButton>

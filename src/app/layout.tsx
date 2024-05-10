@@ -2,12 +2,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "../../components/header/Navbar";
+import NavBar from "../components/header/Navbar";
 import { LicenseInfo } from '@mui/x-license';
 import { motion } from "framer-motion";
 
 LicenseInfo.setLicenseKey('YOUR_LICENSE_KEY');
-import Footer from "../../components/footer/Footer";
+// import Footer from "../../components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-[10000px]">
+    <html lang="en" className="h-[1400px]">
       <body className={inter.className}>
         <NavBar />
         {children}
