@@ -5,6 +5,13 @@ import Stack from "@mui/joy/Stack";
 import LinearProgress from "@mui/joy/LinearProgress";
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { create } from "zustand";
+
+export const useNextButtonClickable = create((set) => ({
+  nextButtonClickable: false,
+  setNextButtonClickable: (newValue: boolean) =>
+    set(() => ({ nextButtonClickable: newValue })),
+}));
 
 const stepValues = [
   "about-your-place",
@@ -33,6 +40,9 @@ export function ProgressFooter() {
   const percentage = ((index + 1) / stepValues.length) * 100;
   console.log({ currentPath, index, percentage });
 
+  const { nextButtonClickable, setNextButtonClickable } =
+    useNextButtonClickable();
+
   if (pathname === undefined) {
     router.push("/overview");
   }
@@ -51,12 +61,15 @@ export function ProgressFooter() {
             Back
           </a>
           <span>{pathname}</span>
-          <a
-            href={`/become-a-host/${stepValues[index + 1]}`}
-            className="w-[100px] h-[48px] border p-2 flex items-center justify-center rounded-md text-white bg-gray-700 hover:bg-black"
+          <button
+            disabled={!nextButtonClickable}
+            onClick={() =>
+              router.push(`/become-a-host/${stepValues[index + 1]}`)
+            }
+            className="w-[100px] h-[48px] border p-2 flex items-center justify-center rounded-md text-white bg-gray-700 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Next
-          </a>
+          </button>
         </div>
       </div>
     </div>

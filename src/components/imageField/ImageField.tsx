@@ -47,6 +47,11 @@ export function ImageField({ value, onChange }: any) {
   }
   return (
     <div>
+      {uploading && (
+        <div className="flex justify-center items-center gap-3">
+          <span className="loading loading-dots loading-lg"></span>UPLOADING
+        </div>
+      )}
       <Button
         onChange={handleUpload}
         component="label"
