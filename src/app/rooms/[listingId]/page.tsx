@@ -27,13 +27,13 @@ export default function BasicDateCalendar() {
         </div>
       </div>
 
-      <div className="w-full">
+      {/* <div className="w-full">
         <ListingImage />
       </div>
 
       <div className="w-full">
         <ListingIntroduction />
-      </div>
+      </div> */}
 
       <Divider />
 
