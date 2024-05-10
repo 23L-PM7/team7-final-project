@@ -26,12 +26,16 @@ const stepValues = [
 
 export function ProgressFooter() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const currentPath = pathname.split("/")[2];
   const index = stepValues.findIndex((item) => item === currentPath);
   const percentage = ((index + 1) / stepValues.length) * 100;
-
   console.log({ currentPath, index, percentage });
+
+  if (pathname === undefined) {
+    router.push("/overview");
+  }
 
   return (
     <div className="relative">
@@ -46,7 +50,7 @@ export function ProgressFooter() {
           >
             Back
           </a>
-
+          <span>{pathname}</span>
           <a
             href={`/become-a-host/${stepValues[index + 1]}`}
             className="w-[100px] h-[48px] border p-2 flex items-center justify-center rounded-md text-white bg-gray-700 hover:bg-black"

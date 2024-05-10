@@ -3,6 +3,12 @@ import { nanoid } from "nanoid";
 import { v2 as cloudinary } from "cloudinary";
 import express, { Express, Request, Response } from "express";
 
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+});
+
 function getExtension(filename: string) {
   const names = filename.split(".");
   if (names.length > 1) {
@@ -25,7 +31,7 @@ const app: Express = express();
 const port = process.env.PORT || 4000;
 
 app.post(
-  "imageFieldAPI/upload",
+  "/upload",
   upload.single("file"),
   async (req: Request, res: Response) => {
     // req.file

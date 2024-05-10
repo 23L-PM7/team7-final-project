@@ -1,6 +1,13 @@
 "use client";
 
+import { AirCondition } from "@/components/icons/amenitiesIcons/AirCondition";
+import { Car } from "@/components/icons/amenitiesIcons/Car";
+import { House } from "@/components/icons/amenitiesIcons/House";
 import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
+import { Parking } from "@/components/icons/amenitiesIcons/Parking";
+import { TV } from "@/components/icons/amenitiesIcons/Tv";
+import { Washer } from "@/components/icons/amenitiesIcons/Washer";
+import { WorkPlace } from "@/components/icons/amenitiesIcons/WorkPlace";
 import React, { useState } from "react";
 
 export default function Amenities() {
@@ -8,15 +15,26 @@ export default function Amenities() {
   const [btnStyle, setBtnStyle] = React.useState("SELECTED");
 
   const cards = [
-    { image: <Kitchen />, title: "WiFi" },
-    { image: <Kitchen />, title: "WiFi" },
-    { image: <Kitchen />, title: "WiFi" },
-    { image: <Kitchen />, title: "WiFi" },
-    { image: <Kitchen />, title: "WiFi" },
-    { image: <Kitchen />, title: "WiFi" },
-    { image: <Kitchen />, title: "WiFi" },
+    { image: <House />, title: "House" },
+    { image: <TV />, title: "Tv" },
+    { image: <Kitchen />, title: "Kitchen" },
+    { image: <Washer />, title: "Washer" },
+    { image: <Car />, title: "Car" },
+    { image: <Parking />, title: "Parking" },
+    { image: <AirCondition />, title: "Air Conditioning" },
+    { image: <WorkPlace />, title: "Dedicated work" },
   ];
 
+  const cards1 = [
+    { image: <House />, title: "House" },
+    { image: <TV />, title: "Tv" },
+    { image: <Kitchen />, title: "Kitchen" },
+    { image: <Washer />, title: "Washer" },
+    { image: <Car />, title: "Car" },
+    { image: <Parking />, title: "Parking" },
+    { image: <AirCondition />, title: "Air Conditioning" },
+    { image: <WorkPlace />, title: "Dedicated work" },
+  ];
   return (
     <>
       <div className="h-[1400px] container mx-auto  w-[600px] pt-32 ">
@@ -39,7 +57,7 @@ export default function Amenities() {
                 <div>
                   <div className="">{card.image}</div>
 
-                  <h1 className="font-bold">{card.title}</h1>
+                  <h1 className="font-semibold ml-2">{card.title}</h1>
                 </div>
               </div>
               // </div>
@@ -53,7 +71,7 @@ export default function Amenities() {
         </p>
         <div className="flex ">
           <div className=" gap-5 grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-3 ">
-            {cards.slice(currentIndex, currentIndex + 8).map((card, index) => (
+            {cards1.slice(currentIndex, currentIndex + 8).map((card, index) => (
               // <div onClick={() => (btnStyle = "SELECTED")}>
               <div
                 className={` ${

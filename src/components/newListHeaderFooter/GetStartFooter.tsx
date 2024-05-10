@@ -34,13 +34,13 @@ export function GetStartFooter() {
       </Stack>
       <div className="flex justify-between p-4 pr-20">
         <button></button>
-        <button
+        <a
+          href="/become-a-host"
           onClick={GetStart}
-          className="w-[200px]  h-[48px] border p-2 rounded-md text-white bg-rose-500"
+          className="w-[200px] flex justify-center items-center h-[48px] border p-2 rounded-md text-white bg-rose-500"
         >
-          {loading && <span className="loading loading-dots loading-md"></span>}
           Get Started
-        </button>
+        </a>
       </div>
     </>
   );
