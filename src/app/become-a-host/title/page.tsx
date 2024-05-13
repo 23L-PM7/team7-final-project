@@ -1,4 +1,16 @@
+"use client";
+
+import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { useEffect, useState } from "react";
+
 export default function Title() {
+  const { setNextButtonClickable }: any = useNextButtonClickable();
+  const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    setNextButtonClickable(title);
+  }, [title]);
+
   return (
     <div className="container mx-auto flex justify-center items-center pt-[373px]">
       <div className=" w-[630px] h-[480px] ">
@@ -11,6 +23,8 @@ export default function Title() {
         </p>
         <div className="rounded-xl h-[30px]  flex justify-between mt-12 mb-3">
           <textarea
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             className="border hover:border-black w-[630px] h-[178px] rounded-md"
             name="text"
             id=""

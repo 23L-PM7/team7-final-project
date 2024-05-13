@@ -1,17 +1,16 @@
-import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
+"use client";
+
+import { PriceCounter } from "@/components/PriceCounter";
 
 export default function Price() {
   return (
-    <div className="container mx-auto pt-32">
-      <div className="border">
-        <div>
-          <h1>What type of place will guests have?</h1>
-        </div>
-        <div>
-          <h1>An entire place</h1>
-          <p>Guests have the whole place to themselves.</p>
+    <div className="container mx-auto flex justify-center items-center pt-[373px]">
+      <div className=" w-[630px] h-[480px] ">
+        <h1 className="text-3xl font-medium mb-2">Now, set your price </h1>
+        <p>You can change it anytime.</p>
+        <div className="  rounded-xl h-[30px]  flex justify-center items-center mt-32 mb-3">
           <div>
-            <Kitchen />
+            <PriceCounter />
           </div>
         </div>
       </div>

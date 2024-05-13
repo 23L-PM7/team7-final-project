@@ -1,6 +1,16 @@
+"use client";
+
 import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
+import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { useEffect } from "react";
 
 export default function AboutYourPlace() {
+  const { setNextButtonClickable }: any = useNextButtonClickable();
+
+  useEffect(() => {
+    setNextButtonClickable(true);
+  }, []);
+
   return (
     <div className="container mx-auto pt-32">
       <div className=" flex gap-40 p-10">

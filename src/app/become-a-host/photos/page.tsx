@@ -1,10 +1,10 @@
 "use client";
 
+import Dropdown1 from "@/components/DropDown1";
 import { UploadFile, UploadFileMore } from "@/components/UploadFile";
 import { PhotoSvg } from "@/components/icons/amenitiesIcons/PhotoSvg";
 import { ImageField } from "@/components/imageField/ImageField";
 import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
-import { Dropdown } from "@mui/joy";
 import { useEffect, useState } from "react";
 
 export default function ListPhoto() {
@@ -17,8 +17,8 @@ export default function ListPhoto() {
   const [image4, setImage4] = useState("");
 
   useEffect(() => {
-    setNextButtonClickable(image && image1 && image2 && image3 && image4);
-  }, [image, image1, image2, image3, image4]);
+    setNextButtonClickable(image && image1 && image2 && image3);
+  }, [image, image1, image2, image3]);
 
   return (
     <div
@@ -70,7 +70,9 @@ export default function ListPhoto() {
               <div className="w-[130px] border p-3 h-[32px] flex justify-center items-center bg-white rounded font-medium z-10 absolute top-4 left-4">
                 Cover Photo
               </div>
-              <div className="absolute top-4 right-4"></div>
+              <div className="absolute top-4 right-4  z-10">
+                <Dropdown1 />
+              </div>
             </div>
           )}
         </div>
