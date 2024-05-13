@@ -9,6 +9,7 @@ type CreateListStep = {
   handleNextStep: () => void;
   handlePrevStep: () => void;
   updateListingName: (name: string) => void;
+  updateListingGuestCount: (count: number) => void;
 };
 
 export const useCreateListStep = create<CreateListStep>((set) => ({
@@ -25,6 +26,14 @@ export const useCreateListStep = create<CreateListStep>((set) => ({
       listing: {
         ...state.listing,
         name: name,
+      },
+    })),
+  updateListingGuestCount: (guestCount) =>
+    set((state) => ({
+      ...state,
+      listing: {
+        ...state.listing,
+        guestCount,
       },
     })),
 }));

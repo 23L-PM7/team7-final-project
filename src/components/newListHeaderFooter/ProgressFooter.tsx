@@ -26,7 +26,6 @@ const stepValues = [
   "description",
   "finish-setup",
   "price",
-  "discount",
   "receipt",
   "publish-celebration",
 ];

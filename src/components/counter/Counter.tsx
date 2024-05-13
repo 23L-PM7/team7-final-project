@@ -1,20 +1,38 @@
-import { useState } from "react";
+import { useBecomeHost } from "@/app/become-a-host/store";
+import { useEffect, useState } from "react";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
+import { useNextButtonClickable } from "../newListHeaderFooter/ProgressFooter";
+
+type RoomCount = {
+  number: number;
+};
+
 export function Counter() {
-  let [number, setNumber] = useState(1);
-  const [roomCount, _setRoomCount] = useState("");
+  const [roomCount, setRoomCount] = useState("");
+  const { bedroomCount, setBedroomCount } = useBecomeHost();
+  const { setNextButtonClickable }: any = useNextButtonClickable();
 
   function minus() {
-    if (number > 0) {
-      number = number - 1;
-      setNumber(number);
+    if (bedroomCount > 0) {
+      setBedroomCount(bedroomCount - 1);
     }
   }
   function plus() {
-    number = number + 1;
-    setNumber(number);
+    setBedroomCount(bedroomCount + 1);
   }
+
+  // const handleSelecterRoomCount = (roomCount: RoomCount) => {
+  //   setRoomCount(roomCount.id);
+  //   localStorage.setItem("roomCount", JSON.stringify(roomCount));
+  // };
+
+  useEffect(() => {
+    if (bedroomCount) {
+      setNextButtonClickable(true);
+    }
+  }, [bedroomCount]);
+
   return (
     <div className="flex items-center max-w-60">
       <button
@@ -23,7 +41,7 @@ export function Counter() {
       >
         <FaMinus />
       </button>
-      <div className="mx-5">{number}</div>
+      <div className="mx-5">{bedroomCount}</div>
       <button
         value={roomCount}
         onClick={plus}
