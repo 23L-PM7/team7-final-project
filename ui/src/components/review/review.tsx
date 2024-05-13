@@ -154,7 +154,7 @@ export default function BasicModal() {
               <div className="ml-20 w-2/3">
                 <div className="flex justify-between">
                   <div className="flex flex-col">
-                    <h1 className="font-bold text-4xl ">13review</h1>
+                    <h1 className="font-bold text-4xl ">13 reviews</h1>
                     <div className="underline text-slate-700 mb-8">
                       learn how review works
                     </div>
@@ -167,7 +167,7 @@ export default function BasicModal() {
                       aria-expanded={openRecent ? "true" : undefined}
                       onClick={handleClick}
                     >
-                      Dashboard
+                      Most recent
                     </Button>
                     <Menu
                       id="fade-menu"
