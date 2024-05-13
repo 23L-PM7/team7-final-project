@@ -3,6 +3,7 @@ import Search from "./Search";
 import User from "./User";
 import Container from "../Container";
 import Filter from "./Filter";
+import BasicModal from "./Modal";
 
 const NavBar = () => {
   return (
@@ -17,6 +18,7 @@ const NavBar = () => {
         </Container>
       </div>
       <Filter/>
+      <BasicModal/>
     </header>
   );
 };

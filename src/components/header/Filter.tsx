@@ -13,6 +13,7 @@ import {
 import { FaSkiing , FaHotel } from "react-icons/fa";
 import { BsSnow, BsTicketPerforatedFill} from "react-icons/bs";
 import { MdOutlineVilla , MdBedroomParent , MdMuseum } from "react-icons/md";
+import { motion } from "framer-motion";
 
 import Container from "../Container";
 import CategoryBox from "../CategoryBox";
@@ -109,7 +110,20 @@ const Filter = () => {
   }
 
   return (
-    <Container>
+   <motion.div className="box"
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 0.9,
+      ease: [0, 0.50, 0.2, 0.70],
+      scale: {
+        type: "spring",
+        damping: 5,
+        stiffness: 100,
+        restDelta: 0.001
+      }
+    }}>
+  <Container>
       <div className="flex flex-row gap-6 items-center cursor-pointer justify-between overflow-x-auto">
         {categories.map(({ icon, label }) => (
           <CategoryBox
@@ -121,6 +135,7 @@ const Filter = () => {
         ))}
       </div>
     </Container>
+   </motion.div>
   );
 };
 
