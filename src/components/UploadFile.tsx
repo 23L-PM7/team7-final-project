@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export function UploadFile({ value, onChange }: any) {
   const [uploading, setUploading] = useState(false);
-  const [image1, setImage1] = useState("");
 
   async function handleUpload(e: any) {
     setUploading(true);
@@ -34,7 +33,7 @@ export function UploadFile({ value, onChange }: any) {
   }
   return (
     <div onChange={handleUpload} className="flex flex-wrap">
-      {!image1 && (
+      {!value && (
         <label
           id="dropzone-file"
           className={`hover:border-solid  border-dashed  flex justify-center items-center border w-[342px] border-black h-[228px] rounded-md`}
@@ -57,7 +56,6 @@ export function UploadFile({ value, onChange }: any) {
 
 export function UploadFileMore({ value, onChange }: any) {
   const [uploading, setUploading] = useState(false);
-  const [image4, setImage4] = useState("");
 
   async function handleUpload(e: any) {
     setUploading(true);
@@ -87,7 +85,7 @@ export function UploadFileMore({ value, onChange }: any) {
   }
   return (
     <div onChange={handleUpload} className="flex flex-wrap">
-      {!image4 && (
+      {!value && (
         <label
           id="dropzone-file"
           className="hover:border-solid border-dashed border w-[342px] flex justify-center items-center border-black h-[228px] rounded-md"

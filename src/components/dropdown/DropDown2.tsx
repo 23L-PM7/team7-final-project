@@ -1,22 +1,18 @@
+import { useBecomeHost } from "@/app/become-a-host/store";
 import * as React from "react";
-import Dropdown from "@mui/joy/Dropdown";
 import IconButton from "@mui/joy/IconButton";
 import Menu from "@mui/joy/Menu";
-import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
+import ListDivider from "@mui/joy/ListDivider";
 import MoreVert from "@mui/icons-material/MoreVert";
-import { useState } from "react";
-import { log } from "console";
+import MenuButton from "@mui/joy/MenuButton";
+import Dropdown from "@mui/joy/Dropdown";
 
-export default function Dropdown1() {
-  const [image, setImage] = useState("");
-  const [image1, setImage1] = useState("");
-  const [image2, setImage2] = useState("");
-  const [image3, setImage3] = useState("");
-  const [image4, setImage4] = useState("");
+export default function DropDown2() {
+  const { image2, setImage2 } = useBecomeHost();
   function deletePhoto() {
     if (window.confirm("Are you sure delete this photo?")) {
-      setImage("");
+      setImage2("");
       console.log("HEllo");
       return;
     }
@@ -29,8 +25,11 @@ export default function Dropdown1() {
       >
         <MoreVert />
       </MenuButton>
-      <Menu onClick={deletePhoto}>
-        <MenuItem>Delete</MenuItem>
+      <Menu placement="bottom-end">
+        <ListDivider />
+        <MenuItem onClick={deletePhoto} variant="soft" color="danger">
+          Delete
+        </MenuItem>
       </Menu>
     </Dropdown>
   );

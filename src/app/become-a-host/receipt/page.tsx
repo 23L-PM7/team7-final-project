@@ -1,7 +1,43 @@
+"use client";
 import ModalReceit from "@/components/Modal";
 import { AirCondition } from "@/components/icons/amenitiesIcons/AirCondition";
+import axios from "axios";
+import { useBecomeHost } from "../store";
 
 export default function Receipt() {
+  const {
+    title,
+    price,
+    image,
+    image1,
+    image2,
+    image3,
+    image4,
+    bedroomCount,
+    bathroomCount,
+    guestsCount,
+    description,
+    offerType,
+  } = useBecomeHost();
+
+  const addListing = async () => {
+    try {
+      const response = await axios.post("/api/listing", {
+        title,
+        price,
+        images: [image, image1, image2, image3, image4],
+        bedroomCount,
+        bathroomCount,
+        guestsCount,
+        description,
+        offerType,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="container mx-auto flex justify-center items-center pt-[373px]">
       <div className=" w-[850px] h-[480px] ">
@@ -32,6 +68,7 @@ export default function Receipt() {
           </div>
         </div>
       </div>
+      <button onClick={addListing}>Add list</button>
     </div>
   );
 }

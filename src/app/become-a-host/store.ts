@@ -10,6 +10,12 @@ interface BearState {
   offerType: string;
   title: string;
   description: string;
+  price: number;
+  image: string;
+  image1: string;
+  image2: string;
+  image3: string;
+  image4: string;
 
   setType: (by: string) => void;
   setRoomType: (by: string) => void;
@@ -19,6 +25,12 @@ interface BearState {
   setOfferType: (by: string) => void;
   setTitle: (by: string) => void;
   setDescription: (by: string) => void;
+  setPrice: (by: number) => void;
+  setImage: (by: string) => void;
+  setImage1: (by: string) => void;
+  setImage2: (by: string) => void;
+  setImage3: (by: string) => void;
+  setImage4: (by: string) => void;
 }
 
 export const useBecomeHost = create<BearState>()(
@@ -32,6 +44,12 @@ export const useBecomeHost = create<BearState>()(
       offerType: "",
       title: "",
       description: "",
+      price: 15,
+      image: "",
+      image1: "",
+      image2: "",
+      image3: "",
+      image4: "",
       setType: (newValue: string) => set(() => ({ type: newValue })),
       setRoomType: (newValue: string) => set(() => ({ roomType: newValue })),
       setBedroomCount: (newValue: number) =>
@@ -44,6 +62,12 @@ export const useBecomeHost = create<BearState>()(
       setTitle: (newValue: string) => set(() => ({ title: newValue })),
       setDescription: (newValue: string) =>
         set(() => ({ description: newValue })),
+      setPrice: (newValue: number) => set(() => ({ price: newValue })),
+      setImage: (newValue: string) => set(() => ({ image: newValue })),
+      setImage1: (newValue: string) => set(() => ({ image1: newValue })),
+      setImage2: (newValue: string) => set(() => ({ image2: newValue })),
+      setImage3: (newValue: string) => set(() => ({ image3: newValue })),
+      setImage4: (newValue: string) => set(() => ({ image4: newValue })),
     }),
 
     {
