@@ -1,6 +1,5 @@
 "use client";
 
-import { Counter } from "@/components/counter/Counter";
 import { GuestsCounter } from "@/components/counter/GuestsCounter";
 import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
 

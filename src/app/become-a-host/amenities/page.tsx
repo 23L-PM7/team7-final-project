@@ -8,7 +8,9 @@ import { Parking } from "@/components/icons/amenitiesIcons/Parking";
 import { TV } from "@/components/icons/amenitiesIcons/Tv";
 import { Washer } from "@/components/icons/amenitiesIcons/Washer";
 import { WorkPlace } from "@/components/icons/amenitiesIcons/WorkPlace";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useBecomeHost } from "../store";
+import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
 
 type Tool = {
   image: JSX.Element;
@@ -38,14 +40,19 @@ const cards = [
 //   { image: <WorkPlace />, title: "Dedicated work", id: "1" },
 // ];
 export default function Amenities() {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const { offerType, setOfferType } = useBecomeHost();
+  const { setNextButtonClickable }: any = useNextButtonClickable();
 
-  const [suggestedTools, setSuggestedTools] = useState<string | null>(null);
   const handleSelectTool = (tool: Tool) => {
     const { image, ...other } = tool;
-    setSuggestedTools(tool.id);
+    setOfferType(tool.id);
     localStorage.setItem("tool", JSON.stringify(other));
   };
+  useEffect(() => {
+    if (offerType) {
+      setNextButtonClickable(true);
+    }
+  }, [offerType]);
 
   return (
     <>
@@ -62,7 +69,7 @@ export default function Amenities() {
               <div
                 onClick={() => handleSelectTool(tool)}
                 className={` ${
-                  suggestedTools === tool.id
+                  offerType === tool.id
                     ? "bg-slate-100 border-2 border-black"
                     : "bg-white"
                 } w-[197px] h-[99px] border hover:border-zinc-950 rounded-xl shadow-xl flex p-4 `}

@@ -1,6 +1,7 @@
 "use client";
 
-import { Counter } from "@/components/counter/Counter";
+import { CounterBathrooms } from "@/components/counter/CounterBathrooms";
+import { CounterBedrooms } from "@/components/counter/CounterBedrooms";
 import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
 
 export default function FloorPaln() {
@@ -14,21 +15,14 @@ export default function FloorPaln() {
         <div className=" rounded-xl h-[30px]  flex justify-between mt-12 mb-3">
           <p className=" text-lg font-light">Bedrooms</p>
           <div>
-            <Counter />
+            <CounterBedrooms />
           </div>
         </div>
         <div className="divider m-0"></div>
         <div className=" rounded-xl h-[30px]  flex justify-between mt-5 mb-3">
           <p className=" text-lg font-light">Beds</p>
           <div>
-            <Counter />
-          </div>
-        </div>
-        <div className="divider m-0"></div>
-        <div className=" rounded-xl h-[30px]  flex justify-between mt-5 mb-3">
-          <p className=" text-lg font-light">Bedrooms</p>
-          <div>
-            <Counter />
+            <CounterBathrooms />
           </div>
         </div>
       </div>

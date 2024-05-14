@@ -2,13 +2,17 @@
 
 import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
 import { useEffect, useState } from "react";
+import { useBecomeHost } from "../store";
 
 export default function Title() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
-  const [title, setTitle] = useState("");
+  // const [title, setTitle] = useState("");
+  const { title, setTitle } = useBecomeHost();
 
   useEffect(() => {
-    setNextButtonClickable(title);
+    if (title) {
+      setNextButtonClickable(true);
+    }
   }, [title]);
 
   return (

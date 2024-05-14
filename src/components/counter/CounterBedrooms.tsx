@@ -4,11 +4,7 @@ import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { useNextButtonClickable } from "../newListHeaderFooter/ProgressFooter";
 
-type RoomCount = {
-  number: number;
-};
-
-export function Counter() {
+export function CounterBedrooms() {
   const [roomCount, setRoomCount] = useState("");
   const { bedroomCount, setBedroomCount } = useBecomeHost();
   const { setNextButtonClickable }: any = useNextButtonClickable();
@@ -21,11 +17,6 @@ export function Counter() {
   function plus() {
     setBedroomCount(bedroomCount + 1);
   }
-
-  // const handleSelecterRoomCount = (roomCount: RoomCount) => {
-  //   setRoomCount(roomCount.id);
-  //   localStorage.setItem("roomCount", JSON.stringify(roomCount));
-  // };
 
   useEffect(() => {
     if (bedroomCount) {

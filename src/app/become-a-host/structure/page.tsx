@@ -25,7 +25,6 @@ const places = [
 
 export default function Structure() {
   const { type, setType } = useBecomeHost();
-  // const [selectedPlace, setSelectedPlace] = useState<string | null>(null);
   const { setNextButtonClickable }: any = useNextButtonClickable();
 
   console.log({ type });
