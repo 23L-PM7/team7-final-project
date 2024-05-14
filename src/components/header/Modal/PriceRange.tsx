@@ -15,6 +15,8 @@ export default function PriceRange(){
         setMinimum((newValue as number[])[0]);
         setMaximum((newValue as number[])[1]);
       };
+
+
     return <div className="flex flex-col">
         <div className='border-b-2'>
               <h1 className='text-xl font-bold mb-4'>Price range</h1>

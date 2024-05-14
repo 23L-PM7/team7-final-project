@@ -7,16 +7,27 @@ import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
 import Chip from '@mui/joy/Chip';
 import { Checkbox } from '@mui/joy';
-import { usePathname, useSearchParams , useRouter } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import TypeOfPlace from './Modal/TypeOfPlace';
 import PriceRange from './Modal/PriceRange';
-
-// function valuetext(value: number) {
-//   return `${value}°C`;
-// }
+import Chips from './Modal/Chips';
 
 export default function BasicModal() {
   const [open, setOpen] = React.useState<boolean>(false);
+
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const createQueryString = React.useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString())
+      params.append(name, value)
+
+      return params.toString()
+    },
+    []
+  );
 
   return (
     <React.Fragment>
@@ -34,7 +45,7 @@ export default function BasicModal() {
           variant="outlined"
           sx={{
             maxWidth: 1000,
-            width:700,
+            width: 700,
             borderRadius: 'md',
             p: 3,
             boxShadow: 'lg',
@@ -55,106 +66,34 @@ export default function BasicModal() {
           </Typography>
           <Typography id="modal-desc" textColor="text.tertiary">
             <div className='flex flex-col'>
-              <TypeOfPlace/>
-              <PriceRange/>
+              <TypeOfPlace />
+              <PriceRange />
               <div className='flex flex-col mt-4 border-b-2 pb-4'>
                 <h1 className='text-xl font-bold mb-'>Rooms and beds</h1>
                 <div>
-                <p>Bedrooms</p>
-                <div className='flex'>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>Any</Chip>
+                  <p>Bedrooms</p>
+                  <div onClick={() => {
+                    router.push(pathname + '?' + createQueryString('Category', 'Bedrooms'))
+                  }} className=''>
+                    <Chips />
                   </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>1</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>2</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>3</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>4</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>5</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>6</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>7</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>8++</Chip>
-                  </div>
-                </div>
-                
+
                 </div>
                 <div>
                   <p>Beds</p>
-                  <div className='flex'>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>Any</Chip>
+                  <div onClick={() => {
+                    router.push(pathname + '?' + createQueryString('Category', 'Beds'))
+                  }} className=''>
+                    <Chips />
                   </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>1</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>2</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>3</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>4</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>5</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>6</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>7</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>8++</Chip>
-                  </div>
-                </div>
                 </div>
                 <div>
                   <p>Bathrooms</p>
-                  <div className='flex'>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>Any</Chip>
+                  <div onClick={() => {
+                    router.push(pathname + '?' + createQueryString('Category', 'Bathrooms'))
+                  }} className=''>
+                    <Chips />
                   </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>1</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>2</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>3</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>4</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>5</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>6</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>7</Chip>
-                  </div>
-                  <div className='cursor-pointer hover:border hover:border-black rounded-3xl'>
-                    <Chip>8++</Chip>
-                  </div>
-                </div>
                 </div>
               </div>
               <div className='border-b-2 pb-4'>
@@ -164,12 +103,12 @@ export default function BasicModal() {
                 <h1 className='text-xl font-bold mb-8'>Amenities</h1>
                 <p>Essentials</p>
                 <div className='grid grid-cols-2 gap-4'>
-                <Checkbox size="lg" label="wifi" variant="solid" defaultChecked />
-                <Checkbox size="lg" label="washer" variant="solid" defaultChecked />
-                <Checkbox size="lg" label="Air condition" variant="solid" defaultChecked />
-                <Checkbox size="lg" label="kitchen" variant="solid" defaultChecked />
-                <Checkbox size="lg" label="dryer" variant="solid" defaultChecked />
-                <Checkbox size="lg" label="heating" variant="solid" defaultChecked />
+                  <Checkbox size="lg" label="wifi" variant="solid" defaultChecked />
+                  <Checkbox size="lg" label="washer" variant="solid" defaultChecked />
+                  <Checkbox size="lg" label="Air condition" variant="solid" defaultChecked />
+                  <Checkbox size="lg" label="kitchen" variant="solid" defaultChecked />
+                  <Checkbox size="lg" label="dryer" variant="solid" defaultChecked />
+                  <Checkbox size="lg" label="heating" variant="solid" defaultChecked />
                 </div>
               </div>
             </div>
