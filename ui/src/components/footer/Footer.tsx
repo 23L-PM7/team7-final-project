@@ -6,7 +6,7 @@ import { RiGlobalLine } from "react-icons/ri";
 const Footer = () => {
   return (
     <footer className="w-full bg-slate-100">
-      <div className=" mx-auto w-[1300px] h-[64px] flex justify-between items-center px-40">
+      <div className=" mx-auto w-full h-[64px] flex justify-between items-center px-40">
         <div className="flex">
           <h3 className="mr-5">© 2024 Airbnb, Inc.</h3>
           <ul className="flex justify-evenly gap-5">

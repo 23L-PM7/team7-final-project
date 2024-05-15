@@ -21,7 +21,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Fade from "@mui/material/Fade";
 
-export default function BasicModal() {
+export default function Review() {
   const [open, setOpen] = React.useState<boolean>(false);
 
   //most recent menu
