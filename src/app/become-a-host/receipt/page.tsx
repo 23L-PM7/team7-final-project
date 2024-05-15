@@ -24,6 +24,8 @@ export default function Receipt() {
     offerType,
     roomType,
     type,
+    location,
+    region,
   } = useBecomeHost();
 
   const addListing = async () => {
@@ -40,6 +42,8 @@ export default function Receipt() {
         offerType,
         roomType,
         type,
+        location,
+        region,
       });
       console.log(response);
     } catch (error) {

@@ -77,12 +77,12 @@ export default function ModalReceit() {
                   </div>
                 </div>
                 <div className="divider m-0"></div>
-                <div className="mt-8 font-light">{description}</div>
+                <div className="mt-1 font-light">{description}</div>
                 <div className="divider m-0"></div>
-                <div className="mt-8 font-medium">Amenities</div>
+                <div className="mt-5 font-medium">Amenities</div>
                 <div>{offerType}</div>
                 <div className="divider m-0"></div>
-                <div className="mt-8 font-medium">Location</div>
+                <div className=" font-medium">Location</div>
                 <div className="flex">
                   <div>{region},</div>
                   <div>{location}</div>

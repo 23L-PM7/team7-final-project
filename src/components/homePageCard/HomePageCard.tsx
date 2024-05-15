@@ -55,7 +55,7 @@ export function HomePageCards() {
                   ))}
               </Swiper>
 
-              <div className="absolute top-3 right-8 z-10">
+              <div className="absolute top-3 right-10 z-10">
                 {/* <HeartButton /> */}
                 <ShareButton />
               </div>
@@ -63,7 +63,7 @@ export function HomePageCards() {
               <div className="flex flex-col justify-start items-start ">
                 <div className="font-semibold text-lg ">{card.title}</div>
                 <div className="font-light text-neutral-500">
-                  hi{card.location}
+                  {card.location}
                   {card.region}
                 </div>
                 <div className="flex gap-3">
