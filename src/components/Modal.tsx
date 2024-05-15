@@ -19,10 +19,6 @@ export default function ModalReceit() {
     title,
     price,
     image,
-    image1,
-    image2,
-    image3,
-    image4,
     bedroomCount,
     bathroomCount,
     bedCount,
@@ -31,6 +27,8 @@ export default function ModalReceit() {
     offerType,
     roomType,
     type,
+    location,
+    region,
   } = useBecomeHost();
 
   return (
@@ -47,10 +45,7 @@ export default function ModalReceit() {
 
           <div>
             <h1>{title}</h1>
-          </div>
-          <div>
-            <h1>title</h1>
-            <h1>$100 night</h1>
+            <h1>${price} night</h1>
           </div>
         </Button>
       </Stack>
@@ -61,7 +56,7 @@ export default function ModalReceit() {
             <DialogTitle>Full preview</DialogTitle>
             <div className="flex gap-10">
               <img
-                className="object-contain h-[421px] w-[444px]"
+                className="bg-contain h-[421px] w-[444px]"
                 src={image}
                 alt=""
               />
@@ -74,16 +69,24 @@ export default function ModalReceit() {
                     </p>
                     <p>
                       {guestsCount} guests, · {bedroomCount} bedroom, ·
-                      {bedCount} beds, · 2 shared baths
+                      {bedCount} beds, · {bathroomCount} shared baths
                     </p>
                   </div>
                   <div className="w-10 h-10 rounded-full bg-slate-700 text-white justify-center items-center flex">
                     A
                   </div>
                 </div>
+                <div className="divider m-0"></div>
                 <div className="mt-8 font-light">{description}</div>
+                <div className="divider m-0"></div>
                 <div className="mt-8 font-medium">Amenities</div>
                 <div>{offerType}</div>
+                <div className="divider m-0"></div>
+                <div className="mt-8 font-medium">Location</div>
+                <div className="flex">
+                  <div>{region},</div>
+                  <div>{location}</div>
+                </div>
               </div>
             </div>
           </div>

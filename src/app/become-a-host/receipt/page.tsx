@@ -1,7 +1,10 @@
 "use client";
 import ModalReceit from "@/components/Modal";
 import { AirCondition } from "@/components/icons/amenitiesIcons/AirCondition";
+import { LuCalendarCheck } from "react-icons/lu";
+import { MdCalendarToday } from "react-icons/md";
 import axios from "axios";
+import { SlPencil } from "react-icons/sl";
 import { useBecomeHost } from "../store";
 
 export default function Receipt() {
@@ -56,18 +59,42 @@ export default function Receipt() {
             <ModalReceit />
           </div>
           <div>
-            <h2 className="">What's next?</h2>
-            <div className="flex gap-3">
-              <p>
-                <AirCondition />
+            <h2 className="text-xl mb-8">What's next?</h2>
+            <div className="flex gap-3 mb-5">
+              <p className="text-3xl">
+                <LuCalendarCheck />
               </p>
               <div className="flex flex-col">
-                <h1 className="text-2xl font-bold">
+                <h1 className="text-md font-semibold">
                   Confirm a few details and publish
                 </h1>
-                <p className="font-light text-md">
+                <p className="font-light text-sm">
                   We’ll let you know if you need to verify your identity or
                   register with the local government.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-3 mb-5">
+              <p className="text-3xl">
+                <MdCalendarToday />
+              </p>
+              <div className="flex flex-col">
+                <h1 className="text-md font-semibold">Set up your calendar</h1>
+                <p className="font-light text-sm">
+                  Choose which dates your listing is available. It will be
+                  visible 24 hours after you publish.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-3 mb-5">
+              <p className="text-3xl">
+                <SlPencil />
+              </p>
+              <div className="flex flex-col">
+                <h1 className="text-md font-semibold">Adjust your settings</h1>
+                <p className="font-light text-sm">
+                  Set house rules, select a cancellation policy, choose how
+                  guests book, and more.
                 </p>
               </div>
             </div>

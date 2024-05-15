@@ -27,7 +27,7 @@ export function HomePageCards() {
   return (
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
-        <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-6 mx-auto gap-10">
+        <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mx-auto gap-10">
           {cards.map((card: any, index) => (
             <div key={index} className="flex flex-col  relative">
               <Swiper
@@ -63,7 +63,8 @@ export function HomePageCards() {
               <div className="flex flex-col justify-start items-start ">
                 <div className="font-semibold text-lg ">{card.title}</div>
                 <div className="font-light text-neutral-500">
-                  {card.createdAt}
+                  hi{card.location}
+                  {card.region}
                 </div>
                 <div className="flex gap-3">
                   <div className="font-medium">${card.price} nights</div>

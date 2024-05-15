@@ -45,9 +45,10 @@ export default function Amenities() {
 
   const handleSelectTool = (tool: Tool) => {
     const { image, ...other } = tool;
-    setOfferType(tool.id);
+    setOfferType(tool.title);
     localStorage.setItem("tool", JSON.stringify(other));
   };
+  console.log(offerType);
   useEffect(() => {
     if (offerType) {
       setNextButtonClickable(true);
@@ -69,7 +70,7 @@ export default function Amenities() {
               <div
                 onClick={() => handleSelectTool(tool)}
                 className={` ${
-                  offerType === tool.id
+                  offerType === tool.title
                     ? "bg-slate-100 border-2 border-black"
                     : "bg-white"
                 } w-[197px] h-[99px] border hover:border-zinc-950 rounded-xl shadow-xl flex p-4 `}

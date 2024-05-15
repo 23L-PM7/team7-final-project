@@ -20,6 +20,7 @@ const stepValues = [
   "floor-plan",
   "guests",
   "stand-out",
+  "location",
   "amenities",
   "photos",
   "title",
@@ -39,7 +40,7 @@ export function ProgressFooter() {
   const percentage = ((index + 1) / stepValues.length) * 100;
   console.log({ currentPath, index, percentage });
 
-  const { nextButtonClickable, setNextButtonClickable } =
+  const { nextButtonClickable, setNextButtonClickable }: any =
     useNextButtonClickable();
 
   if (pathname === undefined) {
