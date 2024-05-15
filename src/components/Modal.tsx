@@ -44,9 +44,13 @@ export default function ModalReceit() {
           onClick={() => setSize("lg")}
         >
           <img src={image} />
-          <div className="">
+
+          <div>
             <h1>{title}</h1>
-            <h1>${price} night</h1>
+          </div>
+          <div>
+            <h1>title</h1>
+            <h1>$100 night</h1>
           </div>
         </Button>
       </Stack>
@@ -55,7 +59,6 @@ export default function ModalReceit() {
           <ModalClose />
           <div className="w-[1000px] h-[500px]">
             <DialogTitle>Full preview</DialogTitle>
-
             <div className="flex gap-10">
               <img
                 className="object-contain h-[421px] w-[444px]"
