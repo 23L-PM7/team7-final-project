@@ -26,6 +26,7 @@ export function ListingIntroduction() {
   return (
     <div className="flex">
       <div className="w-4/6 flex flex-col gap-6">
+        
         {/* title section */}
 
         <div>
@@ -46,7 +47,7 @@ export function ListingIntroduction() {
 
         {/* most liked list */}
 
-        <div>{listingReviews.reviewAverage > 4.5 && <div></div>}</div>
+        {/* <div>{listingReviews.reviewAverage > 4.5 && <div></div>}</div> */}
 
         {/* host section */}
 

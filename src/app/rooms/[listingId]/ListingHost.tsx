@@ -76,9 +76,9 @@ export function ListingHost() {
 
                     </div>
                 </div>
-                <div>
+                {/* <div>
                     two details
-                </div>
+                </div> */}
                 <Box>
                     <Typography>{host.describtion}</Typography>
                 </Box>

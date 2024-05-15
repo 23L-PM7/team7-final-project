@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/joy";
 import { NumericFormat } from "react-number-format";
-import { useDate, useGuests } from "@/app/globals";
+import { useDate, useGuests, useDays } from "@/app/globals";
 import {
   DateRangePicker,
   LocalizationProvider,
@@ -25,11 +25,16 @@ import MenuButton from "@mui/joy/MenuButton";
 import MenuItem from "@mui/joy/MenuItem";
 import Dropdown from "@mui/joy/Dropdown";
 import Button from "@mui/joy/Button";
+import AccordionActions from '@mui/material/AccordionActions';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { FaChevronDown } from "react-icons/fa";
 
 export default function ListingReservation() {
   const { date, setDate }: any = useDate();
+  const { daysNumber }: any = useDays();
   const { clientNumber }: any = useGuests();
+
+  console.log(daysNumber);
 
   return (
     <div className="w-2/6 h-[530px] p-6 rounded-xl border-[1px] border-[#DDDDDD] shadow-[0px_6px_16px_rgba(0,0,0,0.12)] grid gap-6">
@@ -62,23 +67,21 @@ export default function ListingReservation() {
             </LocalizationProvider>
           </div>
           <div className="border-t-[1px] border-[#000000] p-2 items.center">
-            <Dropdown>
-              <MenuButton sx={{ border: 0, width: 305 }}>
-                <div className="flex w-full justify-between items-center">
-                  <div>
-                    <Typography level="body-xs">guest</Typography>
-                    <Typography>{clientNumber} guests</Typography>
-                  </div>
-                  <FaChevronDown />
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                <div>
+                  <Typography level="body-xs">guest</Typography>
+                  <Typography>{clientNumber} guests</Typography>
                 </div>
-              </MenuButton>
-
-              <Menu sx={{ width: 305 }}>
-                <MenuItem>
-                  <GuestCounter />
-                </MenuItem>
-              </Menu>
-            </Dropdown>
+              </AccordionSummary>
+              <AccordionDetails sx={{my: 4}}>
+                <GuestCounter />
+              </AccordionDetails>
+            </Accordion>
           </div>
         </div>
       </div>
@@ -99,7 +102,7 @@ export default function ListingReservation() {
           />
         </div>
         <div className="flex w-full justify-between">
-        <Typography>Airbnb service fee</Typography>
+          <Typography>Airbnb service fee</Typography>
           <NumericFormat
             value={27}
             thousandSeparator=","

@@ -11,6 +11,8 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
   }
 
 export function ListingImage() {
+  console.log(images);
+
   return (
     <Stack spacing={4} className="w-full h-[560px] rounded-xl">
       <ImageList

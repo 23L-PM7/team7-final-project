@@ -6,7 +6,28 @@ export const useDate = create((set) => ({
   setDate: (newDate: Date) => set(() => ({ date: newDate })),
 }));
 
+export const useDays = create((set) => ({
+  daysNumber: 0,
+  setDaysNumber: (newDays: Number) => set(() => ({ daysNumber: newDays })),
+}));
+
 export const useGuests = create((set) => ({
   clientNumber: 0,
   setClientNumber: (newNumber: Number) => set(() => ({ clientNumber: newNumber })),
 }));
+// export const useAdult = create((set) => ({
+//   adultNumber: 0,
+//   setClientNumber: (newNumber: Number) => set(() => ({ clientNumber: newNumber })),
+// }));
+// export const useChildren = create((set) => ({
+//   childrenNumber: 0,
+//   setClientNumber: (newNumber: Number) => set(() => ({ clientNumber: newNumber })),
+// }));
+// export const useInfant = create((set) => ({
+//   infantNumber: 0,
+//   setClientNumber: (newNumber: Number) => set(() => ({ clientNumber: newNumber })),
+// }));
+// export const usePet = create((set) => ({
+//   petNumber: 0,
+//   setClientNumber: (newNumber: Number) => set(() => ({ clientNumber: newNumber })),
+// }));

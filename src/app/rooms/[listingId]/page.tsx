@@ -37,7 +37,7 @@ export default function BasicDateCalendar() {
 
       <Divider />
 
-      <div className="w-full">
+      {/* <div className="w-full">
         <ListingReview />
       </div>
 
@@ -45,15 +45,15 @@ export default function BasicDateCalendar() {
 
       <div className="w-full">
         <ListingLocations />
-      </div>
+      </div> */}
 
       <div className="w-full">
         <ListingHost />
       </div>
 
-      <div className="w-full">
+      {/* <div className="w-full">
         <ListingRules />
-      </div>
+      </div> */}
     </div>
   );
 }
