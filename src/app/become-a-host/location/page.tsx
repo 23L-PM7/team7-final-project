@@ -8,6 +8,7 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
 import { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
+import { Map1 } from "@/components/Map";
 
 export default function Location() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
@@ -68,6 +69,9 @@ export default function Location() {
             id=""
           ></textarea>
         </div>
+        <section className="hidden xl:inline-flex xl:min-w-[600px] ">
+          <Map1 />
+        </section>
       </div>
     </div>
   );

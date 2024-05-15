@@ -26,7 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/become-a-host/createNewList"
+    "src/app/become-a-host/createNewList",
+    "src/components/Map.js"
   ],
   "exclude": ["node_modules"]
 }

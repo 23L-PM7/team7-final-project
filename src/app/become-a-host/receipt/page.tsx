@@ -52,10 +52,10 @@ export default function Receipt() {
   };
 
   return (
-    <div className="container mx-auto flex justify-center items-center pt-[373px]">
+    <div className="container mx-auto flex justify-center items-center pt-[150px]">
       <div className=" w-[850px] h-[480px] ">
-        <h1 className="text-3xl font-medium mb-2">Review your listing</h1>
-        <p>
+        <h1 className="text-5xl font-medium mb-2">Review your listing</h1>
+        <p className="font-light text-[#6A6A6A]">
           Here's what we'll show to guests. Make sure everything looks good.
         </p>
         <div className=" flex rounded-xl h-[30px] gap-10 mt-10 mb-3">
@@ -72,7 +72,7 @@ export default function Receipt() {
                 <h1 className="text-md font-semibold">
                   Confirm a few details and publish
                 </h1>
-                <p className="font-light text-sm">
+                <p className="font-light text-md  text-[#6A6A6A]">
                   We’ll let you know if you need to verify your identity or
                   register with the local government.
                 </p>
@@ -84,7 +84,7 @@ export default function Receipt() {
               </p>
               <div className="flex flex-col">
                 <h1 className="text-md font-semibold">Set up your calendar</h1>
-                <p className="font-light text-sm">
+                <p className="font-light text-md text-[#6A6A6A]">
                   Choose which dates your listing is available. It will be
                   visible 24 hours after you publish.
                 </p>
@@ -96,7 +96,7 @@ export default function Receipt() {
               </p>
               <div className="flex flex-col">
                 <h1 className="text-md font-semibold">Adjust your settings</h1>
-                <p className="font-light text-sm">
+                <p className="font-light text-sd  text-[#6A6A6A]">
                   Set house rules, select a cancellation policy, choose how
                   guests book, and more.
                 </p>
