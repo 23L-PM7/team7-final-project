@@ -35,7 +35,7 @@ export function GetStartFooter() {
       <div className="flex justify-between p-4 pr-20">
         <button></button>
         <a
-          href="/become-a-host"
+          href="/become-a-host/about-your-place"
           onClick={GetStart}
           className="w-[200px] flex justify-center items-center h-[48px] border p-2 rounded-md text-white bg-rose-500"
         >
