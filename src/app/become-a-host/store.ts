@@ -7,6 +7,7 @@ interface BearState {
   bedroomCount: number;
   bathroomCount: number;
   guestsCount: number;
+  bedCount: number;
   offerType: string;
   title: string;
   description: string;
@@ -22,6 +23,7 @@ interface BearState {
   setBedroomCount: (by: number) => void;
   setBathroomCount: (by: number) => void;
   setGuestCount: (by: number) => void;
+  setBedCount: (by: number) => void;
   setOfferType: (by: string) => void;
   setTitle: (by: string) => void;
   setDescription: (by: string) => void;
@@ -50,6 +52,7 @@ export const useBecomeHost = create<BearState>()(
       image2: "",
       image3: "",
       image4: "",
+      bedCount: 1,
       setType: (newValue: string) => set(() => ({ type: newValue })),
       setRoomType: (newValue: string) => set(() => ({ roomType: newValue })),
       setBedroomCount: (newValue: number) =>
@@ -68,6 +71,7 @@ export const useBecomeHost = create<BearState>()(
       setImage2: (newValue: string) => set(() => ({ image2: newValue })),
       setImage3: (newValue: string) => set(() => ({ image3: newValue })),
       setImage4: (newValue: string) => set(() => ({ image4: newValue })),
+      setBedCount: (newValue: number) => set(() => ({ bedCount: newValue })),
     }),
 
     {

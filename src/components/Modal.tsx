@@ -19,11 +19,18 @@ export default function ModalReceit() {
     title,
     price,
     image,
+    image1,
+    image2,
+    image3,
+    image4,
     bedroomCount,
     bathroomCount,
+    bedCount,
     guestsCount,
     description,
     offerType,
+    roomType,
+    type,
   } = useBecomeHost();
 
   return (
@@ -36,10 +43,10 @@ export default function ModalReceit() {
           size="lg"
           onClick={() => setSize("lg")}
         >
-          <img src="https://plus.unsplash.com/premium_photo-1712128937541-75574776ccd8?" />
+          <img src={image} />
           <div className="">
-            <h1>title</h1>
-            <h1>$100 night</h1>
+            <h1>{title}</h1>
+            <h1>${price} night</h1>
           </div>
         </Button>
       </Stack>
@@ -56,20 +63,24 @@ export default function ModalReceit() {
                 alt=""
               />
               <div className="flex flex-col">
-                <h1>{title}</h1>
+                <h1 className="text-3xl text-semibold">{title}</h1>
                 <div className="flex gap-4 mt-6">
                   <div className="flex flex-col">
-                    <p>Shared room in a shipping container hosted by Amgaa</p>
-                    <p>7 guests, · 1 bedroom, · 4 beds, · 2 shared baths</p>
+                    <p className="font-medium">
+                      Shared room in a shipping container hosted by Amgaa
+                    </p>
+                    <p>
+                      {guestsCount} guests, · {bedroomCount} bedroom, ·
+                      {bedCount} beds, · 2 shared baths
+                    </p>
                   </div>
                   <div className="w-10 h-10 rounded-full bg-slate-700 text-white justify-center items-center flex">
                     A
                   </div>
                 </div>
-                <div className="mt-8">
-                  You'll always remember your time at this unique place to stay.
-                </div>
-                <div className="mt-8">Amenities</div>
+                <div className="mt-8 font-light">{description}</div>
+                <div className="mt-8 font-medium">Amenities</div>
+                <div>{offerType}</div>
               </div>
             </div>
           </div>

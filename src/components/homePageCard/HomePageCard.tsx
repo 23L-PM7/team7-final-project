@@ -1,12 +1,9 @@
 "use client";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { images } from "../../lib/images";
-
 import React, { useEffect, useState } from "react";
 import { ShareButton } from "./ShareButton";
 import axios from "axios";
@@ -32,9 +29,9 @@ export function HomePageCards() {
   return (
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
-        <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-6 mx-auto gap-10">
+        <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mx-auto gap-10">
           {cards.map((card: any, index) => (
-            <div key={index} className="flex flex-col items-center relative">
+            <div key={index} className="flex flex-col  relative">
               <Swiper
                 cssMode={true}
                 navigation={true}
@@ -47,7 +44,7 @@ export function HomePageCards() {
               >
                 {card.images
                   .filter((image: string) => image)
-                  .map((image, index) => (
+                  .map((image: any, index: any) => (
                     <SwiperSlide key={index}>
                       <div className="aspect-square w-full flex justify-start items-start  overflow-hidden rounded-xl">
                         <img
@@ -65,13 +62,13 @@ export function HomePageCards() {
                 <ShareButton />
               </div>
 
-              <div className="flex flex-col justify-start items-start ml-5">
+              <div className="flex flex-col justify-start items-start ">
                 <div className="font-semibold text-lg ">{card.title}</div>
                 <div className="font-light text-neutral-500">
                   {card.createdAt}
                 </div>
                 <div className="flex gap-3">
-                  <div className="font-medium">{card.price}</div>
+                  <div className="font-medium">${card.price} night</div>
                   <div className="text-black text-md"></div>
                 </div>
               </div>

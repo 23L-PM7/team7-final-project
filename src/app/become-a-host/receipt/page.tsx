@@ -15,9 +15,12 @@ export default function Receipt() {
     image4,
     bedroomCount,
     bathroomCount,
+    bedCount,
     guestsCount,
     description,
     offerType,
+    roomType,
+    type,
   } = useBecomeHost();
 
   const addListing = async () => {
@@ -29,8 +32,11 @@ export default function Receipt() {
         bedroomCount,
         bathroomCount,
         guestsCount,
+        bedCount,
         description,
         offerType,
+        roomType,
+        type,
       });
       console.log(response);
     } catch (error) {
