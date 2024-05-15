@@ -1,13 +1,12 @@
 import { create } from "zustand";
+import dayjs, { Dayjs } from "dayjs";
 
-export const useCheckIn = create((set) => ({
-    checkIn: Date.now,
-    setCheckIn: (selectCheckIn: Date) =>
-      set(() => ({ checkIn: selectCheckIn })),
-  }));
+export const useDate = create((set) => ({
+  date: [dayjs("2022-05-15"), dayjs("2022-05-15")],
+  setDate: (newDate: Date) => set(() => ({ date: newDate })),
+}));
 
-export const useCheckOut = create((set) => ({
-    checkOut: Date.now,
-    setCheckOut: (selectCheckOut: Date) =>
-      set(() => ({ checkOut: selectCheckOut })),
-  }));
+export const useGuests = create((set) => ({
+  clientNumber: 0,
+  setClientNumber: (newNumber: Number) => set(() => ({ clientNumber: newNumber })),
+}));

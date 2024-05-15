@@ -1,22 +1,22 @@
-import Dropdown from '@mui/joy/Dropdown';
-import Menu from '@mui/joy/Menu';
-import MenuButton from '@mui/joy/MenuButton';
-import MenuItem from '@mui/joy/MenuItem';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro';
 import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
-import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { useDate } from '@/app/globals';
 
 const DateRange = () => {
-    return <div>
+    const { date, setDate }: any = useDate();
+
+    console.log(date);
+
+    return (
+    <div className='w-[700px]'>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DateRangeCalendar']}>
-                <DateRangeCalendar />
+                <DateRangeCalendar sx={{width: 700}} onChange={(newDate) => setDate(newDate)} />
             </DemoContainer>
         </LocalizationProvider>
     </div>
-}
+)}
 export default DateRange
