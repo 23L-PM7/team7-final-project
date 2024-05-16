@@ -10,9 +10,6 @@ export function Map1({ searchResult }: any) {
     zoom: 11,
   });
 
-  // const coordinates = searchResult.map(result:any=>({
-
-  // }))
   return (
     <ReactMapGL
       mapboxAccessToken="pk.eyJ1IjoiYW1nYWxhbmJhYXRhcjg4OCIsImEiOiJjbHc3ejQ3MmcwcG40Mm1vYndmaHJtZzd0In0.0ipGcBrXnQUDLHt6YVblNg"

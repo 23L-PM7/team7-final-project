@@ -61,7 +61,7 @@ export function HomePageCards() {
                   ))}
               </Swiper>
 
-              <div className="absolute top-3  right-11 z-10">
+              <div className="absolute top-3  right-8 z-10">
                 {/* <HeartButton /> */}
                 <ShareButton />
               </div>
@@ -75,12 +75,18 @@ export function HomePageCards() {
                   </div>
                 </div>
 
-                <div className="font-light text-neutral-500">
+                <div className="font-light  text-neutral-500">
                   {card.location}
                   {card.region}
                 </div>
+                <div className="flex gap-1">
+                  {card.bedroomCount} <p className="text-neutral-500"> beds</p>
+                </div>
+                <div className="font-light  text-neutral-500"></div>
                 <div className="flex gap-3">
-                  <div className="font-medium">${card.price} nights</div>
+                  <div className="font-medium flex gap-1">
+                    ${card.price} <p className="text-neutral-500">nights</p>
+                  </div>
                   <div className="text-black text-md"></div>
                 </div>
               </div>
