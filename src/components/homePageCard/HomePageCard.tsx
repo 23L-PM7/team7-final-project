@@ -7,6 +7,8 @@ import "swiper/css/pagination";
 import React, { useEffect, useState } from "react";
 import { ShareButton } from "./ShareButton";
 import axios from "axios";
+import { IoStarSharp } from "react-icons/io5";
+
 import { HeartButton } from "./HeartButton";
 
 export function HomePageCards() {
@@ -61,7 +63,14 @@ export function HomePageCards() {
               </div>
 
               <div className="flex flex-col justify-start items-start ">
-                <div className="font-semibold text-lg ">{card.title}</div>
+                <div className="flex justify-between">
+                  <div className="font-semibold text-lg w-60">{card.title}</div>
+                  <div className="flex gap-2 items-center">
+                    <IoStarSharp />
+                    4.33
+                  </div>
+                </div>
+
                 <div className="font-light text-neutral-500">
                   {card.location}
                   {card.region}

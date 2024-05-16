@@ -4,6 +4,13 @@ import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
 import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
 import React, { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
+import { House } from "@/components/icons/amenitiesIcons/House";
+import { Ger } from "@/components/icons/Ger";
+import { TopCity } from "@/components/icons/TopSities";
+import { CountrySide } from "@/components/icons/CountrySide";
+import { Rooms } from "@/components/icons/Rooms";
+import { Lake } from "@/components/icons/Lake";
+import { Farms } from "@/components/icons/Farms";
 
 type Place = {
   image: JSX.Element;
@@ -12,15 +19,13 @@ type Place = {
 };
 
 const places = [
-  { image: <Kitchen />, title: "kitchen", id: "1" },
-  { image: <Kitchen />, title: "kitchen", id: "2" },
-  { image: <Kitchen />, title: "kitchen", id: "3" },
-  { image: <Kitchen />, title: "kitchen", id: "4" },
-  { image: <Kitchen />, title: "kitchen", id: "5" },
-  { image: <Kitchen />, title: "kitchen", id: "6" },
-  { image: <Kitchen />, title: "kitchen", id: "7" },
-  { image: <Kitchen />, title: "kitchen", id: "8" },
-  { image: <Kitchen />, title: "kitchen", id: "9" },
+  { image: <TopCity />, title: "Top city", id: "1" },
+  { image: <Ger />, title: "Yurts", id: "2" },
+  { image: <Rooms />, title: "Rooms", id: "3" },
+  { image: <CountrySide />, title: "Countryside", id: "4" },
+  { image: <Lake />, title: "Lake", id: "5" },
+  { image: <Farms />, title: "Farms", id: "6" },
+  { image: <House />, title: "House", id: "7" },
 ];
 
 export default function Structure() {
