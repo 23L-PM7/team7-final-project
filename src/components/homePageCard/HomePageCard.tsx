@@ -8,16 +8,18 @@ import React, { useEffect, useState } from "react";
 import { ShareButton } from "./ShareButton";
 import axios from "axios";
 import { IoStarSharp } from "react-icons/io5";
-
-import { HeartButton } from "./HeartButton";
+import { Loading } from "../Loading";
 
 export function HomePageCards() {
   const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   function fetchCards() {
+    setLoading(true);
     axios
       .get("http://localhost:3000/api/listing")
       .then((cards) => setCards(cards.data));
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -26,10 +28,12 @@ export function HomePageCards() {
 
   console.log({ cards });
 
+  if (loading) return <Loading />;
+
   return (
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
-        <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mx-auto gap-10">
+        <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 mx-auto gap-10">
           {cards.map((card: any, index) => (
             <div key={index} className="flex flex-col  relative">
               <Swiper
@@ -57,7 +61,7 @@ export function HomePageCards() {
                   ))}
               </Swiper>
 
-              <div className="absolute top-3 right-10 z-10">
+              <div className="absolute top-3  right-11 z-10">
                 {/* <HeartButton /> */}
                 <ShareButton />
               </div>
