@@ -9,9 +9,12 @@ import { ShareButton } from "./ShareButton";
 import axios from "axios";
 import { IoStarSharp } from "react-icons/io5";
 import { Loading } from "../Loading";
+import { HeartButton } from "./HeartButton";
+import { useRouter } from "next/navigation";
 
 export function HomePageCards() {
   const [cards, setCards] = useState([]);
+  const router = useRouter();
   const [loading, setLoading] = useState(true);
 
   function fetchCards() {
@@ -26,6 +29,9 @@ export function HomePageCards() {
     fetchCards();
   }, []);
 
+  const pushToListing = (_id: string) => {
+    router.push(`/rooms/${_id}`);
+  };
   console.log({ cards });
 
   if (loading) return <Loading />;
@@ -35,7 +41,7 @@ export function HomePageCards() {
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
         <div className="grid mt-32  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 mx-auto gap-10">
           {cards.map((card: any, index) => (
-            <div key={index} className="flex flex-col  relative">
+            <div key={card._id} className="flex flex-col  relative">
               <Swiper
                 cssMode={true}
                 navigation={true}
@@ -66,7 +72,7 @@ export function HomePageCards() {
                 <ShareButton />
               </div>
 
-              <div className="flex flex-col justify-start items-start ">
+              <div className="flex flex-col justify-start items-start " onClick={() => pushToListing(card._id)}>
                 <div className="flex justify-between">
                   <div className="font-semibold text-lg w-60">{card.title}</div>
                   <div className="flex gap-2 items-center">
