@@ -69,9 +69,9 @@ export default function Location() {
             id=""
           ></textarea>
         </div>
-        <section className="hidden xl:inline-flex xl:min-w-[600px] ">
+        {/* <section className="hidden xl:inline-flex xl:min-w-[600px] ">
           <Map1 />
-        </section>
+        </section> */}
       </div>
     </div>
   );

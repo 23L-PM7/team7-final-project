@@ -59,6 +59,7 @@ export const useBecomeHost = create<BearState>()(
       bedCount: 1,
       location: "",
       region: "",
+
       setType: (newValue: string) => set(() => ({ type: newValue })),
       setRoomType: (newValue: string) => set(() => ({ roomType: newValue })),
       setBedroomCount: (newValue: number) =>
