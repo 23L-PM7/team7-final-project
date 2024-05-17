@@ -26,9 +26,7 @@ export default function Description() {
             className="border p-5 hover:border-black w-[630px] h-[244px] rounded-md"
             name="text"
             id=""
-          >
-            You'll always remember your time at this unique place to stay.
-          </textarea>
+          ></textarea>
         </div>
       </div>
     </div>
