@@ -132,9 +132,13 @@ export function ListingIntroduction() {
             </LocalizationProvider> */}
         </div>
       </div>
+<<<<<<< HEAD
       <div className="w-2/6">
         <ListingReservation />
       </div>
+=======
+      <ListingReservation />
+>>>>>>> dfccafc8925498fae9f69cf4db614e19ffb748b0
     </div>
   );
 }
