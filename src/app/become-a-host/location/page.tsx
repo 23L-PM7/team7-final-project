@@ -8,7 +8,7 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
 import { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
-import { Map1 } from "@/components/Map";
+import { Map } from "@/components/Map";
 
 export default function Location() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
@@ -29,7 +29,7 @@ export default function Location() {
 
   return (
     <div className="container mx-auto flex justify-center items-center pt-[373px]">
-      <div className=" w-[630px] h-[480px] ">
+      <div className=" w-[630px]  ">
         <h1 className="text-3xl font-medium mb-2">
           Where's your place located?
         </h1>
@@ -60,17 +60,9 @@ export default function Location() {
           <Option value="Southern Mongolia">Southern Mongolia</Option>
           <Option value="Ulaanbaatar">Ulaanbaatar</Option>
         </Select>
-        <div className="rounded-xl h-[30px]  flex justify-between mt-5 mb-3">
-          <textarea
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="border hover:border-black w-[630px] h-[178px] rounded-md"
-            name="text"
-            id=""
-          ></textarea>
-        </div>
+
         <section className="hidden xl:inline-flex xl:min-w-[600px] ">
-          <Map1 />
+          <Map />
         </section>
       </div>
     </div>

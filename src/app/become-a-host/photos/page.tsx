@@ -12,6 +12,7 @@ import Dropdown3 from "@/components/dropdown/DropDown2";
 import Dropdown4 from "@/components/dropdown/DropDown3";
 import Dropdown1 from "@/components/dropdown/DropDown1";
 import Dropdownn from "@/components/dropdown/DropDownn";
+import DropdownAddImage from "@/components/dropdown/DropDownAddImage";
 
 export default function ListPhoto() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
@@ -145,14 +146,23 @@ export default function ListPhoto() {
               </div>
             )}
           </div>
-          {!image4 && <UploadFileMore value={image4} onChange={setImage4} />}
-          {image4 && (
-            <img
-              alt=""
-              src={image4}
-              className="w-[342px] h-[228px] rounded-md"
-            />
-          )}
+          <div className="relative">
+            {!image4 && <UploadFileMore value={image4} onChange={setImage4} />}
+            {image4 && (
+              <img
+                alt=""
+                src={image4}
+                className="w-[342px] h-[228px] rounded-md"
+              />
+            )}
+            {image4 && (
+              <div className="flex justify-between">
+                <div className="absolute top-4 right-4 z-10">
+                  <DropdownAddImage />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

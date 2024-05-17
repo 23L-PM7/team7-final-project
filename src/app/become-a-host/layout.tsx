@@ -11,7 +11,8 @@ export default function Layout({
   return (
     <div>
       <ProgressHeader />
-      {children}
+      <div className="pb-24">{children}</div>
+
       <ProgressFooter />
     </div>
   );

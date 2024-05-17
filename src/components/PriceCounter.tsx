@@ -4,7 +4,6 @@ import { useBecomeHost } from "@/app/become-a-host/store";
 
 export function PriceCounter() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
-  // let [number, setNumber] = useState(15);
   const { price, setPrice } = useBecomeHost();
 
   useEffect(() => {
@@ -20,7 +19,7 @@ export function PriceCounter() {
         max={10000}
         type="number"
         value={price}
-        onChange={(e) => setPrice(e.target.value)}
+        onChange={(e: any) => setPrice(e.target.value)}
         className="flex justify-center items-center outline-none font-semibold w-[350px] text-9xl"
       />
     </div>
