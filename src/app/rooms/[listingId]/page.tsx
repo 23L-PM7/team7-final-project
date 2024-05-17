@@ -15,8 +15,6 @@ export default function Listing() {
   const {_id} = useParams();
 
 
-
-
   return (
     <div className="container w-[1120px] mx-auto grid gap-6 my-6">
       <div className="flex justify-between items-center">
