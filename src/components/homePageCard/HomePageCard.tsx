@@ -61,7 +61,7 @@ export function HomePageCards() {
                   ))}
               </Swiper>
 
-              <div className="absolute top-3  right-8 z-10">
+              <div className="absolute top-3  right-1 z-10">
                 {/* <HeartButton /> */}
                 <ShareButton />
               </div>
