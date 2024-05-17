@@ -17,6 +17,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import { Loading } from "./Loading";
+import { House } from "./icons/amenitiesIcons/House";
+import { TV } from "./icons/amenitiesIcons/Tv";
+import { Kitchen } from "./icons/amenitiesIcons/Kitchen";
+import { Washer } from "./icons/amenitiesIcons/Washer";
+import { Car } from "./icons/amenitiesIcons/Car";
+import { Parking } from "./icons/amenitiesIcons/Parking";
+import { AirCondition } from "./icons/amenitiesIcons/AirCondition";
+import { WorkPlace } from "./icons/amenitiesIcons/WorkPlace";
 
 export default function ModalReceit() {
   const [cards, setCards] = useState([]);
@@ -47,7 +55,7 @@ export default function ModalReceit() {
     bedCount,
     guestsCount,
     description,
-    offerType,
+    offerTypes,
     roomType,
     type,
     location,
@@ -92,7 +100,7 @@ export default function ModalReceit() {
       <Modal open={!!size} onClose={() => setSize(undefined)}>
         <ModalDialog size={size}>
           <ModalClose />
-          <div className="w-[1200px] h-[530px] p-5">
+          <div className="w-[1100px] h-[530px] p-5">
             <div className="flex justify-center items-start mb-3">
               <DialogTitle>Full preview</DialogTitle>
             </div>
@@ -107,7 +115,7 @@ export default function ModalReceit() {
                 pagination={true}
                 modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                 // onSwiper={(swiper) => console.log(swiper)}
-                className="w-[1800px] image-full rounded-lg "
+                className="w-[440px] image-full rounded-lg "
               >
                 {images.map((image: any, index: any) => (
                   <SwiperSlide key={index}>
@@ -142,8 +150,20 @@ export default function ModalReceit() {
                 <div className="my-3 font-light">{description}</div>
                 <div className="divider m-0"></div>
                 <div className="mt-3 font-medium">Amenities</div>
-                <div className="mb-3">{offerType}</div>
-                <div className="divider m-0"></div>
+                <div className="mb-3 flex flex-col  gap-3 ">
+                  <div className="flex flex-col gap-4">
+                    {offerTypes.map((type) => (
+                      <div>
+                        <span className="flex justify-between" key={type}>
+                          {type}
+                          {icons[type]}
+                        </span>
+                        <div className="divider m-0"></div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 <div className=" font-medium mt-3">Location</div>
                 <div className="flex">
                   <div>{region},</div>
@@ -157,3 +177,14 @@ export default function ModalReceit() {
     </React.Fragment>
   );
 }
+
+const icons: any = {
+  House: <House />,
+  Tv: <TV />,
+  Kitchen: <Kitchen />,
+  Washer: <Washer />,
+  Car: <Car />,
+  Parking: <Parking />,
+  "Air Conditioning": <AirCondition />,
+  "Dedicated work": <WorkPlace />,
+};

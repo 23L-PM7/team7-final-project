@@ -40,20 +40,26 @@ const cards = [
 //   { image: <WorkPlace />, title: "Dedicated work", id: "1" },
 // ];
 export default function Amenities() {
-  const { offerType, setOfferType } = useBecomeHost();
+  const { offerTypes, setOfferTypes } = useBecomeHost();
   const { setNextButtonClickable }: any = useNextButtonClickable();
 
   const handleSelectTool = (tool: Tool) => {
     const { image, ...other } = tool;
-    setOfferType(tool.title);
+
+    if (offerTypes.includes(tool.title)) {
+      setOfferTypes(offerTypes.filter((type) => type !== tool.title));
+    } else {
+      setOfferTypes([...offerTypes, tool.title]);
+    }
+
     localStorage.setItem("tool", JSON.stringify(other));
   };
-  console.log(offerType);
+  console.log(offerTypes);
   useEffect(() => {
-    if (offerType) {
+    if (offerTypes) {
       setNextButtonClickable(true);
     }
-  }, [offerType]);
+  }, [offerTypes]);
 
   return (
     <>
@@ -70,7 +76,7 @@ export default function Amenities() {
               <div
                 onClick={() => handleSelectTool(tool)}
                 className={` ${
-                  offerType === tool.title
+                  offerTypes.includes(tool.title)
                     ? "bg-slate-100 border-2 border-black"
                     : "bg-white"
                 } w-[197px] h-[99px] border hover:border-zinc-950 rounded-xl shadow-xl flex p-4 `}
