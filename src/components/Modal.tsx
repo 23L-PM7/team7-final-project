@@ -16,6 +16,7 @@ import { useBecomeHost } from "@/app/become-a-host/store";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { Loading } from "./Loading";
 
 export default function ModalReceit() {
   const [cards, setCards] = useState([]);
@@ -51,7 +52,13 @@ export default function ModalReceit() {
     type,
     location,
     region,
+    image1,
+    image2,
+    image3,
+    image4,
   } = useBecomeHost();
+
+  const images = [image, image1, image2, image3, image4];
 
   return (
     <React.Fragment>
@@ -63,19 +70,23 @@ export default function ModalReceit() {
           size="lg"
           onClick={() => setSize("lg")}
         >
+          {!image && <Loading />}
           <img className="w-[330px] h-[380px] rounded" src={image} />
-
           <div className="flex  justify-between ">
             <h1 className="w-[250px] flex justify-start items-start text-start">
               {title}
             </h1>
-            <div className="flex gap-2 items-center">
-              New <IoStar />
-            </div>
+            {image && (
+              <div className="flex gap-2 items-center">
+                New <IoStar />
+              </div>
+            )}
           </div>
-          <h1 className="w-[310px] flex justify-start items-start text-start">
-            ${price} night
-          </h1>
+          {image && (
+            <h1 className="w-[310px] flex justify-start items-start text-start">
+              ${price} night
+            </h1>
+          )}
         </Button>
       </Stack>
       <Modal open={!!size} onClose={() => setSize(undefined)}>
@@ -88,32 +99,29 @@ export default function ModalReceit() {
             <div className="divider m-0"></div>
 
             <div className="flex gap-10">
-              {cards.map((card: any, index) => (
-                <Swiper
-                  cssMode={true}
-                  navigation={true}
-                  mousewheel={true}
-                  keyboard={true}
-                  pagination={true}
-                  modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-                  // onSwiper={(swiper) => console.log(swiper)}
-                  className=" w-[2100px] image-full rounded-lg "
-                >
-                  {card.images
-                    .filter((image: string) => image)
-                    .map((image: any, index: any) => (
-                      <SwiperSlide key={index}>
-                        <div className="aspect-square w-full flex justify-start items-start   rounded-xl">
-                          <img
-                            src={image}
-                            alt=""
-                            className={`aspect-square flex items-center max-w-xs transition duration-300 ease-in-out hover:scale-110 h-full object-cove`}
-                          />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                </Swiper>
-              ))}
+              <Swiper
+                cssMode={true}
+                navigation={true}
+                mousewheel={true}
+                keyboard={true}
+                pagination={true}
+                modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                // onSwiper={(swiper) => console.log(swiper)}
+                className="w-[1400px] image-full rounded-lg "
+              >
+                {images.map((image: any, index: any) => (
+                  <SwiperSlide key={index}>
+                    <div className="aspect-square w-full flex justify-start items-start rounded-xl">
+                      <img
+                        src={image}
+                        alt=""
+                        className={`aspect-square   transition duration-300 ease-in-out hover:scale-110 h-full object-cover`}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
               <div className="flex flex-col h-[421px] z-10 px-5 overflow-y-auto ">
                 <h1 className="text-3xl text-semibold">{title}</h1>
                 <div className="flex gap-4 my-4">
