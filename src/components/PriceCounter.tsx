@@ -5,7 +5,7 @@ import { useBecomeHost } from "@/app/become-a-host/store";
 export function PriceCounter() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
   // let [number, setNumber] = useState(15);
-  const { price, setPrice } = useBecomeHost();
+  const { price, setPrice }: any = useBecomeHost();
 
   useEffect(() => {
     if (price) {

@@ -92,7 +92,7 @@ export default function ModalReceit() {
       <Modal open={!!size} onClose={() => setSize(undefined)}>
         <ModalDialog size={size}>
           <ModalClose />
-          <div className="w-[1100px] h-[530px] p-5">
+          <div className="w-[1200px] h-[530px] p-5">
             <div className="flex justify-center items-start mb-3">
               <DialogTitle>Full preview</DialogTitle>
             </div>
@@ -107,11 +107,11 @@ export default function ModalReceit() {
                 pagination={true}
                 modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                 // onSwiper={(swiper) => console.log(swiper)}
-                className="w-[1400px] image-full rounded-lg "
+                className="w-[1800px] image-full rounded-lg "
               >
                 {images.map((image: any, index: any) => (
                   <SwiperSlide key={index}>
-                    <div className="aspect-square w-full flex justify-start items-start rounded-xl">
+                    <div className="aspect-square flex justify-start items-start rounded-xl">
                       <img
                         src={image}
                         alt=""
@@ -122,7 +122,7 @@ export default function ModalReceit() {
                 ))}
               </Swiper>
 
-              <div className="flex flex-col h-[421px] z-10 px-5 overflow-y-auto ">
+              <div className="flex flex-col h-[421px]  z-10 px-5 overflow-y-auto ">
                 <h1 className="text-3xl text-semibold">{title}</h1>
                 <div className="flex gap-4 my-4">
                   <div className="flex flex-col">
