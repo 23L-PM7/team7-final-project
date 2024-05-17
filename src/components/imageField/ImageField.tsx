@@ -45,6 +45,7 @@ export function ImageField({ value, onChange }: any) {
       alert("An Error Occured While Uploading");
     }
   }
+
   return (
     <div>
       {uploading && (
@@ -57,8 +58,8 @@ export function ImageField({ value, onChange }: any) {
         component="label"
         role={undefined}
         tabIndex={-1}
-        variant="contained"
         color="neutral"
+        variant="plain"
       >
         <Typography
           sx={{

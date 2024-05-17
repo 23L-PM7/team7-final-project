@@ -3,7 +3,7 @@ export function Pool() {
     <svg
       id="l_d_3337"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 45 45"
       width="45"
       height="45"
@@ -36,7 +36,7 @@ export function Pool() {
           </g>
         </g>
         <mask id="__lottie_element_1478_1" mask-type="alpha">
-          <use id="l_d_3365" xlink:href="#__lottie_element_1478"></use>
+          <use id="l_d_3365" xlinkHref="#__lottie_element_1478"></use>
         </mask>
       </defs>
       <g id="l_d_3339" clip-path="url(#__lottie_element_1474)">
