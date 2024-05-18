@@ -5,7 +5,7 @@ import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
 
 export default function Guests() {
   return (
-    <div className="container mx-auto flex justify-center items-center pt-[373px]">
+    <div className="container mx-auto flex justify-center items-center pt-80 animate-fade-right">
       <div className=" w-[630px] h-[480px] ">
         <h1 className="text-3xl font-medium mb-2">
           How many guests fit comfortably in your place?

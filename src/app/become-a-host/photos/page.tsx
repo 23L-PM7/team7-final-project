@@ -38,7 +38,7 @@ export default function ListPhoto() {
     <div
       className={` ${
         image && "h-[1500px] pt-32"
-      } h-[1000px] container mx-auto pt-48 w-[700px]`}
+      } h-[1000px] container mx-auto pt-48 w-[700px] animate-fade-up`}
     >
       {!image && (
         <div>

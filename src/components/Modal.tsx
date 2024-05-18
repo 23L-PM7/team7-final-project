@@ -11,7 +11,6 @@ import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import ModalDialog, { ModalDialogProps } from "@mui/joy/ModalDialog";
 import DialogTitle from "@mui/joy/DialogTitle";
-import DialogContent from "@mui/joy/DialogContent";
 import { useBecomeHost } from "@/app/become-a-host/store";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -25,6 +24,19 @@ import { Car } from "./icons/amenitiesIcons/Car";
 import { Parking } from "./icons/amenitiesIcons/Parking";
 import { AirCondition } from "./icons/amenitiesIcons/AirCondition";
 import { WorkPlace } from "./icons/amenitiesIcons/WorkPlace";
+import { BBgrill } from "./icons/amenitiesIcons/BBQgrill";
+import { Piona } from "./icons/amenitiesIcons/Piona";
+import { Exercise } from "./icons/amenitiesIcons/Exercise";
+import { Ski } from "./icons/amenitiesIcons/Ski";
+import { BeachAccess } from "./icons/amenitiesIcons/BeachAccess";
+import { PoolTable } from "./icons/amenitiesIcons/PoolTable";
+import { Pool } from "./icons/amenitiesIcons/Pool";
+import { HotTub } from "./icons/amenitiesIcons/HotTub";
+import { Outdoor } from "./icons/amenitiesIcons/Outdoor";
+import { FirePit } from "./icons/amenitiesIcons/FirePit";
+import { Ratio } from "./icons/amenitiesIcons/Ratio";
+import { Lake } from "./icons/amenitiesIcons/Lake";
+import { Shower } from "./icons/amenitiesIcons/Shower";
 
 export default function ModalReceit() {
   const [cards, setCards] = useState([]);
@@ -115,7 +127,7 @@ export default function ModalReceit() {
                 pagination={true}
                 modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                 // onSwiper={(swiper) => console.log(swiper)}
-                className="w-[440px] image-full rounded-lg "
+                className="w-[1400px] image-full rounded-lg "
               >
                 {images.map((image: any, index: any) => (
                   <SwiperSlide key={index}>
@@ -123,7 +135,7 @@ export default function ModalReceit() {
                       <img
                         src={image}
                         alt=""
-                        className={`aspect-square   transition duration-300 ease-in-out hover:scale-110 h-full object-cover`}
+                        className={`aspect-square transition duration-300 ease-in-out hover:scale-110 h-full object-cover`}
                       />
                     </div>
                   </SwiperSlide>
@@ -138,8 +150,8 @@ export default function ModalReceit() {
                       Shared room in a shipping container hosted by Amgaa
                     </p>
                     <p>
-                      {guestsCount} guests, · {bedroomCount} bedroom, ·
-                      {bedCount} beds, · {bathroomCount} shared baths
+                      {guestsCount} guests · {bedroomCount} bedroom ·{bedCount}{" "}
+                      beds · {bathroomCount} shared baths
                     </p>
                   </div>
                   <div className="w-10 h-10 rounded-full bg-slate-700 text-white justify-center items-center flex">
@@ -187,4 +199,17 @@ const icons: any = {
   Parking: <Parking />,
   "Air Conditioning": <AirCondition />,
   "Dedicated work": <WorkPlace />,
+  "BBQ grill": <BBgrill />,
+  Piano: <Piona />,
+  "Exercise equipment": <Exercise />,
+  "Ski-in/Ski-out": <Ski />,
+  "Beach access": <BeachAccess />,
+  "Indoor fireplace": <PoolTable />,
+  Pool: <Pool />,
+  "Hot tub": <HotTub />,
+  "Outdoor dinning": <Outdoor />,
+  "Fire pit": <FirePit />,
+  Patio: <Ratio />,
+  "Lake access": <Lake />,
+  "Outdoor shower": <Shower />,
 };
