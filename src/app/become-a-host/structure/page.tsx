@@ -36,7 +36,7 @@ export default function Structure() {
 
   const handleSelectPlace = (place: Place) => {
     const { image, ...other } = place;
-    setType(place.id);
+    setType(place.title);
     localStorage.setItem("place", JSON.stringify(other));
   };
 
@@ -57,7 +57,7 @@ export default function Structure() {
             {places.map((place, index) => (
               <div
                 className={` ${
-                  type === place.id
+                  type === place.title
                     ? "bg-[#F7F7F7] border-2 border-black"
                     : "bg-white"
                 } w-[197px] h-[99px] border hover:border-zinc-950 rounded-xl shadow-xl flex p-4 `}

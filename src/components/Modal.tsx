@@ -37,6 +37,7 @@ import { FirePit } from "./icons/amenitiesIcons/FirePit";
 import { Ratio } from "./icons/amenitiesIcons/Ratio";
 import { Lake } from "./icons/amenitiesIcons/Lake";
 import { Shower } from "./icons/amenitiesIcons/Shower";
+import { WiFi } from "./icons/amenitiesIcons/Wifa";
 
 export default function ModalReceit() {
   const [cards, setCards] = useState([]);
@@ -112,13 +113,12 @@ export default function ModalReceit() {
       <Modal open={!!size} onClose={() => setSize(undefined)}>
         <ModalDialog size={size}>
           <ModalClose />
-          <div className="w-[1100px] h-[530px] p-5">
+          <div className="w-[1000px] h-[530px] p-5">
             <div className="flex justify-center items-start mb-3">
               <DialogTitle>Full preview</DialogTitle>
             </div>
             <div className="divider m-0"></div>
-
-            <div className="flex gap-10">
+            <div className="flex gap-10 justify-center items-center">
               <Swiper
                 cssMode={true}
                 navigation={true}
@@ -127,7 +127,7 @@ export default function ModalReceit() {
                 pagination={true}
                 modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                 // onSwiper={(swiper) => console.log(swiper)}
-                className="w-[1400px] image-full rounded-lg "
+                className="w-[450px] image-full rounded-lg "
               >
                 {images.map((image: any, index: any) => (
                   <SwiperSlide key={index}>
@@ -142,7 +142,7 @@ export default function ModalReceit() {
                 ))}
               </Swiper>
 
-              <div className="flex flex-col h-[421px]  z-10 px-5 overflow-y-auto ">
+              <div className="flex flex-col h-[421px] w-[490px]  z-10 px-5 overflow-y-auto ">
                 <h1 className="text-3xl text-semibold">{title}</h1>
                 <div className="flex gap-4 my-4">
                   <div className="flex flex-col">
@@ -181,6 +181,7 @@ export default function ModalReceit() {
                   <div>{region},</div>
                   <div>{location}</div>
                 </div>
+                <div>{type}</div>
               </div>
             </div>
           </div>
@@ -191,6 +192,7 @@ export default function ModalReceit() {
 }
 
 const icons: any = {
+  Wifi: <WiFi />,
   House: <House />,
   Tv: <TV />,
   Kitchen: <Kitchen />,

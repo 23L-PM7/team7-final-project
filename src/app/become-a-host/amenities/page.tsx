@@ -33,7 +33,7 @@ type Tool = {
 };
 
 const cards = [
-  { image: <WiFi />, title: "Wifa", id: "1" },
+  { image: <WiFi />, title: "Wifi", id: "1" },
   { image: <TV />, title: "Tv", id: "2" },
   { image: <Kitchen />, title: "Kitchen", id: "3" },
   { image: <Washer />, title: "Washer", id: "4" },
