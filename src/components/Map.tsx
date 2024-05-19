@@ -1,5 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
+import { IoIosPin } from "react-icons/io";
 
 export function Map() {
   const defaultProps = {
@@ -26,8 +27,10 @@ export function Map() {
         onChange={handleChange}
       ></GoogleMapReact>
 
-      <div className="absolute w-10 h-10 rounded-full border-2  top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center text-black shadow">
-        +
+      <div className="absolute w-10 h-10 rounded-full border-2 border-black  top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex items-center justify-center  ">
+        <div className="text-rose-600 text-2xl shadow">
+          <IoIosPin />
+        </div>
       </div>
     </div>
   );

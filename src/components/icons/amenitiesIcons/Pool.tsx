@@ -8,7 +8,7 @@ export function Pool() {
       width="45"
       height="45"
       preserveAspectRatio="xMidYMid meet"
-      className="w-[100%] h-[100%] visible"
+      className="w-[45px] h-[45px] visible"
     >
       <defs id="l_d_3338">
         <clipPath id="__lottie_element_1474">

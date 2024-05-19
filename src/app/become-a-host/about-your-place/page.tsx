@@ -12,8 +12,8 @@ export default function AboutYourPlace() {
   }, []);
 
   return (
-    <div className="container mx-auto pt-32">
-      <div className=" flex gap-40 p-10">
+    <div className="container mx-auto pt-32 animate-fade-up animate-ease-linear">
+      <div className=" flex gap-40 justify-center items-center p-10">
         <div className=" mt-64 ">
           <p className="text-lg font-medium mb-[16px]">Step 1</p>
           <h1 className="text-5xl font-medium mb-[24px]">

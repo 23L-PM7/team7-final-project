@@ -36,7 +36,7 @@ export default function Structure() {
 
   const handleSelectPlace = (place: Place) => {
     const { image, ...other } = place;
-    setType(place.id);
+    setType(place.title);
     localStorage.setItem("place", JSON.stringify(other));
   };
 
@@ -48,7 +48,7 @@ export default function Structure() {
 
   return (
     <>
-      <div className="h-[1400px] container mx-auto  w-[700px] pt-32 ">
+      <div className="h-[1400px] container mx-auto animate-fade-down  w-[700px] pt-32 ">
         <h1 className="text-3xl font-semibold mb-3 ">
           Which of these best describes your place?
         </h1>
@@ -57,8 +57,8 @@ export default function Structure() {
             {places.map((place, index) => (
               <div
                 className={` ${
-                  type === place.id
-                    ? "bg-slate-100 border-2 border-black"
+                  type === place.title
+                    ? "bg-[#F7F7F7] border-2 border-black"
                     : "bg-white"
                 } w-[197px] h-[99px] border hover:border-zinc-950 rounded-xl shadow-xl flex p-4 `}
                 key={index}

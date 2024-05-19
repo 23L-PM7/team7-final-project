@@ -7,7 +7,7 @@ import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
 
 export default function FloorPaln() {
   return (
-    <div className="container mx-auto flex justify-center items-center pt-[373px]">
+    <div className="container mx-auto flex justify-center items-center pt-80 animate-fade-up">
       <div className=" w-[630px] h-[480px] ">
         <h1 className="text-3xl font-medium mb-2">
           Let's start with the basics

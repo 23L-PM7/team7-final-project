@@ -39,7 +39,7 @@ export function HomePageCards() {
   return (
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
-        <div className="grid mt-32  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 mx-auto gap-10">
+        <div className="grid mt-32  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 mx-auto gap-10">
           {cards.map((card: any, index) => (
             <div key={card._id} className="flex flex-col  relative">
               <Swiper
@@ -67,7 +67,7 @@ export function HomePageCards() {
                   ))}
               </Swiper>
 
-              <div className="absolute top-3  right-9 z-10">
+              <div className="absolute top-3  right-3 z-10">
                 {/* <HeartButton /> */}
                 <ShareButton />
               </div>
@@ -81,10 +81,10 @@ export function HomePageCards() {
                   </div>
                 </div>
 
-                <div className="font-light  text-neutral-500">
+                <div className="font-light  text-neutral-500 w-[300px]">
                   {card.location}
-                  {card.region}
                 </div>
+                <div className="font-light text-neutral-500">{card.region}</div>
                 <div className="flex gap-1">
                   {card.bedroomCount} <p className="text-neutral-500"> beds</p>
                 </div>

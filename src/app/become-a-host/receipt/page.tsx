@@ -21,7 +21,7 @@ export default function Receipt() {
     bedCount,
     guestsCount,
     description,
-    offerType,
+    offerTypes,
     roomType,
     type,
     location,
@@ -39,7 +39,7 @@ export default function Receipt() {
         guestsCount,
         bedCount,
         description,
-        offerType,
+        offerTypes,
         roomType,
         type,
         location,
@@ -52,7 +52,7 @@ export default function Receipt() {
   };
 
   return (
-    <div className="container mx-auto flex justify-center items-center pt-[150px]">
+    <div className="container mx-auto flex justify-center animate-fade-down items-center pt-80">
       <div className=" w-[850px] h-[480px] ">
         <h1 className="text-5xl font-medium mb-2">Review your listing</h1>
         <p className="font-light text-[#6A6A6A]">
@@ -105,7 +105,12 @@ export default function Receipt() {
           </div>
         </div>
       </div>
-      <button onClick={addListing}>Add list</button>
+      <button
+        className="w-[100px] mt-[500px] left-60 z-10 relative h-[48px] border p-2 flex items-center justify-center rounded-md text-white bg-gray-700 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
+        onClick={addListing}
+      >
+        next
+      </button>
     </div>
   );
 }
