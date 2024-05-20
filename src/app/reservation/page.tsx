@@ -83,7 +83,7 @@ export default function Reservation() {
                     color="neutral"
                     onClick={() => setOpenGuest(true)}
                   >
-                    Edit``
+                    Edit
                   </Button>
                   <Modal
                     aria-labelledby="modal-title"
