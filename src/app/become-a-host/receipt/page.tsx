@@ -1,6 +1,6 @@
 "use client";
-import ModalReceit from "@/components/Modal";
-import { AirCondition } from "@/components/icons/amenitiesIcons/AirCondition";
+import ModalReceit from "../../../components/Modal";
+// import { AirCondition } from "@/components/icons/amenitiesIcons/AirCondition";
 import { LuCalendarCheck } from "react-icons/lu";
 import { MdCalendarToday } from "react-icons/md";
 import axios from "axios";

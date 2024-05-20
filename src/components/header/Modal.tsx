@@ -11,22 +11,29 @@ import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import TypeOfPlace from './Modal/TypeOfPlace';
 import PriceRange from './Modal/PriceRange';
 import Chips from './Modal/Chips';
+import { useState } from 'react';
+import { bedroomCounts } from './Modal/Chips';
 
 export default function BasicModal() {
+  const [bedroomCount, setBedroomsCount] = useState<string | null>(null)
   const [open, setOpen] = React.useState<boolean>(false);
 
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
+  const handleBedroomCount = (count: string) => {
+    setBedroomsCount(count)
+  }
+
   const createQueryString = React.useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString())
-      params.append(name, value)
+      params.set(name, value)
 
       return params.toString()
     },
-    []
+    [searchParams]
   );
 
   return (
@@ -72,27 +79,60 @@ export default function BasicModal() {
                 <h1 className='text-xl font-bold mb-'>Rooms and beds</h1>
                 <div>
                   <p>Bedrooms</p>
-                  <div onClick={() => {
-                    router.push(pathname + '?' + createQueryString('Category', 'Bedrooms'))
-                  }} className=''>
-                    <Chips />
+                  <div  onClick={() => {
+                if (bedroomCount!== null) {
+                  router.push(pathname + '?' + createQueryString('Bedrooms', bedroomCount))
+                }
+              }}className=''>
+                    <div className='flex justify-between w-100%'>
+    <div className='cursor-pointer hover:border hover:border-black rounded-2xl py-2 px-3 bg-gray-100'>
+      <Chip>Any</Chip>
+    </div>
+    {bedroomCounts && Array.isArray(bedroomCounts) && bedroomCounts.map((count: number) => (
+  <div key={count} onClick={() => handleBedroomCount(count.toString())} className={`flex cursor-pointer hover:border hover:border-black rounded-2xl py-2 px-3 bg-gray-100`}>
+      <Chip>{count}</Chip>
+    </div>
+))}
+  </div>
                   </div>
 
                 </div>
                 <div>
                   <p>Beds</p>
                   <div onClick={() => {
-                    router.push(pathname + '?' + createQueryString('Category', 'Beds'))
-                  }} className=''>
-                    <Chips />
+                if (bedroomCount!== null) {
+                  router.push(pathname + '?' + createQueryString('Beds', bedroomCount))
+                }
+              }} className=''>
+                     <div className='flex justify-between w-100%'>
+    <div className='cursor-pointer hover:border hover:border-black rounded-2xl py-2 px-3 bg-gray-100'>
+      <Chip>Any</Chip>
+    </div>
+    {bedroomCounts && Array.isArray(bedroomCounts) && bedroomCounts.map((count: number) => (
+  <div key={count} onClick={() => handleBedroomCount(count.toString())} className={`flex cursor-pointer hover:border hover:border-black rounded-2xl py-2 px-3 bg-gray-100`}>
+      <Chip>{count}</Chip>
+    </div>
+))}
+  </div>
                   </div>
                 </div>
                 <div>
                   <p>Bathrooms</p>
                   <div onClick={() => {
-                    router.push(pathname + '?' + createQueryString('Category', 'Bathrooms'))
-                  }} className=''>
-                    <Chips />
+                if (bedroomCount!== null) {
+                  router.push(pathname + '?' + createQueryString('Bathrooms', bedroomCount))
+                }
+              }} className=''>
+                      <div className='flex justify-between w-100%'>
+    <div className='cursor-pointer hover:border hover:border-black rounded-2xl py-2 px-3 bg-gray-100'>
+      <Chip>Any</Chip>
+    </div>
+    {bedroomCounts && Array.isArray(bedroomCounts) && bedroomCounts.map((count: number) => (
+  <div key={count} onClick={() => handleBedroomCount(count.toString())} className={`flex cursor-pointer hover:border hover:border-black rounded-2xl py-2 px-3 bg-gray-100`}>
+      <Chip>{count}</Chip>
+    </div>
+))}
+  </div>
                   </div>
                 </div>
               </div>

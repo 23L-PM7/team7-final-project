@@ -7,7 +7,7 @@ import MenuItem from "@mui/joy/MenuItem";
 import MoreVert from "@mui/icons-material/MoreVert";
 import { useState } from "react";
 import { log } from "console";
-import { useBecomeHost } from "@/app/become-a-host/store";
+import { useBecomeHost } from "../../app/become-a-host/store";
 
 export default function Dropdownn() {
   const { image, setImage } = useBecomeHost();

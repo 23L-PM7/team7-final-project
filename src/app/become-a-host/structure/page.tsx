@@ -1,16 +1,16 @@
 "use client";
 
-import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+// import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import React, { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
-import { House } from "@/components/icons/amenitiesIcons/House";
-import { Ger } from "@/components/icons/Ger";
-import { TopCity } from "@/components/icons/TopSities";
-import { CountrySide } from "@/components/icons/CountrySide";
-import { Rooms } from "@/components/icons/Rooms";
-import { Lake } from "@/components/icons/Lake";
-import { Farms } from "@/components/icons/Farms";
+import { House } from "../../../components/icons/amenitiesIcons/House";
+import { Ger } from "../../../components/icons/Ger";
+import { TopCity } from "../../../components/icons/TopSities";
+import { CountrySide } from "../../../components/icons/CountrySide";
+import { Rooms } from "../../../components/icons/Rooms";
+import { Lake } from "../../../components/icons/Lake";
+import { Farms } from "../../../components/icons/Farms";
 
 type Place = {
   image: JSX.Element;

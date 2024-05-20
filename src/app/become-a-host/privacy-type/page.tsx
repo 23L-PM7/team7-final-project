@@ -1,8 +1,8 @@
 "use client";
 
-import { House } from "@/components/icons/amenitiesIcons/House";
-import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { House } from "../../../components/icons/amenitiesIcons/House";
+import { Kitchen } from "../../../components/icons/amenitiesIcons/Kitchen";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import React, { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
 

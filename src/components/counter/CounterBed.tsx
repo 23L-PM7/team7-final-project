@@ -1,4 +1,4 @@
-import { useBecomeHost } from "@/app/become-a-host/store";
+import { useBecomeHost } from "../../app/become-a-host/store";
 import { useEffect, useState } from "react";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";

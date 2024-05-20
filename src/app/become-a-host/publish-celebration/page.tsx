@@ -1,4 +1,4 @@
-import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
+// import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
 
 export default function PublishCelebration() {
   return (
