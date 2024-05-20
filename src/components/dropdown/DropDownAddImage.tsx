@@ -7,18 +7,20 @@ import ListDivider from "@mui/joy/ListDivider";
 import MoreVert from "@mui/icons-material/MoreVert";
 import MenuButton from "@mui/joy/MenuButton";
 import Dropdown from "@mui/joy/Dropdown";
+import { Toaster, toast } from "sonner";
 
 export default function DropdownAddImage() {
-  const { image1, setImage1 } = useBecomeHost();
+  const { image4, setImage4 } = useBecomeHost();
   function deletePhoto() {
     if (window.confirm("Are you sure delete this photo?")) {
-      setImage1("");
-      console.log("HEllo");
+      toast.error("Event has not been created");
+      setImage4("");
       return;
     }
   }
   return (
     <Dropdown>
+      <Toaster richColors />
       <MenuButton
         slots={{ root: IconButton }}
         slotProps={{ root: { variant: "soft", color: "neutral" } }}
