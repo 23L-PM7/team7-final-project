@@ -48,7 +48,7 @@ export default function Structure() {
 
   return (
     <>
-      <div className="h-[1400px] container mx-auto animate-fade-down  w-[700px] pt-32 ">
+      <div className="h-[1400px] container mx-auto animate-fade-down  w-[700px] pt-72 ">
         <h1 className="text-3xl font-semibold mb-3 ">
           Which of these best describes your place?
         </h1>

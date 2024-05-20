@@ -11,7 +11,7 @@ export default function StandOut() {
   }, []);
 
   return (
-    <div className="container mx-auto pt-32 animate-fade-up">
+    <div className="container mx-auto pt-20 animate-fade-up">
       <div className=" flex gap-40 p-10  justify-center items-center">
         <div className=" mt-64 ">
           <p className="text-lg font-medium mb-[16px]">Step 2</p>
