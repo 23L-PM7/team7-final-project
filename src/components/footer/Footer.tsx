@@ -1,4 +1,3 @@
-import { AiFillVideoCamera } from "react-icons/ai";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FaSquareTwitter } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
@@ -7,7 +6,7 @@ import { RiGlobalLine } from "react-icons/ri";
 const Footer = () => {
   return (
     <div className="relative">
-      <footer className="fixed left-0 right-0 bottom-0 bg-slate-100 z-10">
+      <div className="fixed left-0 right-0 bottom-0 bg-slate-100 z-10">
         <div className=" mx-auto w-[1280px] h-[69px] flex justify-between items-center px-40">
           <div className="flex">
             <h3 className="mr-5">© 2024 Airbnb, Inc.</h3>
@@ -30,7 +29,7 @@ const Footer = () => {
             <FaSquareInstagram className="w-6 h-6" />
           </div>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };
