@@ -1,7 +1,7 @@
 "use client";
 
-import { GuestsCounter } from "@/components/counter/GuestsCounter";
-import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
+import { GuestsCounter } from "../../../components/counter/GuestsCounter";
+// import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
 
 export default function Guests() {
   return (

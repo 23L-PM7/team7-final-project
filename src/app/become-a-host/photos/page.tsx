@@ -1,16 +1,16 @@
 "use client";
 
-import { UploadFile, UploadFileMore } from "@/components/UploadFile";
-import { PhotoSvg } from "@/components/icons/amenitiesIcons/PhotoSvg";
-import { ImageField } from "@/components/imageField/ImageField";
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { UploadFile , UploadFileMore } from "../../../components/UploadFile";
+import { PhotoSvg } from "../../../components/icons/amenitiesIcons/PhotoSvg";
+import { ImageField } from "../../../components/imageField/ImageField";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
-import Dropdown1 from "@/components/dropdown/DropDown1";
-import Dropdownn from "@/components/dropdown/DropDownn";
-import DropdownAddImage from "@/components/dropdown/DropDownAddImage";
-import DropDown2SS from "@/components/dropdown/DropDown2SS";
-import Dropdown3 from "@/components/dropdown/DropDown3";
+import Dropdown1 from "../../../components/dropdown/DropDown1";
+import Dropdownn from "../../../components/dropdown/DropDownn";
+import DropdownAddImage from "../../../components/dropdown/DropDownAddImage";
+import DropDown2SS from "../../../components/dropdown/DropDown2SS";
+import Dropdown3 from "../../../components/dropdown/DropDown3";
 import { Toaster } from "sonner";
 
 export default function ListPhoto() {
