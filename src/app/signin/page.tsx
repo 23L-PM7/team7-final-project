@@ -29,6 +29,7 @@ export default function SignIn() {
   const SignUp = () => {
     router.push("/signup");
   };
+  
   return (
     <div className="w-[600px] h-[500px] mx-auto">
       <Box
