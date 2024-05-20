@@ -2,7 +2,6 @@
 
 import { AirCondition } from "@/components/icons/amenitiesIcons/AirCondition";
 import { Car } from "@/components/icons/amenitiesIcons/Car";
-import { House } from "@/components/icons/amenitiesIcons/House";
 import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
 import { Parking } from "@/components/icons/amenitiesIcons/Parking";
 import { TV } from "@/components/icons/amenitiesIcons/Tv";
