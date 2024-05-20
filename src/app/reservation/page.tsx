@@ -14,7 +14,7 @@ import { AiFillFacebook } from "react-icons/ai";
 import { MdOutlineMail } from "react-icons/md";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
-import BasicDateRangeCalendar from "@/components/reservation/datePicker";
+// import BasicDateRangeCalendar from "@/components/reservation/datePicker";
 
 export default function Reservation() {
   // const [variant, setVariant] = React.useState<VariantProp>("solid");
@@ -65,7 +65,7 @@ export default function Reservation() {
                         boxShadow: "lg",
                       }}
                     >
-                      <BasicDateRangeCalendar />
+                      {/* <BasicDateRangeCalendar /> */}
                     </Sheet>
                   </Modal>
                 </React.Fragment>
