@@ -11,7 +11,7 @@ import { FaSquareWhatsapp } from "react-icons/fa6";
 import { BiSolidMessageSquareDetail } from "react-icons/bi";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { useBecomeHost } from "@/app/become-a-host/store";
+import { useBecomeHost } from "../../app/become-a-host/store";
 
 export function ShareButton() {
   const [open, setOpen] = React.useState<boolean>(false);

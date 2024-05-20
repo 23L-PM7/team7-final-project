@@ -13,7 +13,7 @@ export default function TypeOfPlace(){
       
           return params.toString()
         },
-        [] // Empty dependency array
+        [searchParams]
       );
     return <div className='flex flex-col'>
 <div className='border-b-2'>

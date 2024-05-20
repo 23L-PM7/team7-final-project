@@ -26,7 +26,7 @@ export default function Chips() {
 
       return params.toString()
     },
-    []
+    [searchParams]
   );
 
   const handleBedroomCount = (count: string) => {
