@@ -31,41 +31,41 @@ const Map = () =>{
         </MenuButton>
             <Menu className="w-100% p-8 flex flex-col rounded-xl gap-3">
               <h1 className="text-lg font-semibold">Search by region</h1>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 ">
               <Link href={pathname + '?' + createQueryString('map', 'huvsgul')}>
           <Image
       alt="Airbnb"
-      className="hidden cursor-pointer md:block border border-gray-400"
+      className="hidden rounded-lg cursor-pointer md:block border border-gray-400"
       height={300}
       width={300}
-      src="/images/logo.png"
+      src="/images/Central Mongolia 1.JPG"
     />
           </Link> 
           <Link href={pathname + '?' + createQueryString('map', 'omnogovi')}>
           <Image
       alt="Airbnb"
-      className="hidden cursor-pointer md:block"
+      className="hidden rounded-lg cursor-pointer md:block"
       height={300}
       width={300}
-      src="/images/logo.png"
+      src="/images/Eastern Mongolia 1.JPG"
     />
           </Link> 
           <Link href={pathname + '?' + createQueryString('map', 'suhbaatar')}>
           <Image
       alt="Airbnb"
-      className="hidden cursor-pointer md:block"
+      className="hidden rounded-lg cursor-pointer md:block"
       height={300}
       width={300}
-      src="/images/logo.png"
+      src="/images/Montane Mongolia 1.JPG"
     />
           </Link> 
           <Link href={pathname + '?' + createQueryString('map', 'bayan olgii')}>
           <Image
       alt="Airbnb"
-      className="hidden cursor-pointer md:block"
+      className="hidden rounded-lg cursor-pointer md:block"
       height={300}
       width={300}
-      src="/images/logo.png"
+      src="/images/Western Mongolia 1.JPG"
     />
           </Link> 
               </div>
