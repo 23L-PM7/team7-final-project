@@ -1,7 +1,7 @@
 "use client";
 
 import { useBecomeHost } from "../store";
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import { useEffect } from "react";
 
 export default function Description() {

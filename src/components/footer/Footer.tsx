@@ -1,4 +1,3 @@
-import { AiFillVideoCamera } from "react-icons/ai";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FaSquareTwitter } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
@@ -16,7 +15,11 @@ const Footer = () => {
             <li>Privacy</li>
             <li>Your Privacy Choices</li>
           </ul>
+
         </div>
+
+        </div>
+
         <div className="relative">
           <div className="fixed left-0 right-0 bottom-0 bg-slate-100 z-10">
             <div className=" mx-auto w-[1280px] h-[69px] flex justify-between items-center px-40">

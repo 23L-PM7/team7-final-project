@@ -11,7 +11,7 @@ import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import ModalDialog, { ModalDialogProps } from "@mui/joy/ModalDialog";
 import DialogTitle from "@mui/joy/DialogTitle";
-import { useBecomeHost } from "@/app/become-a-host/store";
+import { useBecomeHost } from "../app/become-a-host/store";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";

@@ -1,3 +1,4 @@
+"use client"
 import * as React from "react";
 import Button from "@mui/joy/Button";
 import Modal from "@mui/joy/Modal";
@@ -8,17 +9,9 @@ import { FaRegHeart } from "react-icons/fa";
 import Input from "@mui/joy/Input";
 import Stack from "@mui/joy/Stack";
 import Divider from "@mui/material/Divider";
-import { useState } from "react";
 
 export function HeartButton() {
   const [open, setOpen] = React.useState<boolean>(false);
-  const [name, setName] = useState("");
-  const [count, setCount] = useState("");
-
-  function deleteAll() {
-    setName("");
-    return;
-  }
   return (
     <React.Fragment>
       <div onClick={() => setOpen(true)}>
@@ -57,19 +50,13 @@ export function HeartButton() {
           <div className="divider"></div>
 
           <Stack spacing={1}>
-            <Input
-              value={count}
-              size="lg"
-              onChange={(event) => setCount(event.target.value)}
-              placeholder="Name"
-              className="w-full"
-            />
+            <Input size="lg" placeholder="Name" className="w-full" />
           </Stack>
-          <p className="font-light text-neutral-500"> /50 characters</p>
-          <div className="divider m-0"></div>
-
+          <p className="font-light text-neutral-500"> 0/50 characters</p>
+          {/* <div className="divider m-0"></div> */}
+          <Divider />
           <div className="flex justify-between">
-            <button onClick={deleteAll}>Clear</button>
+            <button>Clear</button>
             <button className="border p-2 max-w-32 rounded bg-gray-500 hover:bg-black text-white">
               Create
             </button>

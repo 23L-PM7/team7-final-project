@@ -5,10 +5,10 @@ import Select, { selectClasses } from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
-import { Map } from "@/components/Map";
+import { Map } from "../../../components/Map";
 
 export default function Location() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
