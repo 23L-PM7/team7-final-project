@@ -1,7 +1,7 @@
 "use client";
 
-import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+// import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import { useEffect } from "react";
 
 export default function AboutYourPlace() {

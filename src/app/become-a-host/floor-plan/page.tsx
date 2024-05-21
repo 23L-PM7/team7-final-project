@@ -1,9 +1,9 @@
 "use client";
 
-import { CounterBathrooms } from "@/components/counter/CounterBathrooms";
-import { CounterBed } from "@/components/counter/CounterBed";
-import { CounterBedrooms } from "@/components/counter/CounterBedrooms";
-import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
+import { CounterBathrooms } from "../../../components/counter/CounterBathrooms";
+import { CounterBed } from "../../../components/counter/CounterBed";
+import { CounterBedrooms } from "../../../components/counter/CounterBedrooms";
+import { Kitchen } from "../../../components/icons/amenitiesIcons/Kitchen";
 
 export default function FloorPaln() {
   return (

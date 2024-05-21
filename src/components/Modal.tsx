@@ -11,7 +11,7 @@ import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import ModalDialog, { ModalDialogProps } from "@mui/joy/ModalDialog";
 import DialogTitle from "@mui/joy/DialogTitle";
-import { useBecomeHost } from "@/app/become-a-host/store";
+import { useBecomeHost } from "../app/become-a-host/store";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
@@ -38,6 +38,9 @@ import { Ratio } from "./icons/amenitiesIcons/Ratio";
 import { Lake } from "./icons/amenitiesIcons/Lake";
 import { Shower } from "./icons/amenitiesIcons/Shower";
 import { WiFi } from "./icons/amenitiesIcons/Wifa";
+import { SmokeAlarm } from "./icons/amenitiesIcons/SmokeAlarm";
+import { FirstAidKit } from "./icons/amenitiesIcons/FirstAidKit";
+import { Fire } from "./icons/amenitiesIcons/Fire";
 
 export default function ModalReceit() {
   const [cards, setCards] = useState([]);
@@ -214,4 +217,7 @@ const icons: any = {
   Patio: <Ratio />,
   "Lake access": <Lake />,
   "Outdoor shower": <Shower />,
+  "Smoke alarm": <SmokeAlarm />,
+  "First aid kit": <FirstAidKit />,
+  "Fire extinguisher": <Fire />,
 };

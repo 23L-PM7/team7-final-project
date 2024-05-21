@@ -1,7 +1,7 @@
 "use client";
 import { MdExpandMore } from "react-icons/md";
 
-import { PriceCounter } from "@/components/PriceCounter";
+import { PriceCounter } from "../../../components/PriceCounter";
 
 export default function Price() {
   return (

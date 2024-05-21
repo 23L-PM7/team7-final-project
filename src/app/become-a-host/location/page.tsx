@@ -5,10 +5,10 @@ import Select, { selectClasses } from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
-import { Map } from "@/components/Map";
+import { Map } from "../../../components/Map";
 
 export default function Location() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
@@ -28,7 +28,7 @@ export default function Location() {
   }
 
   return (
-    <div className="container mx-auto flex justify-center items-center pt-[373px]">
+    <div className="container mx-auto flex justify-center items-center pt-28">
       <div className=" w-[630px]  ">
         <h1 className="text-3xl font-medium mb-2">
           Where's your place located?

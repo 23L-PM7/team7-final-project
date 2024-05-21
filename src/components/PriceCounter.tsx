@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNextButtonClickable } from "./newListHeaderFooter/ProgressFooter";
-import { useBecomeHost } from "@/app/become-a-host/store";
+import { useBecomeHost } from "../app/become-a-host/store";
 
 export function PriceCounter() {
   const { setNextButtonClickable }: any = useNextButtonClickable();

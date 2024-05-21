@@ -11,7 +11,7 @@ import { FaSquareWhatsapp } from "react-icons/fa6";
 import { BiSolidMessageSquareDetail } from "react-icons/bi";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { useBecomeHost } from "@/app/become-a-host/store";
+import { useBecomeHost } from "../../app/become-a-host/store";
 
 export function ShareButton() {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -22,7 +22,7 @@ export function ShareButton() {
       <div onClick={() => setOpen(true)}>
         <div className="text-white text-xl relative hover:opacity-80 transition cursor-pointer">
           {/* <FaRegHeart /> */}
-          <div className="border rounded-full p-2 bg-white text-black">
+          <div className="border rounded-full p-2 bg-white ">
             <IoShareOutline />
           </div>
         </div>
