@@ -94,14 +94,9 @@ export function HomePageCards() {
                 </div>
                 <div className="font-light  text-neutral-500"></div>
                 <div className="flex gap-3">
-<<<<<<< HEAD
-                  <div className=" text-md"></div>
-                  <div className="font-medium">${card.price} nights</div>
-=======
                   <div className="font-medium flex gap-1">
                     ${card.price} <p className="text-neutral-500">nights</p>
                   </div>
->>>>>>> main
                   <div className="text-black text-md"></div>
                 </div>
               </div>
