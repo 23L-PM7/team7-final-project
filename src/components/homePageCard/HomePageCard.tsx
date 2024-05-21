@@ -4,6 +4,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { images } from "../../lib/images";
 import React, { useEffect, useState } from "react";
 import { ShareButton } from "./ShareButton";
 import axios from "axios";
@@ -90,9 +91,14 @@ export function HomePageCards() {
                 </div>
                 <div className="font-light  text-neutral-500"></div>
                 <div className="flex gap-3">
+<<<<<<< HEAD
+                  <div className=" text-md"></div>
+                  <div className="font-medium">${card.price} nights</div>
+=======
                   <div className="font-medium flex gap-1">
                     ${card.price} <p className="text-neutral-500">nights</p>
                   </div>
+>>>>>>> main
                   <div className="text-black text-md"></div>
                 </div>
               </div>
