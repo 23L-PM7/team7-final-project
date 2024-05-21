@@ -1,10 +1,15 @@
+"use client"
+
 import { create } from "zustand";
-import dayjs from "dayjs";
+import * as React from 'react';
+import { DateRange } from '@mui/x-date-pickers-pro/models';
+import dayjs, { Dayjs } from 'dayjs';
+import { useState } from "react";
 
 // for reservation dates
 
 export const useDate = create((set) => ({
-  date: [dayjs("2022-05-15"), dayjs("2022-05-15")],
+  date: [dayjs(Date.now()), dayjs(Date.now())],
   setDate: (newDate: Date) => set(() => ({ date: newDate })),
 }));
 
