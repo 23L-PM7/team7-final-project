@@ -7,19 +7,19 @@ import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
-import { Cleanliness } from "@/components/icons/review/cleanliness";
-import { Accuracy } from "@/components/icons/review/accuracy";
-import { CheckIn } from "@/components/icons/review/checkIn";
-import { Communication } from "@/components/icons/review/communication";
-import { Location } from "@/components/icons/review/location";
-import { Value } from "@/components/icons/review/value";
-import { Rating } from "@/components/icons/review/rating";
 
 // most recent menu
 
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Fade from "@mui/material/Fade";
+import { Cleanliness } from "../icons/review/cleanliness";
+import { Accuracy } from "../icons/review/accuracy";
+import { CheckIn } from "../icons/review/checkIn";
+import { Communication } from "../icons/review/communication";
+import { Location } from "../icons/review/location";
+import { Value } from "../icons/review/value";
+import { Rating } from "../icons/review/rating";
 
 export default function Review() {
   const [open, setOpen] = React.useState<boolean>(false);

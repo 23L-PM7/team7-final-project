@@ -1,7 +1,5 @@
-import { CategoryBoxProps } from "@/types";
-
-const CategoryBox = ({ icon: Icon, label, selected }: CategoryBoxProps) => {
-return (
+const CategoryBox = ({ icon: Icon, label, selected }: any) => {
+  return (
     <div
       className={`flex flex-col items-center justify-center gap-2 pt-3 border-b-2 hover:text-neutral-800 transition ${
         selected ? "text-neutral-800" : "text-neutral-500"

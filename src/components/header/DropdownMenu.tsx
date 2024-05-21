@@ -1,7 +1,4 @@
-
-
-
-const DropdownMenu = ({ items }) => {
+const DropdownMenu = ({ items }: { items: string[] }) => {
   return (
     <div className="bg-white shadow-md rounded-md p-2 absolute top-full left-0 w-48">
       {items.map((item, index) => (

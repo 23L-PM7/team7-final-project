@@ -8,18 +8,22 @@ import {
   GiCactus,
   GiCaveEntrance,
   GiForestCamp,
-  GiCampingTent
+  GiCampingTent,
 } from "react-icons/gi";
-import { FaSkiing , FaHotel } from "react-icons/fa";
-import { BsSnow, BsTicketPerforatedFill} from "react-icons/bs";
-import { MdOutlineVilla , MdBedroomParent , MdMuseum } from "react-icons/md";
+import { FaSkiing, FaHotel } from "react-icons/fa";
+import { BsSnow, BsTicketPerforatedFill } from "react-icons/bs";
+import { MdOutlineVilla, MdBedroomParent, MdMuseum } from "react-icons/md";
 import { motion } from "framer-motion";
 
 import Container from "../Container";
 import CategoryBox from "../CategoryBox";
-import { Category } from "@/types";
+import { IconType } from "react-icons";
 
-export const categories: Category[] = [
+export const categories: {
+  label: string;
+  icon: IconType;
+  description: string;
+}[] = [
   {
     label: "Icons",
     icon: BsTicketPerforatedFill,
@@ -110,32 +114,34 @@ const Filter = () => {
   }
 
   return (
-   <motion.div className="box"
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{
-      duration: 0.9,
-      ease: [0, 0.50, 0.2, 0.70],
-      scale: {
-        type: "spring",
-        damping: 5,
-        stiffness: 100,
-        restDelta: 0.001
-      }
-    }}>
-  <Container>
-      <div className="flex flex-row gap-6 items-center cursor-pointer justify-between overflow-x-auto">
-        {categories.map(({ icon, label }) => (
-          <CategoryBox
-            key={label}
-            label={label}
-            icon={icon}
-            selected={category == label}
-          />
-        ))}
-      </div>
-    </Container>
-   </motion.div>
+    <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.9,
+        ease: [0, 0.5, 0.2, 0.7],
+        scale: {
+          type: "spring",
+          damping: 5,
+          stiffness: 100,
+          restDelta: 0.001,
+        },
+      }}
+    >
+      <Container>
+        <div className="flex flex-row gap-6 items-center cursor-pointer justify-between overflow-x-auto">
+          {categories.map(({ icon, label }) => (
+            <CategoryBox
+              key={label}
+              label={label}
+              icon={icon}
+              selected={category == label}
+            />
+          ))}
+        </div>
+      </Container>
+    </motion.div>
   );
 };
 
