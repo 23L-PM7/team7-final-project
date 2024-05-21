@@ -1,12 +1,12 @@
-"use client"
+"use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "../components/header/Navbar";
-import { LicenseInfo } from '@mui/x-license';
+import { LicenseInfo } from "@mui/x-license";
 import { motion } from "framer-motion";
 
-LicenseInfo.setLicenseKey('YOUR_LICENSE_KEY');
+LicenseInfo.setLicenseKey("YOUR_LICENSE_KEY");
 import Footer from "../components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,9 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-[1400px]">
       <body className={inter.className}>
-        <NavBar />
+        {/* <NavBar /> */}
         {children}
-        <Footer />    
+        {/* <Footer />     */}
       </body>
     </html>
   );
