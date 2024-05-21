@@ -4,6 +4,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { images } from "../../lib/images";
 import React, { useEffect, useState } from "react";
 import { ShareButton } from "./ShareButton";
 import axios from "axios";
@@ -72,7 +73,10 @@ export function HomePageCards() {
                 <ShareButton />
               </div>
 
-              <div className="flex flex-col justify-start items-start " onClick={() => pushToListing(card._id)}>
+              <div
+                className="flex flex-col justify-start items-start "
+                onClick={() => pushToListing(card._id)}
+              >
                 <div className="flex justify-between">
                   <div className="font-semibold text-lg w-60">{card.title}</div>
                   <div className="flex gap-2 items-center">
@@ -90,9 +94,14 @@ export function HomePageCards() {
                 </div>
                 <div className="font-light  text-neutral-500"></div>
                 <div className="flex gap-3">
+<<<<<<< HEAD
+                  <div className=" text-md"></div>
+                  <div className="font-medium">${card.price} nights</div>
+=======
                   <div className="font-medium flex gap-1">
                     ${card.price} <p className="text-neutral-500">nights</p>
                   </div>
+>>>>>>> main
                   <div className="text-black text-md"></div>
                 </div>
               </div>

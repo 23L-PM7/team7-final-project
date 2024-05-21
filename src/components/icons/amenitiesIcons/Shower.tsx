@@ -8,7 +8,7 @@ export function Shower() {
       width="45"
       height="45"
       preserveAspectRatio="xMidYMid meet"
-      className="w-[45px] h-[45px]"
+      className="w-[45px] h-[45px] visible"
     >
       <defs id="l_d_1141">
         <clipPath id="__lottie_element_471">
