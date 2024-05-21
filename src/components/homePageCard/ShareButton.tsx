@@ -11,16 +11,11 @@ import { FaSquareWhatsapp } from "react-icons/fa6";
 import { BiSolidMessageSquareDetail } from "react-icons/bi";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { useBecomeHost } from "../../app/become-a-host/store";
 
 export function ShareButton() {
   const [open, setOpen] = React.useState<boolean>(false);
-  const [name, setName] = useState("");
-  const [count, setCount] = useState("");
-
-  function deleteAll() {
-    setName("");
-    return;
-  }
+  const { image, setImage } = useBecomeHost();
 
   return (
     <React.Fragment>
@@ -57,11 +52,7 @@ export function ShareButton() {
           <ModalClose variant="plain" sx={{ m: 0 }} />
           <h1 className="text-2xl font-semibold">Share this experience</h1>
           <div className="flex gap-4 items-center mt-5">
-            <img
-              className="w-[64px] h-[64px] rounded-md"
-              src="images/villa.webp"
-              alt=""
-            />
+            <img className="w-[64px] h-[64px] rounded-md" src={image} alt="" />
             <p>Crash at the X-Mansion</p>
           </div>
           <div className="grid grid-cols-2 text-xl gap-3 mt-5">

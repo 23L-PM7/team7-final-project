@@ -1,8 +1,8 @@
 "use client";
 
-import { House } from "@/components/icons/amenitiesIcons/House";
-import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { House } from "../../../components/icons/amenitiesIcons/House";
+import { Kitchen } from "../../../components/icons/amenitiesIcons/Kitchen";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import React, { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
 
@@ -53,7 +53,7 @@ export default function PrivacyType() {
   }, [roomType]);
 
   return (
-    <div className="container mx-auto flex justify-center items-center pt-72">
+    <div className="container mx-auto flex justify-center items-center pt-72 animate-fade-down">
       <div className=" w-[630px] h-[480px] ">
         <h1 className="text-3xl font-medium mb-9">
           What type of place will guests have?
@@ -63,7 +63,7 @@ export default function PrivacyType() {
             onClick={() => handleSelectPlace(place)}
             className={`${
               roomType === place.id
-                ? "bg-slate-100 border-black border-2 "
+                ? "bg-[#F7F7F7] border-black border-2 "
                 : "bg-white"
             } hover:border-black border rounded-xl h-[96px] mb-4 flex justify-between p-5`}
           >

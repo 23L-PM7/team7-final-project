@@ -8,29 +8,41 @@ import { images } from "../../lib/images";
 import React, { useEffect, useState } from "react";
 import { ShareButton } from "./ShareButton";
 import axios from "axios";
+import { IoStarSharp } from "react-icons/io5";
+import { Loading } from "../Loading";
 import { HeartButton } from "./HeartButton";
+import { useRouter } from "next/navigation";
 
 export function HomePageCards() {
   const [cards, setCards] = useState([]);
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
 
   function fetchCards() {
+    setLoading(true);
     axios
       .get("http://localhost:3000/api/listing")
       .then((cards) => setCards(cards.data));
+    setLoading(false);
   }
 
   useEffect(() => {
     fetchCards();
   }, []);
 
+  const pushToListing = (_id: string) => {
+    router.push(`/rooms/${_id}`);
+  };
   console.log({ cards });
+
+  if (loading) return <Loading />;
 
   return (
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
-        <div className="grid mt-32 grid-cols-1 sm:grid-cols-2 md:grid-cols-6 mx-auto gap-10">
+        <div className="grid mt-32  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 mx-auto gap-10">
           {cards.map((card: any, index) => (
-            <div key={index} className="flex flex-col  relative">
+            <div key={card._id} className="flex flex-col  relative">
               <Swiper
                 cssMode={true}
                 navigation={true}
@@ -56,19 +68,37 @@ export function HomePageCards() {
                   ))}
               </Swiper>
 
-              <div className="absolute top-3 right-8 z-10">
+              <div className="absolute top-3  right-3 z-10">
                 {/* <HeartButton /> */}
                 <ShareButton />
               </div>
 
-              <div className="flex flex-col justify-start items-start ">
-                <div className="font-semibold text-lg ">{card.title}</div>
-                <div className="font-light text-neutral-500">
-                  {card.createdAt}
+              <div className="flex flex-col justify-start items-start " onClick={() => pushToListing(card._id)}>
+                <div className="flex justify-between">
+                  <div className="font-semibold text-lg w-60">{card.title}</div>
+                  <div className="flex gap-2 items-center">
+                    <IoStarSharp />
+                    4.33
+                  </div>
                 </div>
+
+                <div className="font-light  text-neutral-500 w-[300px]">
+                  {card.location}
+                </div>
+                <div className="font-light text-neutral-500">{card.region}</div>
+                <div className="flex gap-1">
+                  {card.bedroomCount} <p className="text-neutral-500"> beds</p>
+                </div>
+                <div className="font-light  text-neutral-500"></div>
                 <div className="flex gap-3">
+<<<<<<< HEAD
                   <div className=" text-md"></div>
                   <div className="font-medium">${card.price} nights</div>
+=======
+                  <div className="font-medium flex gap-1">
+                    ${card.price} <p className="text-neutral-500">nights</p>
+                  </div>
+>>>>>>> main
                   <div className="text-black text-md"></div>
                 </div>
               </div>

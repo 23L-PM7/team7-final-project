@@ -1,6 +1,6 @@
 "use client";
 
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
 
@@ -16,7 +16,7 @@ export default function Title() {
   }, [title]);
 
   return (
-    <div className="container mx-auto flex justify-center items-center pt-[373px]">
+    <div className="container mx-auto flex justify-center items-center animate-fade-up pt-[373px]">
       <div className=" w-[630px] h-[480px] ">
         <h1 className="text-3xl font-medium mb-2">
           Now, let's give your boat a title

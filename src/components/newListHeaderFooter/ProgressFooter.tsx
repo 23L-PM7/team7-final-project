@@ -20,6 +20,7 @@ const stepValues = [
   "floor-plan",
   "guests",
   "stand-out",
+  "location",
   "amenities",
   "photos",
   "title",
@@ -39,7 +40,7 @@ export function ProgressFooter() {
   const percentage = ((index + 1) / stepValues.length) * 100;
   console.log({ currentPath, index, percentage });
 
-  const { nextButtonClickable, setNextButtonClickable } =
+  const { nextButtonClickable, setNextButtonClickable }: any =
     useNextButtonClickable();
 
   if (pathname === undefined) {
@@ -49,13 +50,16 @@ export function ProgressFooter() {
   return (
     <div className="relative">
       <div className="fixed left-0 right-0 bottom-0 bg-white">
-        <Stack spacing={2} sx={{ flex: 1 }}>
-          <LinearProgress color="neutral" determinate value={percentage} />
-        </Stack>
+        <div className="h-2 rounded- w-full bg-gray-200">
+          <div
+            className="h-2 bg-slate-800 rounded-full transition-all duration-1000"
+            style={{ width: `${percentage}%` }}
+          ></div>
+        </div>
         <div className="flex sticky bottom-0 justify-between pl-10 p-4 pr-10">
           <a
             href={`/become-a-host/${stepValues[index - 1]}`}
-            className="font-semibold rounded flex justify-center items-center hover:bg-slate-200 h-8 p-2"
+            className="font-semibold rounded flex justify-center  items-center hover:bg-slate-200 h-8 p-2"
           >
             Back
           </a>

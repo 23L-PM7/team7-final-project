@@ -1,8 +1,8 @@
 import { useState } from "react";
 import * as React from "react";
 import Button from "@mui/joy/Button";
-import SvgIcon from "@mui/joy/SvgIcon";
 import { Typography, styled } from "@mui/joy";
+import { Toaster, toast } from "sonner";
 
 const VisuallyHiddenInput = styled("input")`
   clip: rect(0 0 0 0);
@@ -39,14 +39,17 @@ export function ImageField({ value, onChange }: any) {
       if (res.ok) {
         const { secure_url } = await res.json();
         onChange(secure_url);
+        toast.success("Event has been created");
         setUploading(false);
       }
     } catch (e) {
       alert("An Error Occured While Uploading");
     }
   }
+
   return (
     <div>
+      <Toaster richColors />
       {uploading && (
         <div className="flex justify-center items-center gap-3">
           <span className="loading loading-dots loading-lg"></span>UPLOADING
@@ -57,8 +60,8 @@ export function ImageField({ value, onChange }: any) {
         component="label"
         role={undefined}
         tabIndex={-1}
-        variant="contained"
         color="neutral"
+        variant="plain"
       >
         <Typography
           sx={{

@@ -1,17 +1,17 @@
 "use client";
 
-import { UploadFile, UploadFileMore } from "@/components/UploadFile";
-import { PhotoSvg } from "@/components/icons/amenitiesIcons/PhotoSvg";
-import { ImageField } from "@/components/imageField/ImageField";
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+import { UploadFile , UploadFileMore } from "../../../components/UploadFile";
+import { PhotoSvg } from "../../../components/icons/amenitiesIcons/PhotoSvg";
+import { ImageField } from "../../../components/imageField/ImageField";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import { useEffect, useState } from "react";
-import BecomeHost from "../page";
 import { useBecomeHost } from "../store";
-import Dropdown2 from "@/components/dropdown/DropDown1";
-import Dropdown3 from "@/components/dropdown/DropDown2";
-import Dropdown4 from "@/components/dropdown/DropDown3";
-import Dropdown1 from "@/components/dropdown/DropDown1";
-import Dropdownn from "@/components/dropdown/DropDownn";
+import Dropdown1 from "../../../components/dropdown/DropDown1";
+import Dropdownn from "../../../components/dropdown/DropDownn";
+import DropdownAddImage from "../../../components/dropdown/DropDownAddImage";
+import DropDown2SS from "../../../components/dropdown/DropDown2SS";
+import Dropdown3 from "../../../components/dropdown/DropDown3";
+import { Toaster } from "sonner";
 
 export default function ListPhoto() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
@@ -37,7 +37,7 @@ export default function ListPhoto() {
     <div
       className={` ${
         image && "h-[1500px] pt-32"
-      } h-[1000px] container mx-auto pt-48 w-[700px]`}
+      } h-[1000px] container mx-auto pt-48 w-[700px] animate-fade-up`}
     >
       {!image && (
         <div>
@@ -106,7 +106,7 @@ export default function ListPhoto() {
             {image1 && (
               <div className="flex justify-between">
                 <div className="absolute top-4 right-4 z-10">
-                  <Dropdown2 />
+                  <Dropdown1 />
                 </div>
               </div>
             )}
@@ -123,7 +123,7 @@ export default function ListPhoto() {
             {image2 && (
               <div className="flex justify-between">
                 <div className="absolute top-4 right-4 z-10">
-                  <Dropdown3 />
+                  <DropDown2SS />
                 </div>
               </div>
             )}
@@ -140,19 +140,28 @@ export default function ListPhoto() {
             {image3 && (
               <div className="flex justify-between">
                 <div className="absolute top-4 right-4 z-10">
-                  <Dropdown4 />
+                  <Dropdown3 />
                 </div>
               </div>
             )}
           </div>
-          {!image4 && <UploadFileMore value={image4} onChange={setImage4} />}
-          {image4 && (
-            <img
-              alt=""
-              src={image4}
-              className="w-[342px] h-[228px] rounded-md"
-            />
-          )}
+          <div className="relative">
+            {!image4 && <UploadFileMore value={image4} onChange={setImage4} />}
+            {image4 && (
+              <img
+                alt=""
+                src={image4}
+                className="w-[342px] h-[228px] rounded-md"
+              />
+            )}
+            {image4 && (
+              <div className="flex justify-between">
+                <div className="absolute top-4 right-4 z-10">
+                  <DropdownAddImage />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

@@ -1,9 +1,16 @@
 "use client";
 
-import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
+// import { Kitchen } from "@/components/icons/amenitiesIcons/Kitchen";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import React, { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
+import { House } from "../../../components/icons/amenitiesIcons/House";
+import { Ger } from "../../../components/icons/Ger";
+import { TopCity } from "../../../components/icons/TopSities";
+import { CountrySide } from "../../../components/icons/CountrySide";
+import { Rooms } from "../../../components/icons/Rooms";
+import { Lake } from "../../../components/icons/Lake";
+import { Farms } from "../../../components/icons/Farms";
 
 type Place = {
   image: JSX.Element;
@@ -12,15 +19,13 @@ type Place = {
 };
 
 const places = [
-  { image: <Kitchen />, title: "kitchen", id: "1" },
-  { image: <Kitchen />, title: "kitchen", id: "2" },
-  { image: <Kitchen />, title: "kitchen", id: "3" },
-  { image: <Kitchen />, title: "kitchen", id: "4" },
-  { image: <Kitchen />, title: "kitchen", id: "5" },
-  { image: <Kitchen />, title: "kitchen", id: "6" },
-  { image: <Kitchen />, title: "kitchen", id: "7" },
-  { image: <Kitchen />, title: "kitchen", id: "8" },
-  { image: <Kitchen />, title: "kitchen", id: "9" },
+  { image: <TopCity />, title: "Top city", id: "1" },
+  { image: <Ger />, title: "Yurts", id: "2" },
+  { image: <Rooms />, title: "Rooms", id: "3" },
+  { image: <CountrySide />, title: "Countryside", id: "4" },
+  { image: <Lake />, title: "Lake", id: "5" },
+  { image: <Farms />, title: "Farms", id: "6" },
+  { image: <House />, title: "House", id: "7" },
 ];
 
 export default function Structure() {
@@ -31,7 +36,7 @@ export default function Structure() {
 
   const handleSelectPlace = (place: Place) => {
     const { image, ...other } = place;
-    setType(place.id);
+    setType(place.title);
     localStorage.setItem("place", JSON.stringify(other));
   };
 
@@ -43,7 +48,7 @@ export default function Structure() {
 
   return (
     <>
-      <div className="h-[1400px] container mx-auto  w-[700px] pt-32 ">
+      <div className="h-[1400px] container mx-auto animate-fade-down  w-[700px] pt-32 ">
         <h1 className="text-3xl font-semibold mb-3 ">
           Which of these best describes your place?
         </h1>
@@ -52,8 +57,8 @@ export default function Structure() {
             {places.map((place, index) => (
               <div
                 className={` ${
-                  type === place.id
-                    ? "bg-slate-100 border-2 border-black"
+                  type === place.title
+                    ? "bg-[#F7F7F7] border-2 border-black"
                     : "bg-white"
                 } w-[197px] h-[99px] border hover:border-zinc-950 rounded-xl shadow-xl flex p-4 `}
                 key={index}

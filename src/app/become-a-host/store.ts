@@ -8,7 +8,7 @@ interface BearState {
   bathroomCount: number;
   guestsCount: number;
   bedCount: number;
-  offerType: string;
+  offerTypes: string[];
   title: string;
   description: string;
   price: number;
@@ -17,6 +17,8 @@ interface BearState {
   image2: string;
   image3: string;
   image4: string;
+  location: string;
+  region: string;
 
   setType: (by: string) => void;
   setRoomType: (by: string) => void;
@@ -24,7 +26,7 @@ interface BearState {
   setBathroomCount: (by: number) => void;
   setGuestCount: (by: number) => void;
   setBedCount: (by: number) => void;
-  setOfferType: (by: string) => void;
+  setOfferTypes: (by: string[]) => void;
   setTitle: (by: string) => void;
   setDescription: (by: string) => void;
   setPrice: (by: number) => void;
@@ -33,6 +35,8 @@ interface BearState {
   setImage2: (by: string) => void;
   setImage3: (by: string) => void;
   setImage4: (by: string) => void;
+  setLocation: (by: string) => void;
+  setRegion: (by: string) => void;
 }
 
 export const useBecomeHost = create<BearState>()(
@@ -43,9 +47,10 @@ export const useBecomeHost = create<BearState>()(
       bedroomCount: 1,
       bathroomCount: 1,
       guestsCount: 1,
-      offerType: "",
+      offerTypes: [],
       title: "",
-      description: "",
+      description:
+        "You'll always remember your time at this unique place to stay.",
       price: 15,
       image: "",
       image1: "",
@@ -53,6 +58,9 @@ export const useBecomeHost = create<BearState>()(
       image3: "",
       image4: "",
       bedCount: 1,
+      location: "",
+      region: "",
+
       setType: (newValue: string) => set(() => ({ type: newValue })),
       setRoomType: (newValue: string) => set(() => ({ roomType: newValue })),
       setBedroomCount: (newValue: number) =>
@@ -61,7 +69,8 @@ export const useBecomeHost = create<BearState>()(
         set(() => ({ bathroomCount: newValue })),
       setGuestCount: (newValue: number) =>
         set(() => ({ guestsCount: newValue })),
-      setOfferType: (newValue: string) => set(() => ({ offerType: newValue })),
+      setOfferTypes: (newValue: string[]) =>
+        set(() => ({ offerTypes: newValue })),
       setTitle: (newValue: string) => set(() => ({ title: newValue })),
       setDescription: (newValue: string) =>
         set(() => ({ description: newValue })),
@@ -72,6 +81,8 @@ export const useBecomeHost = create<BearState>()(
       setImage3: (newValue: string) => set(() => ({ image3: newValue })),
       setImage4: (newValue: string) => set(() => ({ image4: newValue })),
       setBedCount: (newValue: number) => set(() => ({ bedCount: newValue })),
+      setLocation: (newValue: string) => set(() => ({ location: newValue })),
+      setRegion: (newValue: string) => set(() => ({ region: newValue })),
     }),
 
     {

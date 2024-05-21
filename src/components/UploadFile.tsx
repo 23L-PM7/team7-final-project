@@ -1,6 +1,7 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { Image } from "./icons/Image";
 import { useState } from "react";
+import { toast, Toaster } from "sonner";
 
 export function UploadFile({ value, onChange }: any) {
   const [uploading, setUploading] = useState(false);
@@ -25,6 +26,7 @@ export function UploadFile({ value, onChange }: any) {
       if (res.ok) {
         const { secure_url } = await res.json();
         onChange(secure_url);
+        toast.success("Image has been created.");
         setUploading(false);
       }
     } catch (e) {
@@ -48,6 +50,7 @@ export function UploadFile({ value, onChange }: any) {
             <Image />
           </div>
           <input id="dropzone-file" type="file" className="hidden" />
+          <Toaster richColors />
         </label>
       )}
     </div>
@@ -77,6 +80,7 @@ export function UploadFileMore({ value, onChange }: any) {
       if (res.ok) {
         const { secure_url } = await res.json();
         onChange(secure_url);
+        toast.success("image-5 has been created.");
         setUploading(false);
       }
     } catch (e) {
@@ -85,6 +89,7 @@ export function UploadFileMore({ value, onChange }: any) {
   }
   return (
     <div onChange={handleUpload} className="flex flex-wrap">
+      <Toaster position="top-right" richColors />
       {!value && (
         <label
           id="dropzone-file"
