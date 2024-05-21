@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 
 interface BearState {
   type: string;
@@ -49,7 +49,8 @@ export const useBecomeHost = create<BearState>()(
       guestsCount: 1,
       offerTypes: [],
       title: "",
-      description:  "  You'll always remember your time at this unique place to stay.",
+      description:
+        "  You'll always remember your time at this unique place to stay.",
       price: 15,
       image: "",
       image1: "",

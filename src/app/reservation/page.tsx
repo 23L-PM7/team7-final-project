@@ -7,8 +7,6 @@ import Button from "@mui/joy/Button";
 import Typography from "@mui/joy/Typography";
 import { VariantProp } from "@mui/joy/styles";
 import { FcGoogle } from "react-icons/fc";
-import Review from "@/components/review/review";
-import AddReview from "@/components/review/addReview";
 import { ImAppleinc } from "react-icons/im";
 import { AiFillFacebook } from "react-icons/ai";
 import { MdOutlineMail } from "react-icons/md";
@@ -252,12 +250,6 @@ export default function Reservation() {
             <h3>$134.18</h3>
           </div>
         </div>
-        {/* <button>
-          <Review />
-        </button>
-        <button>
-          <AddReview/>
-        </button> */}
       </div>
     </div>
   );
