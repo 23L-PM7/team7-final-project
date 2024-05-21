@@ -11,25 +11,6 @@ import { WorkPlace } from "../../../components/icons/amenitiesIcons/WorkPlace";
 import React, { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
 
-import { useNextButtonClickable } from "@/components/newListHeaderFooter/ProgressFooter";
-import { WiFi } from "@/components/icons/amenitiesIcons/Wifa";
-import { Pool } from "@/components/icons/amenitiesIcons/Pool";
-import { HotTub } from "@/components/icons/amenitiesIcons/HotTub";
-import { Ratio } from "@/components/icons/amenitiesIcons/Ratio";
-import { BBgrill } from "@/components/icons/amenitiesIcons/BBQgrill";
-import { FirePit } from "@/components/icons/amenitiesIcons/FirePit";
-import { PoolTable } from "@/components/icons/amenitiesIcons/PoolTable";
-import { Piona } from "@/components/icons/amenitiesIcons/Piona";
-import { Exercise } from "@/components/icons/amenitiesIcons/Exercise";
-import { Lake } from "@/components/icons/Lake";
-import { Outdoor } from "@/components/icons/amenitiesIcons/Outdoor";
-import { BeachAccess } from "@/components/icons/amenitiesIcons/BeachAccess";
-import { Ski } from "@/components/icons/amenitiesIcons/Ski";
-import { Shower } from "@/components/icons/amenitiesIcons/Shower";
-import { SmokeAlarm } from "@/components/icons/amenitiesIcons/SmokeAlarm";
-import { Fire } from "@/components/icons/amenitiesIcons/Fire";
-import { FirstAidKit } from "@/components/icons/amenitiesIcons/FirstAidKit";
-
 import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import { WiFi } from "../../../components/icons/amenitiesIcons/Wifa";
 import { Pool } from "../../../components/icons/amenitiesIcons/Pool";
@@ -45,7 +26,9 @@ import { Outdoor } from "../../../components/icons/amenitiesIcons/Outdoor";
 import { BeachAccess } from "../../../components/icons/amenitiesIcons/BeachAccess";
 import { Ski } from "../../../components/icons/amenitiesIcons/Ski";
 import { Shower } from "../../../components/icons/amenitiesIcons/Shower";
-
+import { SmokeAlarm } from "../../../components/icons/amenitiesIcons/SmokeAlarm";
+import { FirstAidKit } from "../../../components/icons/amenitiesIcons/FirstAidKit";
+import { Fire } from "../../../components/icons/amenitiesIcons/Fire";
 
 type Tool = {
   image: JSX.Element;

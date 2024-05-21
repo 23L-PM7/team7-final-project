@@ -1,6 +1,5 @@
-import { GetStartFooter } from "@/components/newListHeaderFooter/GetStartFooter";
-import { HeaderLayout } from "@/components/newListHeaderFooter/HeaderLayout";
-import { ProgressHeader } from "@/components/newListHeaderFooter/ProgressHeader";
+import { GetStartFooter } from "../../components/newListHeaderFooter/GetStartFooter";
+import { ProgressHeader } from "../../components/newListHeaderFooter/ProgressHeader";
 
 export default function Overview() {
   return (
