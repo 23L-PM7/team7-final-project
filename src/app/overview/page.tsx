@@ -6,27 +6,78 @@ export default function Overview() {
   return (
     <>
       <ProgressHeader />
-      <div className="container mx-auto pt-32">
-        <div className=" flex gap-40 p-10">
-          <div className=" mt-64 ">
-            <p className="text-lg font-medium mb-[16px]">Step 1</p>
-            <h1 className="text-5xl font-medium mb-[24px]">
-              Tell us about your place
+      <div className="container mx-auto pt-32 animate-fade-up animate-ease-linear">
+        <div className=" flex gap-40 justify-center items-center p-10 h-[850px]">
+          <div className="mt-32">
+            <h1 className="text-6xl font-medium">
+              It’s easy to get <br /> started on Airbnb
             </h1>
-            <p className="text-lg font-light">
-              In this step, we'll ask you which type of property you have and if
-              <br />
-              guests will book the entire place or just a room. Then let us know
-              the
-              <br />
-              location and how many guests can stay.
-            </p>
           </div>
-          <img
-            className="w-[600px] mt-16 h-[600px]"
-            src="/images/CreateListPhotos/home.png"
-            alt=""
-          />
+          <div className="flex flex-col">
+            <div className="flex pb-[32px]">
+              <div className="flex">
+                <p className="pr-[16px] text-2xl font-medium">1</p>
+                <div>
+                  <h1 className="text-2xl font-normal">
+                    Tell us about your place
+                  </h1>
+                  <p className="text-lg text-[#6A6A6A]">
+                    share some basic info, like where it is and how many <br />{" "}
+                    guests can stay.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <img
+                  className="w-[120px] h-[120px]"
+                  src="/images/or.webp"
+                  alt="bed"
+                />
+              </div>
+            </div>
+            <div className="flex pb-[32px]">
+              <div className="flex">
+                <p className="pr-[16px] text-2xl font-medium">2</p>
+                <div>
+                  <h1 className="text-2xl font-normal">Make it stand out</h1>
+                  <p className="text-lg text-[#6A6A6A]">
+                    Add 5 or more photos plus a title and description—
+                    <br />
+                    we’ll help you out.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <img
+                  className="w-[120px] h-[120px]"
+                  src="/images/or.webp"
+                  alt="bed"
+                />
+              </div>
+            </div>
+            <div className="flex pb-[32px] ">
+              <div className="flex">
+                <p className="pr-[16px] text-2xl font-medium">3</p>
+                <div>
+                  <h1 className="text-2xl font-normal">
+                    Finish up and publish
+                  </h1>
+                  <p className="text-lg text-[#6A6A6A]">
+                    Choose if you'd like to start with an experienced
+                    <br /> guest, set a starting price, and publish your
+                    listing.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <img
+                  className="w-[120px] h-[120px]"
+                  src="/images/or.webp"
+                  alt="bed"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <GetStartFooter />
