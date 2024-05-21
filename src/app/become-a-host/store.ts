@@ -49,8 +49,7 @@ export const useBecomeHost = create<BearState>()(
       guestsCount: 1,
       offerTypes: [],
       title: "",
-      description:
-        "You'll always remember your time at this unique place to stay.",
+      description:  "  You'll always remember your time at this unique place to stay.",
       price: 15,
       image: "",
       image1: "",
