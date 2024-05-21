@@ -12,10 +12,6 @@ export default function Price() {
         <div className="  rounded-xl h-[30px]  flex justify-center items-center mt-32 mb-3">
           <div className="">
             <PriceCounter />
-            {/* <div className="ml-10 flex">
-              Guest price before taxes $114
-              <MdExpandMore />
-            </div> */}
           </div>
         </div>
       </div>

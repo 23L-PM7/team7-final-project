@@ -8,51 +8,8 @@ import { SlPencil } from "react-icons/sl";
 import { useBecomeHost } from "../store";
 
 export default function Receipt() {
-  const {
-    title,
-    price,
-    image,
-    image1,
-    image2,
-    image3,
-    image4,
-    bedroomCount,
-    bathroomCount,
-    bedCount,
-    guestsCount,
-    description,
-    offerTypes,
-    roomType,
-    type,
-    location,
-    region,
-  } = useBecomeHost();
-
-  const addListing = async () => {
-    try {
-      const response = await axios.post("/api/listing", {
-        title,
-        price,
-        images: [image, image1, image2, image3, image4],
-        bedroomCount,
-        bathroomCount,
-        guestsCount,
-        bedCount,
-        description,
-        offerTypes,
-        roomType,
-        type,
-        location,
-        region,
-      });
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
-    <div className="container mx-auto flex justify-center animate-fade-down items-center pt-32">
+    <div className="container mx-auto flex justify-center animate-fade-down items-center pt-56">
       <div className=" w-[850px] h-[480px] ">
         <h1 className="text-5xl font-medium mb-2">Review your listing</h1>
         <p className="font-light text-[#6A6A6A]">
@@ -105,12 +62,6 @@ export default function Receipt() {
           </div>
         </div>
       </div>
-      <button
-        className="w-[100px] mt-[500px] left-60 z-10 relative h-[48px] border p-2 flex items-center justify-center rounded-md text-white bg-gray-700 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
-        onClick={addListing}
-      >
-        next
-      </button>
     </div>
   );
 }

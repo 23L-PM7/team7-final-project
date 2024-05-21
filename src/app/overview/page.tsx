@@ -1,11 +1,11 @@
 import { GetStartFooter } from "../../components/newListHeaderFooter/GetStartFooter";
-import { ProgressHeader } from "../../components/newListHeaderFooter/ProgressHeader";
+import { HeaderLayout } from "../../components/newListHeaderFooter/HeaderLayout";
 
 export default function Overview() {
   return (
     <>
-      <ProgressHeader />
-      <div className="container mx-auto pt-32 animate-fade-up animate-ease-linear">
+      <HeaderLayout />
+      <div className="container mx-auto pt-18 animate-fade-up animate-ease-linear">
         <div className=" flex gap-40 justify-center items-center p-10 h-[850px]">
           <div className="mt-32">
             <h1 className="text-6xl font-medium">

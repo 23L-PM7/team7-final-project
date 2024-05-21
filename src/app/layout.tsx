@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-[1400px]">
+    <html lang="en" className="h-full">
       <body className={inter.className}>
         {/* <NavBar /> */}
         {children}

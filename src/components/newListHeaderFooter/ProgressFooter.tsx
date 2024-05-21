@@ -7,6 +7,8 @@ import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { create } from "zustand";
 import { log } from "console";
+import axios from "axios";
+import { useBecomeHost } from "../../app/become-a-host/store";
 
 export const useNextButtonClickable = create((set) => ({
   nextButtonClickable: false,
@@ -33,6 +35,48 @@ const stepValues = [
 ];
 
 export function ProgressFooter() {
+  const {
+    title,
+    price,
+    image,
+    image1,
+    image2,
+    image3,
+    image4,
+    bedroomCount,
+    bathroomCount,
+    bedCount,
+    guestsCount,
+    description,
+    offerTypes,
+    roomType,
+    type,
+    location,
+    region,
+  } = useBecomeHost();
+
+  const addListing = async () => {
+    try {
+      const response = await axios.post("/api/listing", {
+        title,
+        price,
+        images: [image, image1, image2, image3, image4],
+        bedroomCount,
+        bathroomCount,
+        guestsCount,
+        bedCount,
+        description,
+        offerTypes,
+        roomType,
+        type,
+        location,
+        region,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const pathname = usePathname();
   const router = useRouter();
 
@@ -52,6 +96,14 @@ export function ProgressFooter() {
     }
   };
 
+  const combined = () => {
+    if (index == 13) {
+      addListing();
+      router.push(`/become-a-host/${stepValues[index + 1]}`);
+    } else {
+      router.push(`/become-a-host/${stepValues[index + 1]}`);
+    }
+  };
   return (
     <div className="relative">
       <div className="fixed left-0 right-0 bottom-0 bg-white">
@@ -67,9 +119,7 @@ export function ProgressFooter() {
           </button>
           <button
             disabled={!nextButtonClickable}
-            onClick={() =>
-              router.push(`/become-a-host/${stepValues[index + 1]}`)
-            }
+            onClick={() => combined()}
             className="w-[100px] h-[48px] border p-2 flex items-center justify-center rounded-md text-white bg-gray-700 hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Next
