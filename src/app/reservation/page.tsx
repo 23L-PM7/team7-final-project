@@ -14,10 +14,11 @@ import { AiFillFacebook } from "react-icons/ai";
 import { MdOutlineMail } from "react-icons/md";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
-// import BasicDateRangeCalendar from "@/components/reservation/datePicker";
+import Menu from "@mui/joy/Menu";
+import MenuButton from "@mui/joy/MenuButton";
+// import DateRange from "@components/LittleMenus/DateRange";
 
 export default function Reservation() {
-  // const [variant, setVariant] = React.useState<VariantProp>("solid");
   const [openDate, setOpenDate] = React.useState<boolean>(false);
   const [openGuest, setOpenGuest] = React.useState<boolean>(false);
 
@@ -59,13 +60,28 @@ export default function Reservation() {
                     <Sheet
                       variant="outlined"
                       sx={{
-                        maxWidth: 800,
+                        maxWidth: 500,
                         borderRadius: "md",
                         p: 3,
                         boxShadow: "lg",
                       }}
                     >
-                      {/* <BasicDateRangeCalendar /> */}
+                      <ModalClose variant="plain" sx={{ m: 1 }} />
+                      <Typography
+                        component="h2"
+                        id="modal-title"
+                        level="h4"
+                        textColor="inherit"
+                        fontWeight="lg"
+                        mb={1}
+                      >
+                        This is the modal title
+                      </Typography>
+                      <Typography id="modal-desc" textColor="text.tertiary">
+                        Make sure to use <code>aria-labelledby</code> on the
+                        modal dialog with an optional{" "}
+                        <code>aria-describedby</code> attribute.
+                      </Typography>
                     </Sheet>
                   </Modal>
                 </React.Fragment>
@@ -177,7 +193,7 @@ export default function Reservation() {
             <h3 className="text-[22px] font-bold mb-3">
               Log in or sign up to book
             </h3>
-            <input
+            {/* <input
               className="flex justify-between border-2 rounded p-5 h-full text-xl mb-3"
               type="text"
               placeholder="username"
@@ -186,13 +202,12 @@ export default function Reservation() {
               className="flex justify-between border-2 rounded p-5 h-full text-xl mb-3"
               type="text"
               placeholder="password"
-            />
-            <button className="mb-3">Not registered yet? Sign-up</button>
+            /> */}
+            <button className="w-full bg-red-500 h-[52px] rounded text-white font-bold mb-5">
+              Sign-in to Continue
+            </button>
+            <button className="mb-5">Not registered yet? Sign-up</button>
           </div>
-
-          <button className="w-full bg-red-500 h-[52px] rounded text-white font-bold">
-            Continue
-          </button>
 
           <div className="flex flex-col border-t-2 mb-8">
             <div className="w-full flex justify-evenly gap-3 mt-10">
