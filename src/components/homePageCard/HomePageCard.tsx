@@ -73,7 +73,10 @@ export function HomePageCards() {
                 <ShareButton />
               </div>
 
-              <div className="flex flex-col justify-start items-start " onClick={() => pushToListing(card._id)}>
+              <div
+                className="flex flex-col justify-start items-start "
+                onClick={() => pushToListing(card._id)}
+              >
                 <div className="flex justify-between">
                   <div className="font-semibold text-lg w-60">{card.title}</div>
                   <div className="flex gap-2 items-center">
