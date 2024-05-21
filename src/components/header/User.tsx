@@ -25,8 +25,6 @@ const User = () => {
             <Avatar />
           </div>
         </MenuButton>
-
-
         <Menu className="w-1/12">
         <MenuItem>Sign-up</MenuItem>
         <MenuItem>Login</MenuItem>

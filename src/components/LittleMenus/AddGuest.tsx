@@ -1,6 +1,7 @@
 import Dropdown from '@mui/joy/Dropdown';
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
+import { GuestCounter } from '../counter/GuestCounter';
 import MenuItem from '@mui/joy/MenuItem';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro';
@@ -10,17 +11,22 @@ import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const DateRange = () =>{
-    return <div>
+const AddGuest = () =>{
+    return (<Dropdown>
+        <div>
          <MenuButton variant="plain"  size="sm">
-         <div className="flex flex-col justify-start pr-12">
-              <p className="text-sm font-semibold ">Any </p>
-              <p className="text-xs text-gray-400">Search destinations</p>
-        </div>
+         <div className="flex flex-col justify-end">
+            <p className="hidden sm:block">Any guest</p>
+            <p className="text-xs text-gray-400">Add guest</p>
+          </div>
             </MenuButton>
             <Menu>
-                
+                <div className='w-80 p-6'>
+                    <GuestCounter/>
+                </div>
             </Menu>
     </div>
+    </Dropdown>
+)
 }
-export default DateRange
+export default AddGuest

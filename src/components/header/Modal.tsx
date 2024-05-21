@@ -151,6 +151,12 @@ export default function BasicModal() {
                   <Checkbox size="lg" label="heating" variant="solid" defaultChecked />
                 </div>
               </div>
+              <div className='flex justify-between mt-4'>
+              <p className='flex justify-center items-center text-black font-medium'>Clear all</p>
+              <Button color="neutral"
+                onClick={function(){}}
+                size="lg">Button</Button>
+              </div>
             </div>
           </Typography>
         </Sheet>
