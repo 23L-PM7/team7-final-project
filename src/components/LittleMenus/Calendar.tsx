@@ -9,34 +9,35 @@ import dayjs, { Dayjs } from 'dayjs';
 import Link from 'next/link';
 import { useState } from 'react';
 // import { useRouter } from 'next/router';
-import { usePathname, useSearchParams , useRouter } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import { useDate } from '../../app/globals';
 
 const Calendar = () => {
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
-    const [value, setValue] = React.useState<DateRange<Dayjs>>([
-        dayjs(Date.now()),
-        dayjs('2022-05-14'),
-    ]);
+    const { date, setDate }: any = useDate();
+
 
     const createQueryString = React.useCallback(
         (name: string, value: string) => {
-          const params = new URLSearchParams(searchParams.toString())
-          params.set(name, value)
-     
-          return params.toString()
+            const params = new URLSearchParams(searchParams.toString())
+            params.set(name, value)
+
+            return params.toString()
         },
         [searchParams]
-      )
-    console.log(value);
+    )
+
+    console.log(date);
+
     return <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DemoContainer components={['DateRangeCalendar']}>
             <DateRangeCalendar
-                value={value}
-                onChange={(newValue) => setValue(newValue)} />
-            <p>{value.toString()}</p>
-            <Link href={ pathname + '?' + createQueryString('date', value.toString())}>ok</Link>
+                value={date}
+                onChange={(newDate) => setDate(newDate)} />
+            <p>{date.toString()}</p>
+            <Link href={pathname + '?' + createQueryString('date', date.toString())}>ok</Link>
         </DemoContainer>
     </LocalizationProvider>
 }

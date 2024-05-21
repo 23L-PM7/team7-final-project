@@ -7,8 +7,8 @@ import { ListingImage } from "./ListingImage";
 import { ListingIntroduction } from "./ListingIntroduction";
 import { ListingReview } from "./ListingReview";
 import { ListingLocations } from "./ListingLocations";
-import { ListingHost } from "./ListingHost";
 import { ListingRules } from "./ListingRules";
+import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
 
 export default function Listing() {
