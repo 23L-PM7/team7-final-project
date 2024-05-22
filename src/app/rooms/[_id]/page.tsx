@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Button, Divider, Typography } from "@mui/joy";
+import { Button, CircularProgress, Divider, Typography } from "@mui/joy";
 import { LuHeart, LuShare } from "react-icons/lu";
 import { ListingImage } from "./ListingImage";
 import { ListingIntroduction } from "./ListingIntroduction";
@@ -12,22 +12,28 @@ import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Loading } from "../../../components/Loading";
 
 export default function Listing() {
-  const [listing, setListing] = useState([]);
-  const {_id} = useParams();
+  const [listing, setListing] = useState();
+  const { _id } = useParams();
+  const [loading, setLoading] = useState(true);
 
   function fecthListing() {
+    setLoading(true);
     axios
       .get(`http://localhost:3000/api/listingDetails?id=${_id}`)
-      .then((cards) => setListing(cards.data));
+      .then((data) => setListing(data.data[0]));
+    setLoading(false);
   }
 
   useEffect(() => {
     fecthListing();
   }, []);
 
-  console.log(listing[0].images);
+  if (loading) return <div className="size-6 m-auto"><CircularProgress size="lg" /></div>;
+
+  console.log(listing.images);
 
   return (
     <div className="container w-[1120px] mx-auto grid gap-6 my-6">
@@ -44,11 +50,11 @@ export default function Listing() {
       </div>
 
       <div className="w-full">
-        <ListingImage listingImages={listing[0].images}/>
+        <ListingImage />
       </div>
 
       <div className="w-full">
-        <ListingIntroduction listingDetails={listing}/>
+        <ListingIntroduction listingDetails={listing} />
       </div>
 
       <Divider />

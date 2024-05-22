@@ -36,10 +36,10 @@ export function ListingImage({ listingImages }: any) {
         ))}
       </ImageList> */}
       <ImageList sx={{ borderRadius: '16px' }} variant="quilted" cols={3} rowHeight={270}>
-        {listingImages.map((image, index) => (
-          <ImageListItem key={TbUvIndex}>
+        {images.map((image, index) => (
+          <ImageListItem key={index}>
             <img
-              src={`${image}?w=164&h=164&fit=crop&auto=format`}
+              src={`${image.img}?w=164&h=164&fit=crop&auto=format`}
               loading="lazy"
             />
           </ImageListItem>
@@ -67,6 +67,10 @@ const images = [
   {
     img: "https://source.unsplash.com/mdtYgoLsfNk",
     title: "starry night",
+  },
+  {
+    img: "https://source.unsplash.com/fjCihZthrAo",
+    title: "dessert",
   },
   {
     img: "https://source.unsplash.com/fjCihZthrAo",
