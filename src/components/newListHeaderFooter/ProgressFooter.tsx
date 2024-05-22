@@ -6,6 +6,7 @@ import LinearProgress from "@mui/joy/LinearProgress";
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { create } from "zustand";
+import { log } from "console";
 
 export const useNextButtonClickable = create((set) => ({
   nextButtonClickable: false,
@@ -43,27 +44,27 @@ export function ProgressFooter() {
   const { nextButtonClickable, setNextButtonClickable }: any =
     useNextButtonClickable();
 
-  if (pathname === undefined) {
-    router.push("/overview");
-  }
+  const stepBack = () => {
+    if (index == 0) {
+      router.push("/overview");
+    } else {
+      router.push(`/become-a-host/${stepValues[index - 1]}`);
+    }
+  };
 
   return (
     <div className="relative">
       <div className="fixed left-0 right-0 bottom-0 bg-white">
-        <div className="h-2 rounded- w-full bg-gray-200">
-          <div
-            className="h-2 bg-slate-800 rounded-full transition-all duration-1000"
-            style={{ width: `${percentage}%` }}
-          ></div>
-        </div>
+        <Stack spacing={2} sx={{ flex: 1 }}>
+          <LinearProgress color="neutral" determinate value={percentage} />
+        </Stack>
         <div className="flex sticky bottom-0 justify-between pl-10 p-4 pr-10">
-          <a
-            href={`/become-a-host/${stepValues[index - 1]}`}
-            className="font-semibold rounded flex justify-center  items-center hover:bg-slate-200 h-8 p-2"
+          <button
+            onClick={() => stepBack()}
+            className="font-semibold rounded flex justify-center items-center hover:bg-slate-200 h-8 p-2"
           >
             Back
-          </a>
-          <span>{pathname}</span>
+          </button>
           <button
             disabled={!nextButtonClickable}
             onClick={() =>

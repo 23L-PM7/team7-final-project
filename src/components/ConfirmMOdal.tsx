@@ -5,7 +5,7 @@ import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { MdDeleteForever } from "react-icons/md";
-import { useBecomeHost } from "@/app/become-a-host/store";
+import { useBecomeHost } from "../app/become-a-host/store";
 import { toast } from "sonner";
 
 export default function () {

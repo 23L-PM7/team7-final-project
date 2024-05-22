@@ -2,20 +2,18 @@ import { GuestCounter } from "../../../components/counter/ReservationGuestsCount
 import {
   Accordion,
   AccordionDetails,
+  AccordionGroup,
   AccordionSummary,
   Divider,
   Typography,
 } from "@mui/joy";
 import { NumericFormat } from "react-number-format";
 import { useDate, useDays, useGuests } from "../../globals";
-import {
-  DateRangePicker,
-  LocalizationProvider,
-} from "@mui/x-date-pickers-pro";
+import { DateRangePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import Button from "@mui/joy/Button";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function ListingReservation() {
   const { date, setDate }: any = useDate();
@@ -55,21 +53,19 @@ export default function ListingReservation() {
             </LocalizationProvider>
           </div>
           <div className="border-t-[1px] border-[#000000] p-2 items.center">
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                <div>
-                  <Typography level="body-xs">guest</Typography>
-                  <Typography>{clientNumber} guests</Typography>
-                </div>
-              </AccordionSummary>
-              <AccordionDetails>
-                <GuestCounter />
-              </AccordionDetails>
-            </Accordion>
+            <AccordionGroup>
+              <Accordion>
+                <AccordionSummary>
+                  <div>
+                    <Typography level="body-xs">guest</Typography>
+                    <Typography>{clientNumber} guests</Typography>
+                  </div>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <GuestCounter />
+                </AccordionDetails>
+              </Accordion>
+            </AccordionGroup>
           </div>
         </div>
       </div>

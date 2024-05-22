@@ -181,7 +181,7 @@ export default function ModalReceit() {
 
                 <div className=" font-medium mt-3">Location</div>
                 <div className="flex">
-                  <div>{region},</div>
+                  {/* <div>{region},</div> */}
                   <div>{location}</div>
                 </div>
                 <div>{type}</div>

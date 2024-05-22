@@ -7,15 +7,16 @@ import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
-import { Cleanliness } from "@/components/icons/review/cleanliness";
-import { Accuracy } from "@/components/icons/review/accuracy";
-import { CheckIn } from "@/components/icons/review/checkIn";
-import { Communication } from "@/components/icons/review/communication";
-import { Location } from "@/components/icons/review/location";
-import { Value } from "@/components/icons/review/value";
+
 // import { Rating } from "@/components/icons/review/rating";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import { Communication } from "../icons/review/communication";
+import { Location } from "../icons/review/location";
+import { Value } from "../icons/review/value";
+import { CheckIn } from "../icons/review/checkIn";
+import { Accuracy } from "../icons/review/accuracy";
+import { Cleanliness } from "../icons/review/cleanliness";
 
 export default function AddReview() {
   const [open, setOpen] = React.useState<boolean>(false);
