@@ -1,7 +1,7 @@
 import Dropdown from '@mui/joy/Dropdown';
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
-import { GuestCounter } from '../counter/GuestCounter';
+import { GuestCounter } from '../counter/ReservationGuestsCounter/GuestCounter';
 import MenuItem from '@mui/joy/MenuItem';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro';

@@ -7,11 +7,11 @@ import {
 // import { useCheckIn, useCheckOut } from "@/app/globals";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Avatar, Badge, Box, Button, Divider, Typography } from "@mui/joy";
-import { NumericFormat } from "react-number-format";
-import Accordion from "@mui/joy/Accordion";
-import AccordionDetails from "@mui/joy/AccordionDetails";
-import AccordionSummary from "@mui/joy/AccordionSummary";
-import { GuestCounter } from "@/components/counter/GuestCounter";
+// import { NumericFormat } from "react-number-format";
+// import Accordion from "@mui/joy/Accordion";
+// import AccordionDetails from "@mui/joy/AccordionDetails";
+// import AccordionSummary from "@mui/joy/AccordionSummary";
+// import { GuestCounter } from "@/components/counter/GuestCounter";
 // import DateRange from "@/components/LittleMenus/DateRange";
 import Calendar from "../../../components/LittleMenus/Calendar";
 import ListingReservation from "./ListingReservation";

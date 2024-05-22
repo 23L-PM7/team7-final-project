@@ -17,6 +17,9 @@ const Calendar = () => {
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const { date, setDate }: any = useDate();
+    const search = searchParams.get('date')?.toString
+
+    console.log('ssds' ,search)
 
 
     const createQueryString = React.useCallback(
@@ -29,14 +32,11 @@ const Calendar = () => {
         [searchParams]
     )
 
-    console.log(date);
-
     return <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DemoContainer components={['DateRangeCalendar']}>
             <DateRangeCalendar
                 value={date}
                 onChange={(newDate) => setDate(newDate)} />
-            <p>{date.toString()}</p>
             <Link href={pathname + '?' + createQueryString('date', date.toString())}>ok</Link>
         </DemoContainer>
     </LocalizationProvider>

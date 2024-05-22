@@ -12,11 +12,17 @@ import { IoStarSharp } from "react-icons/io5";
 import { Loading } from "../Loading";
 import { HeartButton } from "./HeartButton";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from 'next/navigation'
 
 export function HomePageCards() {
   const [cards, setCards] = useState([]);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const searchParams = useSearchParams()
+ 
+  const search = searchParams.get('map')
+
+  console.log(search)
 
   function fetchCards() {
     setLoading(true);
@@ -33,7 +39,7 @@ export function HomePageCards() {
   const pushToListing = (_id: string) => {
     router.push(`/rooms/${_id}`);
   };
-  console.log({ cards });
+  // console.log({ cards });
 
   if (loading) return <Loading />;
 
