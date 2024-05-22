@@ -14,11 +14,27 @@ import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Menu from "@mui/joy/Menu";
 import MenuButton from "@mui/joy/MenuButton";
+import { useRouter } from "next/navigation";
+import DateRange from "../../components/LittleMenus/DateRange";
+import Calendar from "../../components/LittleMenus/Calendar";
+import { GuestCounter } from "../../components/counter/ReservationGuestsCounter/GuestCounter";
+// import { useDate } from "../globals";
+
 // import DateRange from "@components/LittleMenus/DateRange";
 
 export default function Reservation() {
   const [openDate, setOpenDate] = React.useState<boolean>(false);
   const [openGuest, setOpenGuest] = React.useState<boolean>(false);
+
+  const router = useRouter();
+
+  const SignIn = () => {
+    router.push("/signin");
+  };
+
+  const SignUp = () => {
+    router.push("/signup");
+  };
 
   return (
     <div className="mx-auto w-[1300px] h-screen justify-center font-circular pt-20">
@@ -32,7 +48,10 @@ export default function Reservation() {
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <h3 className="font-bold">Dates</h3>
-                <h3 className="font-[16px]">May 19-24</h3>
+                {/* <p>
+                  {date[0].format("MMMM D, YYYY")} -{" "}
+                  {date[1].format("MMMM D, YYYY")}
+                </p> */}
               </div>
               <div>
                 <React.Fragment>
@@ -58,7 +77,7 @@ export default function Reservation() {
                     <Sheet
                       variant="outlined"
                       sx={{
-                        maxWidth: 500,
+                        maxWidth: 800,
                         borderRadius: "md",
                         p: 3,
                         boxShadow: "lg",
@@ -73,12 +92,7 @@ export default function Reservation() {
                         fontWeight="lg"
                         mb={1}
                       >
-                        This is the modal title
-                      </Typography>
-                      <Typography id="modal-desc" textColor="text.tertiary">
-                        Make sure to use <code>aria-labelledby</code> on the
-                        modal dialog with an optional{" "}
-                        <code>aria-describedby</code> attribute.
+                        <Calendar />
                       </Typography>
                     </Sheet>
                   </Modal>
@@ -88,7 +102,7 @@ export default function Reservation() {
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <h3 className="font-bold">Guests</h3>
-                <h3>1 guest</h3>
+                <h3>[1 guest]</h3>
               </div>
               <div>
                 <React.Fragment>
@@ -113,7 +127,8 @@ export default function Reservation() {
                     <Sheet
                       variant="outlined"
                       sx={{
-                        maxWidth: 500,
+                        maxWidth: 800,
+
                         borderRadius: "md",
                         p: 3,
                         boxShadow: "lg",
@@ -128,12 +143,7 @@ export default function Reservation() {
                         fontWeight="lg"
                         mb={1}
                       >
-                        This is the modal title
-                      </Typography>
-                      <Typography id="modal-desc" textColor="text.tertiary">
-                        Make sure to use <code>aria-labelledby</code> on the
-                        modal dialog with an optional{" "}
-                        <code>aria-describedby</code> attribute.
+                        <GuestCounter />
                       </Typography>
                     </Sheet>
                   </Modal>
@@ -201,10 +211,15 @@ export default function Reservation() {
               type="text"
               placeholder="password"
             /> */}
-            <button className="w-full bg-red-500 h-[52px] rounded text-white font-bold mb-5">
+            <button
+              className="w-full bg-red-500 h-[52px] rounded text-white font-bold mb-5"
+              onClick={SignIn}
+            >
               Sign-in to Continue
             </button>
-            <button className="mb-5">Not registered yet? Sign-up</button>
+            <button className="mb-5" onClick={SignUp}>
+              Not registered yet? Sign-up
+            </button>
           </div>
 
           <div className="flex flex-col border-t-2 mb-8">
@@ -219,12 +234,12 @@ export default function Reservation() {
                 <ImAppleinc className="w-6 h-6" />
               </button>
             </div>
-            <button className="border-2 rounded w-full mt-10 flex justify-between p-4 items-center mb-10">
+            {/* <button className="border-2 rounded w-full mt-10 flex justify-between p-4 items-center mb-10">
               <div className="w-1/2 flex items-center">
                 <MdOutlineMail className="w-6 h-6" />
               </div>
               <p className="w-3/4 flex font-semibold">Continue with email</p>
-            </button>
+            </button> */}
           </div>
         </div>
 
