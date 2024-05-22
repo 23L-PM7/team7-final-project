@@ -5,9 +5,9 @@ import "./globals.css";
 import NavBar from "../components/header/Navbar";
 import { LicenseInfo } from "@mui/x-license";
 import { motion } from "framer-motion";
+import Footer from "../components/footer/Footer";
 
 LicenseInfo.setLicenseKey("YOUR_LICENSE_KEY");
-import Footer from "../components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavBar />
         {children}
-        {/* <Footer />     */}
+        <Footer />
       </body>
     </html>
   );
