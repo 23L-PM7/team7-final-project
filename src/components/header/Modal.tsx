@@ -38,7 +38,7 @@ export default function BasicModal() {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
+      <Button variant="outlined" color="neutral" size='lg' onClick={() => setOpen(true)}>
         Filter
       </Button>
       <Modal
