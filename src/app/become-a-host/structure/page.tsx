@@ -18,14 +18,14 @@ type Place = {
   id: string;
 };
 
-const places = [
-  { image: <TopCity />, title: "Top city", id: "1" },
-  { image: <Ger />, title: "Yurts", id: "2" },
-  { image: <Rooms />, title: "Rooms", id: "3" },
-  { image: <CountrySide />, title: "Countryside", id: "4" },
-  { image: <Lake />, title: "Lake", id: "5" },
-  { image: <Farms />, title: "Farms", id: "6" },
-  { image: <House />, title: "House", id: "7" },
+export const places = [
+  { image: <TopCity />, title: "Top city", id: "1", label: "Top city"},
+  { image: <Ger />, title: "Yurts", id: "2", label: "Yurts"},
+  { image: <Rooms />, title: "Rooms", id: "3", label: "Rooms"},
+  { image: <CountrySide />, title: "Countryside", id: "4", label: "Countryside"},
+  { image: <Lake />, title: "Lake", id: "5" ,label: "Lake"},
+  { image: <Farms />, title: "Farms", id: "6", label: "Farms"},
+  { image: <House />, title: "House", id: "7", label: "House"},
 ];
 
 export default function Structure() {

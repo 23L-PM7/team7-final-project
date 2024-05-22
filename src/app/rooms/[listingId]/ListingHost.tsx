@@ -9,7 +9,7 @@ export function ListingHost() {
     return (
         <div className="w-[1120px] rounded-xl bg-[#F0EFE9] px-12 pt-10 pb-6 flex gap-[64px]">
             <div className="w-5/12 flex flex-col gap-8">
-                <div className="p-6 rounded-xl border-[1px] border-[#DDDDDD] shadow-[0px_6px_16px_rgba(0,0,0,0.12)] flex gap-6 bg-white flex gap-8">
+                <div className="p-6 rounded-xl border-[1px] border-[#DDDDDD] shadow-[0px_6px_16px_rgba(0,0,0,0.12)]  bg-white flex gap-8">
                     <div className="w-1/2 flex flex-col gap-2 items-center">
                         <div className="flex flex-col justify-center">
                             <Box>
