@@ -5,6 +5,8 @@ import { Kitchen } from "../../../components/icons/amenitiesIcons/Kitchen";
 import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import React, { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
+import { Room } from "../../../components/icons/Room";
+import { TypeIcon } from "../../../components/icons/TypeIcon";
 
 type Place = {
   image: JSX.Element;
@@ -20,14 +22,14 @@ const placeType = [
     description: " Guests have the whole place to themselves.",
   },
   {
-    image: <Kitchen />,
+    image: <Room />,
     id: "2",
     title: "A room",
     description:
       " Guests have their own room in a home, plus access to shared spaces.",
   },
   {
-    image: <Kitchen />,
+    image: <TypeIcon />,
     id: "3",
     title: "A shared room",
     description:

@@ -7,8 +7,8 @@ export default function Overview() {
       <HeaderLayout />
       <div className="container mx-auto pt-18 animate-fade-up animate-ease-linear">
         <div className=" flex gap-40 justify-center items-center p-10 h-[850px]">
-          <div className="mt-32">
-            <h1 className="text-6xl font-medium">
+          <div className="">
+            <h1 className="text-6xl font-medium ">
               It’s easy to get <br /> started on Airbnb
             </h1>
           </div>
@@ -49,7 +49,7 @@ export default function Overview() {
               <div>
                 <img
                   className="w-[120px] h-[120px]"
-                  src="/images/or.webp"
+                  src="/images/2.webp"
                   alt="bed"
                 />
               </div>
@@ -71,7 +71,7 @@ export default function Overview() {
               <div>
                 <img
                   className="w-[120px] h-[120px]"
-                  src="/images/or.webp"
+                  src="/images/3.webp"
                   alt="bed"
                 />
               </div>
