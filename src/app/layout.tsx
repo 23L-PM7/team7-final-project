@@ -7,12 +7,7 @@ import { LicenseInfo } from "@mui/x-license";
 import { motion } from "framer-motion";
 import Footer from "../components/footer/Footer";
 
-<<<<<<< HEAD
-LicenseInfo.setLicenseKey('YOUR_LICENSE_KEY');
-
-=======
 LicenseInfo.setLicenseKey("YOUR_LICENSE_KEY");
->>>>>>> main
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +26,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavBar />
         {children}
-        <Footer />    
+        <Footer />
       </body>
     </html>
   );
