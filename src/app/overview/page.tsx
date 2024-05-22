@@ -6,7 +6,7 @@ export default function Overview() {
     <>
       <HeaderLayout />
       <div className="container mx-auto pt-18 animate-fade-up animate-ease-linear">
-        <div className=" flex gap-40 justify-center items-center p-10 h-[850px]">
+        <div className=" flex gap-40 justify-center items-center p-10 h-[1050px]">
           <div className="">
             <h1 className="text-6xl font-medium ">
               It’s easy to get <br /> started on Airbnb

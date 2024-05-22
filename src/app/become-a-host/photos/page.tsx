@@ -1,6 +1,6 @@
 "use client";
 
-import { UploadFile , UploadFileMore } from "../../../components/UploadFile";
+import { UploadFile, UploadFileMore } from "../../../components/UploadFile";
 import { PhotoSvg } from "../../../components/icons/amenitiesIcons/PhotoSvg";
 import { ImageField } from "../../../components/imageField/ImageField";
 import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";

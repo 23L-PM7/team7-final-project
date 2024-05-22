@@ -1,13 +1,18 @@
 "use client";
 import ModalReceit from "../../../components/Modal";
-// import { AirCondition } from "@/components/icons/amenitiesIcons/AirCondition";
 import { LuCalendarCheck } from "react-icons/lu";
 import { MdCalendarToday } from "react-icons/md";
-import axios from "axios";
 import { SlPencil } from "react-icons/sl";
-import { useBecomeHost } from "../store";
+import { useEffect } from "react";
+import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 
 export default function Receipt() {
+  const { setNextButtonClickable }: any = useNextButtonClickable();
+
+  useEffect(() => {
+    setNextButtonClickable(true);
+  }, []);
+
   return (
     <div className="container mx-auto flex justify-center animate-fade-down items-center pt-56">
       <div className=" w-[850px] h-[480px] ">

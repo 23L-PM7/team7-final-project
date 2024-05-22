@@ -99,7 +99,7 @@ export function ProgressFooter() {
   const combined = () => {
     if (index == 13) {
       addListing();
-      router.push(`/become-a-host/${stepValues[index + 1]}`);
+      router.push(`/publish-celebration`);
     } else {
       router.push(`/become-a-host/${stepValues[index + 1]}`);
     }
