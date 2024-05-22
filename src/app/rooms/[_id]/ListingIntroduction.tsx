@@ -19,9 +19,9 @@ import { MdVerifiedUser } from "react-icons/md";
 import { PiMedalFill } from "react-icons/pi";
 import { IoIosStar } from "react-icons/io";
 
-export function ListingIntroduction() {
-  // const { checkIn, setCheckIn }: any = useCheckIn();
-  // const { checkOut, setCheckOut }: any = useCheckOut();
+export function ListingIntroduction({listingDetails} : any) {
+
+  // console.log(listingDetails)
 
   return (
     <div className="flex">

@@ -33,7 +33,6 @@ export function HomePageCards() {
   const pushToListing = (_id: string) => {
     router.push(`/rooms/${_id}`);
   };
-  console.log({ cards });
 
   if (loading) return <Loading />;
 

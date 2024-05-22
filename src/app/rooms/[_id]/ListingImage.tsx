@@ -1,21 +1,22 @@
 import { ImageList, ImageListItem } from "@mui/material";
 import { Stack } from "@mui/system";
+import { TbUvIndex } from "react-icons/tb";
 
 function srcset(image: string, size: number, rows = 1, cols = 1) {
-    return {
-      src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-      srcSet: `${image}?w=${size * cols}&h=${
-        size * rows
+  return {
+    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
+    srcSet: `${image}?w=${size * cols}&h=${size * rows
       }&fit=crop&auto=format&dpr=2 2x`,
-    };
-  }
+  };
+}
 
-export function ListingImage() {
-  console.log(images);
+export function ListingImage({ listingImages }: any) {
+
+  console.log(listingImages)
 
   return (
     <Stack spacing={4} className="w-full h-[560px] rounded-xl">
-      <ImageList
+      {/* <ImageList
         sx={{ borderRadius: '16px' }}
         variant="quilted"
         cols={4}
@@ -29,7 +30,16 @@ export function ListingImage() {
           >
             <img
               {...srcset(image.img, 121, image.rows, image.cols)}
-              alt={image.title}
+              loading="lazy"
+            />
+          </ImageListItem>
+        ))}
+      </ImageList> */}
+      <ImageList sx={{ borderRadius: '16px' }} variant="quilted" cols={3} rowHeight={270}>
+        {listingImages.map((image, index) => (
+          <ImageListItem key={TbUvIndex}>
+            <img
+              src={`${image}?w=164&h=164&fit=crop&auto=format`}
               loading="lazy"
             />
           </ImageListItem>

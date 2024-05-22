@@ -29,8 +29,6 @@ const Calendar = () => {
         [searchParams]
     )
 
-    console.log(date);
-
     return <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DemoContainer components={['DateRangeCalendar']}>
             <DateRangeCalendar

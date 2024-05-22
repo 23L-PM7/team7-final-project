@@ -10,10 +10,24 @@ import { ListingLocations } from "./ListingLocations";
 import { ListingRules } from "./ListingRules";
 import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Listing() {
+  const [listing, setListing] = useState([]);
   const {_id} = useParams();
 
+  function fecthListing() {
+    axios
+      .get(`http://localhost:3000/api/listingDetails?id=${_id}`)
+      .then((cards) => setListing(cards.data));
+  }
+
+  useEffect(() => {
+    fecthListing();
+  }, []);
+
+  console.log(listing[0].images);
 
   return (
     <div className="container w-[1120px] mx-auto grid gap-6 my-6">
@@ -30,11 +44,11 @@ export default function Listing() {
       </div>
 
       <div className="w-full">
-        <ListingImage />
+        <ListingImage listingImages={listing[0].images}/>
       </div>
 
       <div className="w-full">
-        <ListingIntroduction />
+        <ListingIntroduction listingDetails={listing}/>
       </div>
 
       <Divider />

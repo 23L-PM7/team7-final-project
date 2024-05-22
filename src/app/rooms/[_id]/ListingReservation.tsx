@@ -20,8 +20,6 @@ export default function ListingReservation() {
   const { daysNumber }: any = useDays();
   const { clientNumber }: any = useGuests();
 
-  console.log(daysNumber);
-
   return (
     <div className=" p-6 rounded-xl border-[1px] border-[#DDDDDD] shadow-[0px_6px_16px_rgba(0,0,0,0.12)] grid gap-6">
       <div className="flex items-center">
