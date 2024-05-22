@@ -52,7 +52,7 @@ export default function Receipt() {
   };
 
   return (
-    <div className="container mx-auto flex justify-center animate-fade-down items-center pt-80">
+    <div className="container mx-auto flex justify-center animate-fade-down items-center pt-32">
       <div className=" w-[850px] h-[480px] ">
         <h1 className="text-5xl font-medium mb-2">Review your listing</h1>
         <p className="font-light text-[#6A6A6A]">

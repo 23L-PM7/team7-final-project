@@ -10,6 +10,7 @@ import { Washer } from "../../../components/icons/amenitiesIcons/Washer";
 import { WorkPlace } from "../../../components/icons/amenitiesIcons/WorkPlace";
 import React, { useEffect, useState } from "react";
 import { useBecomeHost } from "../store";
+
 import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
 import { WiFi } from "../../../components/icons/amenitiesIcons/Wifa";
 import { Pool } from "../../../components/icons/amenitiesIcons/Pool";
@@ -25,6 +26,9 @@ import { Outdoor } from "../../../components/icons/amenitiesIcons/Outdoor";
 import { BeachAccess } from "../../../components/icons/amenitiesIcons/BeachAccess";
 import { Ski } from "../../../components/icons/amenitiesIcons/Ski";
 import { Shower } from "../../../components/icons/amenitiesIcons/Shower";
+import { SmokeAlarm } from "../../../components/icons/amenitiesIcons/SmokeAlarm";
+import { FirstAidKit } from "../../../components/icons/amenitiesIcons/FirstAidKit";
+import { Fire } from "../../../components/icons/amenitiesIcons/Fire";
 
 type Tool = {
   image: JSX.Element;
@@ -57,6 +61,12 @@ const cards1 = [
   { image: <BeachAccess />, title: "Beach access", id: "10" },
   { image: <Ski />, title: "Ski-in/Ski-out", id: "11" },
   { image: <Shower />, title: "Outdoor shower", id: "11" },
+];
+
+const cards2 = [
+  { image: <SmokeAlarm />, title: "Smoke alarm", id: "1" },
+  { image: <FirstAidKit />, title: "First aid kit", id: "2" },
+  { image: <Fire />, title: "Fire extinguisher", id: "3" },
 ];
 export default function Amenities() {
   const { offerTypes, setOfferTypes } = useBecomeHost();
@@ -117,6 +127,31 @@ export default function Amenities() {
         <div className="flex">
           <div className=" gap-5 grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-3 ">
             {cards1.map((tool, index) => (
+              <div
+                onClick={() => handleSelectTool(tool)}
+                className={` ${
+                  offerTypes.includes(tool.title)
+                    ? "bg-[#F7F7F7] border-2 border-black"
+                    : "bg-white"
+                } w-[197px] h-[99px] border hover:border-zinc-950 rounded-xl shadow-xl flex p-4 `}
+                key={index}
+              >
+                <div>
+                  <div className="">{tool.image}</div>
+                  <h1 className="font-semibold">{tool.title}</h1>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h1 className="text-lg mt-8 mb-6 font-semibold">
+            Do you have any of these safety items?
+          </h1>
+        </div>
+        <div className="flex pb-32">
+          <div className=" gap-5 grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-3 ">
+            {cards2.map((tool, index) => (
               <div
                 onClick={() => handleSelectTool(tool)}
                 className={` ${

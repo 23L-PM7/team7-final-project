@@ -1,14 +1,18 @@
-"use client"
+"use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "../components/header/Navbar";
-import { LicenseInfo } from '@mui/x-license';
+import { LicenseInfo } from "@mui/x-license";
 import { motion } from "framer-motion";
 import Footer from "../components/footer/Footer";
 
+<<<<<<< HEAD
 LicenseInfo.setLicenseKey('YOUR_LICENSE_KEY');
 
+=======
+LicenseInfo.setLicenseKey("YOUR_LICENSE_KEY");
+>>>>>>> main
 
 const inter = Inter({ subsets: ["latin"] });
 

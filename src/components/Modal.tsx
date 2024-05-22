@@ -38,6 +38,9 @@ import { Ratio } from "./icons/amenitiesIcons/Ratio";
 import { Lake } from "./icons/amenitiesIcons/Lake";
 import { Shower } from "./icons/amenitiesIcons/Shower";
 import { WiFi } from "./icons/amenitiesIcons/Wifa";
+import { SmokeAlarm } from "./icons/amenitiesIcons/SmokeAlarm";
+import { FirstAidKit } from "./icons/amenitiesIcons/FirstAidKit";
+import { Fire } from "./icons/amenitiesIcons/Fire";
 
 export default function ModalReceit() {
   const [cards, setCards] = useState([]);
@@ -178,7 +181,7 @@ export default function ModalReceit() {
 
                 <div className=" font-medium mt-3">Location</div>
                 <div className="flex">
-                  <div>{region},</div>
+                  {/* <div>{region},</div> */}
                   <div>{location}</div>
                 </div>
                 <div>{type}</div>
@@ -214,4 +217,7 @@ const icons: any = {
   Patio: <Ratio />,
   "Lake access": <Lake />,
   "Outdoor shower": <Shower />,
+  "Smoke alarm": <SmokeAlarm />,
+  "First aid kit": <FirstAidKit />,
+  "Fire extinguisher": <Fire />,
 };

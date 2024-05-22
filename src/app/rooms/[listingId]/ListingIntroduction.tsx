@@ -11,8 +11,8 @@ import { NumericFormat } from "react-number-format";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
-import { GuestCounter } from "@/components/counter/GuestCounter";
-import DateRange from "@/components/LittleMenus/DateRange";
+// import DateRange from "@/components/LittleMenus/DateRange";
+import Calendar from "../../../components/LittleMenus/Calendar";
 import ListingReservation from "./ListingReservation";
 import { IconContext } from "react-icons";
 import { MdVerifiedUser } from "react-icons/md";
@@ -26,7 +26,6 @@ export function ListingIntroduction() {
   return (
     <div className="flex">
       <div className="w-4/6 flex flex-col gap-6">
-        
         {/* title section */}
 
         <div>
@@ -118,7 +117,8 @@ export function ListingIntroduction() {
         {/* calendar */}
 
         <div>
-          <DateRange />
+          {/* <DateRange /> */}
+          <Calendar />
         </div>
 
         <div className="flex">
