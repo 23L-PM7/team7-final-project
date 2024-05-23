@@ -132,17 +132,19 @@ export default function ModalReceit() {
                 // onSwiper={(swiper) => console.log(swiper)}
                 className="w-[450px] image-full rounded-lg "
               >
-                {images.map((image: any, index: any) => (
-                  <SwiperSlide key={index}>
-                    <div className="aspect-square flex justify-start items-start rounded-xl">
-                      <img
-                        src={image}
-                        alt=""
-                        className={`aspect-square transition duration-300 ease-in-out hover:scale-110 h-full object-cover`}
-                      />
-                    </div>
-                  </SwiperSlide>
-                ))}
+                {images
+                  .filter((image: string) => image)
+                  .map((image: any, index: any) => (
+                    <SwiperSlide key={index}>
+                      <div className="aspect-square flex justify-start items-start rounded-xl">
+                        <img
+                          src={image}
+                          alt=""
+                          className={`aspect-square transition duration-300 ease-in-out hover:scale-110 h-full object-cover`}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
               </Swiper>
 
               <div className="flex flex-col h-[421px] w-[490px]  z-10 px-5 overflow-y-auto ">

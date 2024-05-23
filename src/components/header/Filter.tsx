@@ -1,118 +1,53 @@
 "use client";
-
-import { usePathname, useSearchParams } from "next/navigation";
-import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
-import {
-  GiBarn,
-  GiBoatFishing,
-  GiCactus,
-  GiCaveEntrance,
-  GiForestCamp,
-  GiCampingTent,
-} from "react-icons/gi";
-import { FaSkiing, FaHotel } from "react-icons/fa";
-import { BsSnow, BsTicketPerforatedFill } from "react-icons/bs";
-import { MdOutlineVilla, MdBedroomParent, MdMuseum } from "react-icons/md";
+import * as React from 'react';
+import BasicModal from "./Modal";
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
-
+import { House } from '../icons/amenitiesIcons/House';
+import { Ger } from '../icons/Ger';
+import { TopCity } from '../icons/TopSities';
+import { CountrySide } from '../icons/CountrySide';
+import { Rooms } from '../icons/Rooms';
+import { Lake } from '../icons/Lake';
+import { Farms } from '../icons/Farms';
 import Container from "../Container";
-import CategoryBox from "../CategoryBox";
-import { IconType } from "react-icons";
 
-export const categories: {
-  label: string;
-  icon: IconType;
-  description: string;
-}[] = [
-  {
-    label: "Icons",
-    icon: BsTicketPerforatedFill,
-    description: "",
-  },
-  {
-    label: "Beach",
-    icon: TbBeach,
-    description: "This property is close to the beach!",
-  },
-  {
-    label: "Hotel",
-    icon: FaHotel,
-    description: "This property is has Hotel!",
-  },
-  {
-    label: "Modern",
-    icon: MdOutlineVilla,
-    description: "This property is modern!",
-  },
-  {
-    label: "Countryside",
-    icon: TbMountain,
-    description: "This property is in the countryside!",
-  },
-  {
-    label: "Pools",
-    icon: TbPool,
-    description: "This is property has a beautiful pool!",
-  },
-  {
-    label: "Rooms",
-    icon: MdBedroomParent,
-    description: "This property is on an rooms!",
-  },
-  {
-    label: "Lake",
-    icon: GiBoatFishing,
-    description: "This property is near a lake!",
-  },
-  {
-    label: "Skiing",
-    icon: FaSkiing,
-    description: "This property has skiing activies!",
-  },
-  {
-    label: "Caves",
-    icon: GiCaveEntrance,
-    description: "This property is in a spooky cave!",
-  },
-  {
-    label: "Camping",
-    icon: GiForestCamp,
-    description: "This property offers camping activities!",
-  },
-  {
-    label: "Arctic",
-    icon: BsSnow,
-    description: "This property is in arctic environment!",
-  },
-  {
-    label: "Desert",
-    icon: GiCactus,
-    description: "This property is in the desert!",
-  },
-  {
-    label: "Barns",
-    icon: GiBarn,
-    description: "This property is in a barn!",
-  },
-  {
-    label: "museum",
-    icon: MdMuseum,
-    description: "This property is history museum!",
-  },
+const places = [
+  { image: <TopCity />, title: "Top city", id: "1", label: "Top city"},
+  { image: <Ger />, title: "Yurts", id: "2", label: "Yurts"},
+  { image: <Rooms />, title: "Rooms", id: "3", label: "Rooms"},
+  { image: <CountrySide />, title: "Countryside", id: "4", label: "Countryside"},
+  { image: <Lake />, title: "Lake", id: "5" ,label: "Lake"},
+  { image: <Farms />, title: "Farms", id: "6", label: "Farms"},
+  { image: <House />, title: "House", id: "7", label: "House"},
 ];
 
-const Filter = () => {
-  const params = useSearchParams();
-  const category = params?.get("category");
-  const pathname = usePathname();
 
+const Filter = () => {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const categoriesFilter = searchParams.get('categories')
+  const params = useSearchParams();
+
+  const createQueryString = React.useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString())
+      params.set(name, value)
+
+      return params.toString()
+    },
+    [searchParams]
+  );
   const isMainPage = pathname === "/";
 
   // Is Main Page
-  if (!isMainPage) {
-    return null;
-  }
-
+  const filteredCards = places.filter((place) => {
+    if (!categoriesFilter) {
+      return true; // Show all cards if no filter is applied
+    }
+    return place.label === categoriesFilter;
+  });
   return (
     <motion.div
       className="box"
@@ -131,14 +66,19 @@ const Filter = () => {
     >
       <Container>
         <div className="flex flex-row gap-6 items-center cursor-pointer justify-between overflow-x-auto">
-          {categories.map(({ icon, label }) => (
-            <CategoryBox
-              key={label}
-              label={label}
-              icon={icon}
-              selected={category == label}
-            />
-          ))}
+        {places.map((place) => (
+          <div  onClick={() => {
+            router.push(pathname + '?' + createQueryString('categories' , place.label))
+            }} key={place.id} className="flex flex-col">
+            <div className="flex flex-col items-center justify center hover:border-b-2">
+              <div className="">{place.image}</div>
+              <p>{place.label}</p>
+            </div>
+          </div>
+            ))}
+            <div>
+              <BasicModal/>
+            </div>
         </div>
       </Container>
     </motion.div>

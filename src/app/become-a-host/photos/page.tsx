@@ -1,6 +1,6 @@
 "use client";
 
-import { UploadFile , UploadFileMore } from "../../../components/UploadFile";
+import { UploadFile, UploadFileMore } from "../../../components/UploadFile";
 import { PhotoSvg } from "../../../components/icons/amenitiesIcons/PhotoSvg";
 import { ImageField } from "../../../components/imageField/ImageField";
 import { useNextButtonClickable } from "../../../components/newListHeaderFooter/ProgressFooter";
@@ -12,6 +12,7 @@ import DropdownAddImage from "../../../components/dropdown/DropDownAddImage";
 import DropDown2SS from "../../../components/dropdown/DropDown2SS";
 import Dropdown3 from "../../../components/dropdown/DropDown3";
 import { Toaster } from "sonner";
+import Dropdown4 from "../../../components/dropdown/DropDown4";
 
 export default function ListPhoto() {
   const { setNextButtonClickable }: any = useNextButtonClickable();
@@ -27,11 +28,15 @@ export default function ListPhoto() {
     setImage3,
     image4,
     setImage4,
+    image5,
+    setImage5,
   } = useBecomeHost();
 
   useEffect(() => {
-    setNextButtonClickable(image && image1 && image2 && image3);
-  }, [image, image1, image2, image3]);
+    setNextButtonClickable(
+      image && image1 && image2 && image3 && image4 && image5
+    );
+  }, [image, image1, image2, image3, image4, image5]);
 
   return (
     <div
@@ -145,23 +150,45 @@ export default function ListPhoto() {
               </div>
             )}
           </div>
+
           <div className="relative">
-            {!image4 && <UploadFileMore value={image4} onChange={setImage4} />}
-            {image4 && (
+            {!image5 && <UploadFile value={image5} onChange={setImage5} />}
+            {image5 && (
               <img
                 alt=""
-                src={image4}
-                className="w-[342px] h-[228px] rounded-md"
+                className=" w-[342px] h-[228px] rounded-md"
+                src={image5}
               />
             )}
-            {image4 && (
+            {image && (
               <div className="flex justify-between">
                 <div className="absolute top-4 right-4 z-10">
-                  <DropdownAddImage />
+                  <Dropdown4 />
                 </div>
               </div>
             )}
           </div>
+          {image5 && (
+            <div className="relative mr-[346px]">
+              {!image4 && (
+                <UploadFileMore value={image4} onChange={setImage4} />
+              )}
+              {image4 && (
+                <img
+                  alt=""
+                  src={image4}
+                  className="w-[342px] h-[228px] rounded-md"
+                />
+              )}
+              {image4 && (
+                <div className="flex justify-between">
+                  <div className="absolute top-4 right-4 z-10">
+                    <DropdownAddImage />
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
     </div>

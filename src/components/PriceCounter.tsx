@@ -20,7 +20,7 @@ export function PriceCounter() {
         type="number"
         value={price}
         onChange={(e: any) => setPrice(e.target.value)}
-        className="flex justify-center items-center outline-none font-semibold w-[350px] text-9xl"
+        className="flex justify-center items-center outline-none font-semibold w-[550px] text-9xl"
       />
     </div>
   );
