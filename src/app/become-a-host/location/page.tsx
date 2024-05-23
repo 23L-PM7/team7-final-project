@@ -55,10 +55,10 @@ export default function Location() {
           }}
         >
           <Option value="Eastern Mongolia">Eastern Mongolia</Option>
+          <Option value="Eastern Mongolia">Ulaanbaatar</Option>
           <Option value="Western Mongolia">Western Mongolia</Option>
-          <Option value="Northern Mongolia">Northern Mongolia</Option>
-          <Option value="Southern Mongolia">Southern Mongolia</Option>
-          <Option value="Ulaanbaatar">Ulaanbaatar</Option>
+          <Option value="Central Mongolia">Central Mongolia</Option>
+          <Option value="Montane Mongolia">Montane Mongolia</Option>
         </Select>
 
         <section className="hidden xl:inline-flex xl:min-w-[600px] ">

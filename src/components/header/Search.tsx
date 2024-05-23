@@ -46,7 +46,7 @@ const Search = () => {
         }
       }}>
       <div className="w-[780px] cursor-pointer mx-auto rounded-full border px-5 py-2 lg:flex hidden">
-           <div className="flex flex-row items-center justify-between">
+           <div className="flex flex-row items-center mx-auto justify-between">
             {/* <div className="flex flex-col justify-start pr-12">
               <p className="text-sm font-semibold ">Where</p>
               <p className="text-xs text-gray-400">Search destinations</p>
