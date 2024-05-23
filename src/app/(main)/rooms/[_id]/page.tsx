@@ -7,14 +7,12 @@ import { ListingImage } from "./ListingImage";
 import { ListingIntroduction } from "./ListingIntroduction";
 import { ListingReview } from "./ListingReview";
 import { ListingLocations } from "./ListingLocations";
-import { ListingRules } from "./ListingRules";
 import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-import { ShareButton } from "../../../../../components/homePageCard/ShareButton";
-import { useListingDetails } from "../../../../globals";
+import { useListingDetails } from "../../../globals";
+import { ShareButton } from "../../../../components/homePageCard/ShareButton";
 
 export default function Listing() {
   const setListingDetails: any = useListingDetails(
