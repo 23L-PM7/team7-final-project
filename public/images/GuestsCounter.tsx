@@ -15,42 +15,70 @@ const humans = [
   {
     image: (
       <div>
-        <img src="/images/human2.avif" alt="human" />
+        <img src="/images/human1.avif" alt="human" />
       </div>
     ),
   },
   {
     image: (
       <div>
-        <img src="/images/human3.avif" alt="human" />
+        <img src="/images/human1.avif" alt="human" />
       </div>
     ),
   },
   {
     image: (
       <div>
-        <img src="/images/human4.avif" alt="human" />
+        <img src="/images/human1.avif" alt="human" />
       </div>
     ),
   },
   {
     image: (
       <div>
-        <img src="/images/human5.avif" alt="human" />
+        <img src="/images/human1.avif" alt="human" />
       </div>
     ),
   },
   {
     image: (
       <div>
-        <img src="/images/human6.avif" alt="human" />
+        <img src="/images/human1.avif" alt="human" />
       </div>
     ),
   },
   {
     image: (
       <div>
-        <img src="/images/human7.avif" alt="human" />
+        <img src="/images/human1.avif" alt="human" />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img src="/images/human1.avif" alt="human" />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img src="/images/human1.avif" alt="human" />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img src="/images/human1.avif" alt="human" />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img src="/images/human1.avif" alt="human" />
       </div>
     ),
   },
