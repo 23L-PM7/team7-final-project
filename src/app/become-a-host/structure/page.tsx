@@ -18,7 +18,7 @@ type Place = {
   id: string;
 };
 
-export const places = [
+ const places = [
   { image: <TopCity />, title: "Top city", id: "1", label: "Top city"},
   { image: <Ger />, title: "Yurts", id: "2", label: "Yurts"},
   { image: <Rooms />, title: "Rooms", id: "3", label: "Rooms"},
