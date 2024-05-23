@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { ImAppleinc } from "react-icons/im";
 import { AiFillFacebook } from "react-icons/ai";
 import { useRouter } from "next/navigation";
-import { useDate, useDays, useGuests } from "../globals";
+import { useDate, useDays, useGuests } from "../../globals";
 import { DateRangePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
@@ -17,7 +17,7 @@ import {
   Divider,
   Typography,
 } from "@mui/joy";
-import { GuestCounter } from "../../components/counter/ReservationGuestsCounter/GuestCounter";
+import { GuestCounter } from "../../../components/counter/ReservationGuestsCounter/GuestCounter";
 
 export default function Reservation() {
   const { date, setDate }: any = useDate();
