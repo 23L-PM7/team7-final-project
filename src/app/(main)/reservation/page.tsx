@@ -1,24 +1,38 @@
 "use client";
 
 import * as React from "react";
-import Sheet from "@mui/joy/Sheet";
-import Button from "@mui/joy/Button";
-
-import Typography from "@mui/joy/Typography";
-import { VariantProp } from "@mui/joy/styles";
 import { FcGoogle } from "react-icons/fc";
 import { ImAppleinc } from "react-icons/im";
 import { AiFillFacebook } from "react-icons/ai";
-import { MdOutlineMail } from "react-icons/md";
-import Modal from "@mui/joy/Modal";
-import ModalClose from "@mui/joy/ModalClose";
-import Menu from "@mui/joy/Menu";
-import MenuButton from "@mui/joy/MenuButton";
-// import DateRange from "@components/LittleMenus/DateRange";
+import { useRouter } from "next/navigation";
+import { useDate, useDays, useGuests } from "../../globals";
+import { DateRangePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionGroup,
+  AccordionSummary,
+  Divider,
+  Typography,
+} from "@mui/joy";
+import { GuestCounter } from "../../../components/counter/ReservationGuestsCounter/GuestCounter";
 
 export default function Reservation() {
-  const [openDate, setOpenDate] = React.useState<boolean>(false);
-  const [openGuest, setOpenGuest] = React.useState<boolean>(false);
+  const { date, setDate }: any = useDate();
+  const { daysNumber }: any = useDays();
+  const { clientNumber }: any = useGuests();
+
+  const router = useRouter();
+
+  const SignIn = () => {
+    router.push("/signin");
+  };
+
+  const SignUp = () => {
+    router.push("/signup");
+  };
 
   return (
     <div className="mx-auto w-[1300px] h-screen justify-center font-circular pt-20">
@@ -26,145 +40,50 @@ export default function Reservation() {
         Confirm and pay
       </div>
       <div className="flex w-full">
-        <div className="w-1/2 flex flex-col">
-          <div className="mb-5 pb-5 flex flex-col w-full h-48 border-b-2 justify-between ">
+        <div className="w-[600px] flex flex-col">
+          <div className="mb-5 pb-5 flex flex-col w-full h-48  justify-between ">
             <h3 className="text-[22px] font-bold">Your trip</h3>
-            <div className="flex justify-between">
-              <div className="flex flex-col">
-                <h3 className="font-bold">Dates</h3>
-                <h3 className="font-[16px]">May 19-24</h3>
-              </div>
+
+            <div className="rounded-xl grid gap-6 mb-60 w-[570px]">
               <div>
-                <React.Fragment>
-                  <Button
-                    variant="outlined"
-                    color="neutral"
-                    onClick={() => setOpenDate(true)}
-                    className="font-bold"
-                  >
-                    Edit
-                  </Button>
-                  <Modal
-                    aria-labelledby="modal-title"
-                    aria-describedby="modal-desc"
-                    open={openDate}
-                    onClose={() => setOpenDate(false)}
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Sheet
-                      variant="outlined"
-                      sx={{
-                        maxWidth: 500,
-                        borderRadius: "md",
-                        p: 3,
-                        boxShadow: "lg",
-                      }}
-                    >
-                      <ModalClose variant="plain" sx={{ m: 1 }} />
-                      <Typography
-                        component="h2"
-                        id="modal-title"
-                        level="h4"
-                        textColor="inherit"
-                        fontWeight="lg"
-                        mb={1}
-                      >
-                        This is the modal title
-                      </Typography>
-                      <Typography id="modal-desc" textColor="text.tertiary">
-                        Make sure to use <code>aria-labelledby</code> on the
-                        modal dialog with an optional{" "}
-                        <code>aria-describedby</code> attribute.
-                      </Typography>
-                    </Sheet>
-                  </Modal>
-                </React.Fragment>
-              </div>
-            </div>
-            <div className="flex justify-between">
-              <div className="flex flex-col">
-                <h3 className="font-bold">Guests</h3>
-                <h3>1 guest</h3>
-              </div>
-              <div>
-                <React.Fragment>
-                  <Button
-                    variant="outlined"
-                    color="neutral"
-                    onClick={() => setOpenGuest(true)}
-                  >
-                    Edit
-                  </Button>
-                  <Modal
-                    aria-labelledby="modal-title"
-                    aria-describedby="modal-desc"
-                    open={openGuest}
-                    onClose={() => setOpenGuest(false)}
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Sheet
-                      variant="outlined"
-                      sx={{
-                        maxWidth: 500,
-                        borderRadius: "md",
-                        p: 3,
-                        boxShadow: "lg",
-                      }}
-                    >
-                      <ModalClose variant="plain" sx={{ m: 1 }} />
-                      <Typography
-                        component="h2"
-                        id="modal-title"
-                        level="h4"
-                        textColor="inherit"
-                        fontWeight="lg"
-                        mb={1}
-                      >
-                        This is the modal title
-                      </Typography>
-                      <Typography id="modal-desc" textColor="text.tertiary">
-                        Make sure to use <code>aria-labelledby</code> on the
-                        modal dialog with an optional{" "}
-                        <code>aria-describedby</code> attribute.
-                      </Typography>
-                    </Sheet>
-                  </Modal>
-                </React.Fragment>
+                <div className="p-2 mb-2">
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DemoContainer components={["DateRangeCalendar"]}>
+                      <DateRangePicker
+                        sx={{ border: 0 }}
+                        slotProps={{
+                          textField: ({ position }) => ({
+                            label:
+                              position === "start" ? "check-in" : "check-out",
+                          }),
+                        }}
+                        value={date}
+                        onChange={(newDate) => setDate(newDate)}
+                      />
+                    </DemoContainer>
+                  </LocalizationProvider>
+                </div>
+
+                <div className="absolute rounded bg-white border-2 p-2 items.center w-[570px]">
+                  <AccordionGroup>
+                    <Accordion>
+                      <AccordionSummary>
+                        <div>
+                          <Typography level="body-xs">guest</Typography>
+                          <Typography>{clientNumber} guests</Typography>
+                        </div>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <GuestCounter />
+                      </AccordionDetails>
+                    </Accordion>
+                  </AccordionGroup>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* <div className="mb-8 flex flex-col w-full h-56">
-            <h3 className="text-[22px] font-bold">Choose how to pay</h3>
-          
-
-            <div className="flex justify-between border-2 rounded p-5 ">
-              <h3 className="font-medium">Pay $134.01 now</h3>
-              <Radio color="neutral" size="lg" variant="solid" defaultChecked />
-            </div>
-
-            <div className="flex justify-between border-2 rounded p-5">
-              <div>
-                <h3 className="font-medium">Pay part now, part later</h3>
-                <h3 className="text-md">
-                  $67.01 due today, $67.00 on May 6, 2024. No extra fees. More
-                  info
-                </h3>
-              </div>
-
-              <Radio color="neutral" size="lg" variant="solid" />
-            </div>
-          </div> */}
-
-          <div className=" flex flex-col w-full h-48  justify-between">
+          <div className="flex flex-col w-full h-48 justify-between">
             <div className="flex justify-between border-2 rounded p-4">
               <div>
                 <p className="text-sm text-slate-400">Country code</p>
@@ -191,20 +110,16 @@ export default function Reservation() {
             <h3 className="text-[22px] font-bold mb-3">
               Log in or sign up to book
             </h3>
-            {/* <input
-              className="flex justify-between border-2 rounded p-5 h-full text-xl mb-3"
-              type="text"
-              placeholder="username"
-            />
-            <input
-              className="flex justify-between border-2 rounded p-5 h-full text-xl mb-3"
-              type="text"
-              placeholder="password"
-            /> */}
-            <button className="w-full bg-red-500 h-[52px] rounded text-white font-bold mb-5">
+
+            <button
+              className="w-full bg-red-500 h-[52px] rounded text-white font-bold mb-5"
+              onClick={SignIn}
+            >
               Sign-in to Continue
             </button>
-            <button className="mb-5">Not registered yet? Sign-up</button>
+            <button className="mb-5" onClick={SignUp}>
+              Not registered yet? Sign-up
+            </button>
           </div>
 
           <div className="flex flex-col border-t-2 mb-8">
@@ -219,12 +134,6 @@ export default function Reservation() {
                 <ImAppleinc className="w-6 h-6" />
               </button>
             </div>
-            <button className="border-2 rounded w-full mt-10 flex justify-between p-4 items-center mb-10">
-              <div className="w-1/2 flex items-center">
-                <MdOutlineMail className="w-6 h-6" />
-              </div>
-              <p className="w-3/4 flex font-semibold">Continue with email</p>
-            </button>
           </div>
         </div>
 
