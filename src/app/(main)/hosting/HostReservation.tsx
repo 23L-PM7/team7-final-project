@@ -1,8 +1,8 @@
 import axios from "axios";
 import { Suspense } from "react";
 import { useEffect, useState } from "react";
-import { HomePageCards } from "../../../components/homePageCard/HomePageCard";
-import { CircularProgress, LinearProgress } from "@mui/joy";
+import { LinearProgress } from "@mui/joy";
+import { HosttingPageCard } from "../../../components/homePageCard/HostingPageCard";
 
 export default function HostReservation() {
   const [cards, setCards] = useState([]);
@@ -29,9 +29,8 @@ export default function HostReservation() {
     <div className="flex flex-col container mx-auto  ">
       <div className=" flex  justify-between mb-10">
         <h1 className="text-[32px] font-semibold text-black">Welcome, Host!</h1>
-
         <button className="text-black rounded-xl hover:bg-slate-100 duration-200 border-2 py-1 px-4 w-[200px] h-[34px] font-medium justify-center items-center text-base border-black">
-          Complete your listing
+          <p>Show all (10+)</p>
         </button>
       </div>
       <div>
@@ -40,7 +39,7 @@ export default function HostReservation() {
             <LinearProgress />
           </div>
         )}
-        {!loading && <HomePageCards cards={getUserCards(cards)} />}
+        {!loading && <HosttingPageCard cards={getUserCards(cards)} />}
       </div>
       <div className=" flex  justify-between mb-10 ">
         <h1 className="text-[30px] font-medium text-black">
