@@ -5,7 +5,7 @@ import { RiGlobalLine } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <div className="relative">
+    <div className="bottom-0 w-full bg-slate-100">
       <div className="fixed left-0 right-0 bottom-0 bg-slate-100 z-10">
         <div className=" mx-auto w-[1280px] h-[69px] flex justify-between items-center px-40">
           <div className="bottom-0 w-full bg-slate-100">

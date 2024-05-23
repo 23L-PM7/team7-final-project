@@ -7,17 +7,26 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
 import dayjs, { Dayjs } from 'dayjs';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { useRouter } from 'next/router';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
-import { useDate } from '../../app/globals';
+import { useDate, useDays } from '../../app/globals';
 
 const Calendar = () => {
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const { date, setDate }: any = useDate();
+    const { daysNumber, setDaysNumber } : any = useDays();
+    const search = searchParams.get('date')?.toString
 
+    const totalDays = 0 - date[0].diff(date[1], "day")
+
+    useEffect(() => {
+        setDaysNumber(totalDays);
+      }, [totalDays]);
+
+      console.log(daysNumber);
 
     const createQueryString = React.useCallback(
         (name: string, value: string) => {
@@ -29,15 +38,12 @@ const Calendar = () => {
         [searchParams]
     )
 
-    console.log(date);
-
     return <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DemoContainer components={['DateRangeCalendar']}>
             <DateRangeCalendar
                 value={date}
                 onChange={(newDate) => setDate(newDate)} />
-            <p>{date.toString()}</p>
-            <Link href={pathname + '?' + createQueryString('date', date.toString())}>ok</Link>
+            <Link href={pathname + '?' + createQueryString('date', date.toString())}></Link>
         </DemoContainer>
     </LocalizationProvider>
 }
