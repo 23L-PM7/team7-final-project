@@ -41,6 +41,8 @@ export function HomePageCards() {
   };
   // console.log({ cards });
 
+  if (loading) return <Loading />;
+
   const filteredCards = cards.filter((card:any) => {
         if (!categoriesFilter) {
           return true // Show all cards if no filter is applied
