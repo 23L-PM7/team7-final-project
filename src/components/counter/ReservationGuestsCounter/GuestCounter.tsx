@@ -6,13 +6,25 @@ import {
   useAdult,
   useChildren,
   useGuests,
+  useInfant,
+  usePet,
 } from "../../../app/globals";
 import { useEffect } from "react";
 
 export function GuestCounter() {
-  let { guestsNumber, setGuestsNumber }: any = useGuests();
-  let { adultNumber }: any = useAdult();
-  let { childrenNumber }: any = useChildren();
+  const { clientNumber, setClientNumber }: any = useGuests();
+  const { adultNumber } : any = useAdult();
+  const { childrenNumber } : any = useChildren();
+  const { infantNumber } : any = useInfant();
+  const { petNumber } : any = usePet();
+
+  const totalClient = adultNumber + childrenNumber + infantNumber + petNumber
+
+  useEffect(() => {
+    setClientNumber(totalClient);
+  }, [totalClient]);
+
+  console.log(clientNumber);
 
   return (
     <div className="flex flex-col gap-2">

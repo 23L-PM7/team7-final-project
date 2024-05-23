@@ -15,23 +15,31 @@ import axios from "axios";
 import { useListingDetails } from "../../globals";
 
 export default function Listing() {
-  const setListingDetails : any = useListingDetails((state : any) => state.setListingDetails);
+  const setListingDetails: any = useListingDetails((state: any) => state.setListingDetails);
   const { _id } = useParams();
   const [loading, setLoading] = useState(true);
+  const [show, setShow] = useState(false)
+
 
   function fecthListing() {
-    setLoading(true);
     axios
       .get(`http://localhost:3000/api/listingDetails?id=${_id}`)
       .then((listing) => setListingDetails(listing.data[0]));
-    setLoading(false);
   }
-
   useEffect(() => {
     fecthListing();
   }, []);
 
-  if (loading) return <div className="size-6 mx-auto my-[300px]"><CircularProgress size="lg" /></div>;
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShow(true)
+    }, 4000)
+
+    return () => clearTimeout(timeout)
+
+  }, [show])
+
+  if (!show) return <div className="size-6 mx-auto my-[300px]"><CircularProgress size="lg" /></div>;
 
   return (
     <div className="container w-[1120px] mx-auto grid gap-6 my-6">

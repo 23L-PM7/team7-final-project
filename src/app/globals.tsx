@@ -18,6 +18,13 @@ export const useDays = create((set) => ({
   setDaysNumber: (newDays: Number) => set(() => ({ daysNumber: newDays })),
 }));
 
+// for reservation price
+
+export const usePayment = create((set) => ({
+  totalPayment: 0,
+  setTotalPayment: (newNumber: Number) => set(() => ({ totalPayment: newNumber })),
+}));
+
 // for reservation guests
 
 export const useGuests = create((set) => ({

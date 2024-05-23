@@ -18,7 +18,7 @@ export function ListingImage() {
 
   return (
     <Stack spacing={4} className="w-full h-[560px] rounded-xl">
-      {/* <ImageList sx={{ borderRadius: '16px' }} variant="quilted" cols={3} rowHeight={270}>
+      <ImageList sx={{ borderRadius: '16px' }} variant="quilted" cols={3} rowHeight={270}>
         {listingDetails.images.map((image : string, index : number) => (
           <ImageListItem key={index}>
             <img
@@ -27,7 +27,7 @@ export function ListingImage() {
             />
           </ImageListItem>
         ))}
-      </ImageList> */}
+      </ImageList>
     </Stack>
   );
 }

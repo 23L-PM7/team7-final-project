@@ -1,30 +1,48 @@
-import {
-  DateCalendar,
-  DatePicker,
-  LocalizationProvider,
-} from "@mui/x-date-pickers";
-
-// import { useCheckIn, useCheckOut } from "@/app/globals";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Avatar, Badge, Box, Button, Divider, Typography } from "@mui/joy";
-import { NumericFormat } from "react-number-format";
-import Accordion from "@mui/joy/Accordion";
-import AccordionDetails from "@mui/joy/AccordionDetails";
-import AccordionSummary from "@mui/joy/AccordionSummary";
-// import DateRange from "@/components/LittleMenus/DateRange";
 import Calendar from "../../../components/LittleMenus/Calendar";
 import ListingReservation from "./ListingReservation";
 import { IconContext } from "react-icons";
-import { MdVerifiedUser } from "react-icons/md";
 import { PiMedalFill } from "react-icons/pi";
 import { IoIosStar } from "react-icons/io";
-import { useListingDetails } from "../../globals";
+import { useDays, useListingDetails, useDate } from "../../globals";
+import { useBecomeHost } from "../../become-a-host/store";
+import { useEffect } from "react";
+import { WiFi } from "../../../components/icons/amenitiesIcons/Wifa";
+import { House } from "../../../components/icons/amenitiesIcons/House";
+import { TV } from "../../../components/icons/amenitiesIcons/Tv";
+import { Kitchen } from "../../../components/icons/amenitiesIcons/Kitchen";
+import { Washer } from "../../../components/icons/amenitiesIcons/Washer";
+import { Car } from "../../../components/icons/amenitiesIcons/Car";
+import { Parking } from "../../../components/icons/amenitiesIcons/Parking";
+import { AirCondition } from "../../../components/icons/amenitiesIcons/AirCondition";
+import { WorkPlace } from "../../../components/icons/amenitiesIcons/WorkPlace";
+import { BBgrill } from "../../../components/icons/amenitiesIcons/BBQgrill";
+import { Piona } from "../../../components/icons/amenitiesIcons/Piona";
+import { Exercise } from "../../../components/icons/amenitiesIcons/Exercise";
+import { Ski } from "../../../components/icons/amenitiesIcons/Ski";
+import { BeachAccess } from "../../../components/icons/amenitiesIcons/BeachAccess";
+import { PoolTable } from "../../../components/icons/amenitiesIcons/PoolTable";
+import { Pool } from "../../../components/icons/amenitiesIcons/Pool";
+import { HotTub } from "../../../components/icons/amenitiesIcons/HotTub";
+import { Outdoor } from "../../../components/icons/amenitiesIcons/Outdoor";
+import { FirePit } from "../../../components/icons/amenitiesIcons/FirePit";
+import { Ratio } from "../../../components/icons/amenitiesIcons/Ratio";
+import { Lake } from "../../../components/icons/Lake";
+import { Shower } from "../../../components/icons/amenitiesIcons/Shower";
+import { SmokeAlarm } from "../../../components/icons/amenitiesIcons/SmokeAlarm";
+import { FirstAidKit } from "../../../components/icons/amenitiesIcons/FirstAidKit";
+import { Fire } from "../../../components/icons/amenitiesIcons/Fire";
 
 export function ListingIntroduction() {
-  const { listingDetails } : any = useListingDetails();
+  const { listingDetails }: any = useListingDetails();
+  const { daysNumber }: any = useDays();
+  const { offerTypes, setOfferTypes } = useBecomeHost();
 
-  console.log(listingDetails)
-  
+  useEffect(() => {
+    setOfferTypes(listingDetails.offerTypes);
+  }, []);
+
+  console.log(offerTypes);
 
   return (
     <div className="flex">
@@ -46,10 +64,6 @@ export function ListingIntroduction() {
         </div>
 
         <Divider sx={{ width: 700 }} />
-
-        {/* most liked list */}
-
-        {/* <div>{listingReviews.reviewAverage > 4.5 && <div></div>}</div> */}
 
         {/* host section */}
 
@@ -96,30 +110,50 @@ export function ListingIntroduction() {
 
         <Divider sx={{ width: 700 }} />
 
-        {/* detail section */}
+        {/* room introoduction section */}
+
+
+
+        <div className="grid grid-cols-2 gap-2 justify-start">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
 
         <Divider sx={{ width: 700 }} />
 
         {/* descriptiuon section */}
 
         <div className="flex flex-col gap-3 w-[700px]">
+          <Typography level="h4">About this place</Typography>
           <Typography>{listingDetails.description}</Typography>
-          <Button variant="plain">
-            <Typography>Show more</Typography>
-          </Button>
         </div>
-
-        {/* room introoduction section */}
-
-        <Divider sx={{ width: 700 }} />
 
         {/* amenities */}
 
         <Divider sx={{ width: 700 }} />
 
+        <Typography level="h4">What this palce offres</Typography>
+        <div className="grid grid-cols-2 gap-2 justify-start">
+          {offerTypes.map((type) => (
+            <div>
+              <span className="flex gap-2 items-center" key={type}>
+                <div className="size-12 justify-center content-center">
+                  {icons[type]}
+                </div>
+                {type}
+              </span>
+            </div>
+          ))}
+        </div>
+
         {/* calendar */}
 
+        <Divider sx={{ width: 700 }} />
+
         <div>
+          <Typography level="h4"> {daysNumber} night at {listingDetails.title} </Typography>
           <Calendar />
         </div>
 
@@ -142,20 +176,20 @@ const listing = {
 };
 
 const listingMain = {
-_id: "664b275d7ee421050cce3ad9",
-title: "Entire rental unit in Madrid, Spain",
-price: 193,
-images: "",
-bedroomCount: 2,
-bathroomCount: 2,
-guestsCount: 6,
-bedCount: 6,
-description: "Located in one of the most spectacular buildings in Madrid. The hallwa…",
-offerTypes: "",
-roomType: "1",
-type: "Top city",
-location: "Mongolia",
-region: "Western Mongolia",
+  _id: "664b275d7ee421050cce3ad9",
+  title: "Entire rental unit in Madrid, Spain",
+  price: 193,
+  images: "",
+  bedroomCount: 2,
+  bathroomCount: 2,
+  guestsCount: 6,
+  bedCount: 6,
+  description: "Located in one of the most spectacular buildings in Madrid. The hallwa…",
+  offerTypes: "",
+  roomType: "1",
+  type: "Top city",
+  location: "Mongolia",
+  region: "Western Mongolia",
 }
 
 const host = {
@@ -173,4 +207,32 @@ const listingReviews = {
   checkIn: 5,
   communication: 5,
   value: 4.5,
+};
+
+const icons: any = {
+  Wifi: <WiFi />,
+  House: <House />,
+  Tv: <TV />,
+  Kitchen: <Kitchen />,
+  Washer: <Washer />,
+  Car: <Car />,
+  Parking: <Parking />,
+  "Air Conditioning": <AirCondition />,
+  "Dedicated work": <WorkPlace />,
+  "BBQ grill": <BBgrill />,
+  Piano: <Piona />,
+  "Exercise equipment": <Exercise />,
+  "Ski-in/Ski-out": <Ski />,
+  "Beach access": <BeachAccess />,
+  "Indoor fireplace": <PoolTable />,
+  Pool: <Pool />,
+  "Hot tub": <HotTub />,
+  "Outdoor dinning": <Outdoor />,
+  "Fire pit": <FirePit />,
+  Patio: <Ratio />,
+  "Lake access": <Lake />,
+  "Outdoor shower": <Shower />,
+  "Smoke alarm": <SmokeAlarm />,
+  "First aid kit": <FirstAidKit />,
+  "Fire extinguisher": <Fire />,
 };

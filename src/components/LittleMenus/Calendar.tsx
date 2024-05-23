@@ -17,9 +17,16 @@ const Calendar = () => {
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const { date, setDate }: any = useDate();
+    const { daysNumber, setDaysNumber } : any = useDays();
     const search = searchParams.get('date')?.toString
 
-    console.log('ssds' ,search)
+    const totalDays = 0 - date[0].diff(date[1], "day")
+
+    useEffect(() => {
+        setDaysNumber(totalDays);
+      }, [totalDays]);
+
+      console.log(daysNumber);
 
     const createQueryString = React.useCallback(
         (name: string, value: string) => {
@@ -36,7 +43,7 @@ const Calendar = () => {
             <DateRangeCalendar
                 value={date}
                 onChange={(newDate) => setDate(newDate)} />
-            <Link href={pathname + '?' + createQueryString('date', date.toString())}>ok</Link>
+            <Link href={pathname + '?' + createQueryString('date', date.toString())}></Link>
         </DemoContainer>
     </LocalizationProvider>
 }

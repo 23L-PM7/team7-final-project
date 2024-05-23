@@ -8,30 +8,45 @@ import {
   Typography,
 } from "@mui/joy";
 import { NumericFormat } from "react-number-format";
-import { useDate, useDays, useGuests } from "../../globals";
+import { useDate, useGuests, useListingDetails, useAdult, useChildren, useInfant, usePet, useDays, usePayment } from "../../globals";
 import { DateRangePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import Button from "@mui/joy/Button";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useEffect } from "react";
 
 export default function ListingReservation() {
   const { date, setDate }: any = useDate();
-  const { clientNumber }: any = useGuests();
   const { listingDetails } : any = useListingDetails();
+  const { adultNumber } : any = useAdult();
+  const { childrenNumber } : any = useChildren();
+
+  const { setDaysNumber } : any = useDays();
+  const { setTotalPayment } : any = usePayment();
+  const { clientNumber } : any = useGuests();
 
   const totalDays = 0 - date[0].diff(date[1], "day")
 
-  console.log(totalDays);
+  const clientToCharge = adultNumber + childrenNumber
+  const priceBeforeFee = totalDays * listingDetails.price * clientToCharge
+  const totalPrice = priceBeforeFee + 15
+
+  useEffect(() => {
+    setDaysNumber(totalDays);
+  }, [totalDays]);
+
+  useEffect(() => {
+    setTotalPayment(totalPrice);
+  }, [totalPrice]);
 
   return (
     <div className=" p-6 rounded-xl border-[1px] border-[#DDDDDD] shadow-[0px_6px_16px_rgba(0,0,0,0.12)] grid gap-6">
       <div className="flex items-center">
         <NumericFormat
-          value={27}
+          value={listingDetails.price}
           thousandSeparator=","
           suffix="$"
-          className="w-10 bg-transparent text-lg font-semibold"
+          className="w-16 bg-transparent text-lg font-semibold"
         />
         <Typography>night</Typography>
       </div>
@@ -79,33 +94,33 @@ export default function ListingReservation() {
 
       <div className="grid gap-4">
         <div className="flex w-full justify-between">
-          <Typography>$24 x {totalDays} nights</Typography>
+          <Typography>{listingDetails.price} $ x {totalDays} nights</Typography>
           <NumericFormat
-            value={120}
+            value={priceBeforeFee}
             thousandSeparator=","
             suffix="$"
-            className="w-12 bg-transparent text-lg font-semibold"
+            className="w-16 bg-transparent text-lg font-semibold"
           />
         </div>
         <div className="flex w-full justify-between">
           <Typography>Airbnb service fee</Typography>
           <NumericFormat
-            value={27}
+            value={15}
             thousandSeparator=","
             suffix="$"
-            className="w-12 bg-transparent text-lg font-semibold"
+            className="w-16 bg-transparent text-lg font-semibold"
           />
         </div>
       </div>
       <Divider />
       <div className="flex w-full justify-between">
-        <Typography>Total before taxes</Typography>
+        <Typography>Total price</Typography>
         <NumericFormat
-          value={27}
+          value={totalPrice}
           allowLeadingZeros
           thousandSeparator=","
           suffix="$"
-          className="w-12 bg-transparent text-lg font-semibold"
+          className="w-16 bg-transparent text-lg font-semibold"
           disabled
         />
       </div>
