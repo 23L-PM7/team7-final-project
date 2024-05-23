@@ -5,26 +5,24 @@ import Sheet from "@mui/joy/Sheet";
 import Button from "@mui/joy/Button";
 
 import Typography from "@mui/joy/Typography";
-import { VariantProp } from "@mui/joy/styles";
 import { FcGoogle } from "react-icons/fc";
 import { ImAppleinc } from "react-icons/im";
 import { AiFillFacebook } from "react-icons/ai";
-import { MdOutlineMail } from "react-icons/md";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
-import Menu from "@mui/joy/Menu";
-import MenuButton from "@mui/joy/MenuButton";
 import { useRouter } from "next/navigation";
-import DateRange from "../../components/LittleMenus/DateRange";
 import Calendar from "../../components/LittleMenus/Calendar";
 import { GuestCounter } from "../../components/counter/ReservationGuestsCounter/GuestCounter";
-// import { useDate } from "../globals";
+import { useDate, useGuests } from "../globals";
 
 // import DateRange from "@components/LittleMenus/DateRange";
 
 export default function Reservation() {
   const [openDate, setOpenDate] = React.useState<boolean>(false);
   const [openGuest, setOpenGuest] = React.useState<boolean>(false);
+  const { date, setDate }: any = useDate();
+  const { guestsNumber, setGuestsNumber }: any = useGuests();
+  // const { days, setDays }: any = useDays();
 
   const router = useRouter();
 
@@ -48,10 +46,7 @@ export default function Reservation() {
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <h3 className="font-bold">Dates</h3>
-                {/* <p>
-                  {date[0].format("MMMM D, YYYY")} -{" "}
-                  {date[1].format("MMMM D, YYYY")}
-                </p> */}
+                <p>{date.toString()}</p>
               </div>
               <div>
                 <React.Fragment>
@@ -102,7 +97,7 @@ export default function Reservation() {
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <h3 className="font-bold">Guests</h3>
-                <h3>[1 guest]</h3>
+                <h3>{guestsNumber}</h3>
               </div>
               <div>
                 <React.Fragment>
@@ -152,28 +147,6 @@ export default function Reservation() {
             </div>
           </div>
 
-          {/* <div className="mb-8 flex flex-col w-full h-56">
-            <h3 className="text-[22px] font-bold">Choose how to pay</h3>
-          
-
-            <div className="flex justify-between border-2 rounded p-5 ">
-              <h3 className="font-medium">Pay $134.01 now</h3>
-              <Radio color="neutral" size="lg" variant="solid" defaultChecked />
-            </div>
-
-            <div className="flex justify-between border-2 rounded p-5">
-              <div>
-                <h3 className="font-medium">Pay part now, part later</h3>
-                <h3 className="text-md">
-                  $67.01 due today, $67.00 on May 6, 2024. No extra fees. More
-                  info
-                </h3>
-              </div>
-
-              <Radio color="neutral" size="lg" variant="solid" />
-            </div>
-          </div> */}
-
           <div className=" flex flex-col w-full h-48  justify-between">
             <div className="flex justify-between border-2 rounded p-4">
               <div>
@@ -201,16 +174,7 @@ export default function Reservation() {
             <h3 className="text-[22px] font-bold mb-3">
               Log in or sign up to book
             </h3>
-            {/* <input
-              className="flex justify-between border-2 rounded p-5 h-full text-xl mb-3"
-              type="text"
-              placeholder="username"
-            />
-            <input
-              className="flex justify-between border-2 rounded p-5 h-full text-xl mb-3"
-              type="text"
-              placeholder="password"
-            /> */}
+
             <button
               className="w-full bg-red-500 h-[52px] rounded text-white font-bold mb-5"
               onClick={SignIn}
@@ -234,12 +198,6 @@ export default function Reservation() {
                 <ImAppleinc className="w-6 h-6" />
               </button>
             </div>
-            {/* <button className="border-2 rounded w-full mt-10 flex justify-between p-4 items-center mb-10">
-              <div className="w-1/2 flex items-center">
-                <MdOutlineMail className="w-6 h-6" />
-              </div>
-              <p className="w-3/4 flex font-semibold">Continue with email</p>
-            </button> */}
           </div>
         </div>
 
