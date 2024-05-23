@@ -18,7 +18,6 @@ export const useDays = create((set) => ({
   setDaysNumber: (newDays: Number) => set(() => ({ daysNumber: newDays })),
 }));
 
-
 // for reservation guests
 
 export const useGuests = create((set) => ({
@@ -45,3 +44,10 @@ export const usePet = create((set) => ({
   petNumber: 0,
   setPetNumber: (newNumber: Number) => set(() => ({ petNumber: newNumber })),
 }));
+
+// for listing details
+
+export const useListingDetails = create ((set) => ({
+  listingDetails: [],
+  setListingDetails: (newList : any) => set(() => ({ listingDetails: newList }))
+}))

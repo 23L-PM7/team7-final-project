@@ -18,10 +18,13 @@ import { IconContext } from "react-icons";
 import { MdVerifiedUser } from "react-icons/md";
 import { PiMedalFill } from "react-icons/pi";
 import { IoIosStar } from "react-icons/io";
+import { useListingDetails } from "../../globals";
 
-export function ListingIntroduction({listingDetails} : any) {
+export function ListingIntroduction() {
+  const { listingDetails } : any = useListingDetails();
 
-  // console.log(listingDetails)
+  console.log(listingDetails)
+  
 
   return (
     <div className="flex">
@@ -30,10 +33,10 @@ export function ListingIntroduction({listingDetails} : any) {
 
         <div>
           <Typography level="h2">
-            {listing.type} in {listing.location}, {listing.country}
+            {listingDetails.title}
           </Typography>
-          <Typography>{listing.bedsNumber} beds</Typography>
-          <div className="flex">
+          {/* <Typography>{listing.bedsNumber} beds, </Typography> */}
+          <div className="flex items-center gap-2">
             <IoIosStar />{" "}
             <Typography>
               {" "}
@@ -100,7 +103,7 @@ export function ListingIntroduction({listingDetails} : any) {
         {/* descriptiuon section */}
 
         <div className="flex flex-col gap-3 w-[700px]">
-          <Typography>{listing.aboutPlace}</Typography>
+          <Typography>{listingDetails.description}</Typography>
           <Button variant="plain">
             <Typography>Show more</Typography>
           </Button>

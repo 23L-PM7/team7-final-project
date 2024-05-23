@@ -17,8 +17,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function ListingReservation() {
   const { date, setDate }: any = useDate();
-  const { daysNumber }: any = useDays();
   const { clientNumber }: any = useGuests();
+  const { listingDetails } : any = useListingDetails();
+
+  const totalDays = 0 - date[0].diff(date[1], "day")
+
+  console.log(totalDays);
 
   return (
     <div className=" p-6 rounded-xl border-[1px] border-[#DDDDDD] shadow-[0px_6px_16px_rgba(0,0,0,0.12)] grid gap-6">
@@ -75,7 +79,7 @@ export default function ListingReservation() {
 
       <div className="grid gap-4">
         <div className="flex w-full justify-between">
-          <Typography>$24 x 5 nights</Typography>
+          <Typography>$24 x {totalDays} nights</Typography>
           <NumericFormat
             value={120}
             thousandSeparator=","

@@ -12,10 +12,10 @@ import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Loading } from "../../../components/Loading";
+import { useListingDetails } from "../../globals";
 
 export default function Listing() {
-  const [listing, setListing] = useState();
+  const setListingDetails : any = useListingDetails((state : any) => state.setListingDetails);
   const { _id } = useParams();
   const [loading, setLoading] = useState(true);
 
@@ -23,7 +23,7 @@ export default function Listing() {
     setLoading(true);
     axios
       .get(`http://localhost:3000/api/listingDetails?id=${_id}`)
-      .then((data) => setListing(data.data[0]));
+      .then((listing) => setListingDetails(listing.data[0]));
     setLoading(false);
   }
 
@@ -31,9 +31,7 @@ export default function Listing() {
     fecthListing();
   }, []);
 
-  if (loading) return <div className="size-6 m-auto"><CircularProgress size="lg" /></div>;
-
-  console.log(listing.images);
+  if (loading) return <div className="size-6 mx-auto my-[300px]"><CircularProgress size="lg" /></div>;
 
   return (
     <div className="container w-[1120px] mx-auto grid gap-6 my-6">
@@ -54,7 +52,7 @@ export default function Listing() {
       </div>
 
       <div className="w-full">
-        <ListingIntroduction listingDetails={listing} />
+        <ListingIntroduction />
       </div>
 
       <Divider />
