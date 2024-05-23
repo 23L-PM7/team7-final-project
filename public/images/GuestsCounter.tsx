@@ -8,7 +8,176 @@ const humans = [
   {
     image: (
       <div>
-        <img src="/images/human1.avif" alt="human" />
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/human1.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/human2.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/human3.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image4.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image5.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image6.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image7.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image8.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image9.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image10.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image11.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image12.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image13.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image14.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image7.avif"
+          alt="human"
+        />
+      </div>
+    ),
+  },
+  {
+    image: (
+      <div>
+        <img
+          className="w-[100px] h-[100px]"
+          src="/images/image15.avif"
+          alt="human"
+        />
       </div>
     ),
   },
@@ -17,7 +186,19 @@ export function GuestsCounter() {
   const [roomCount, _setRoomCount] = useState("");
   const { guestsCount, setGuestCount } = useBecomeHost();
   const { setNextButtonClickable }: any = useNextButtonClickable();
-  const [addedHumanImg, setAddedHumanImg]: any = useState(humans);
+  const [addedHumanImg, setAddedHumanImg]: any = useState([
+    {
+      image: (
+        <div>
+          <img
+            className="w-[100px] h-[100px]"
+            src="/images/human1.avif"
+            alt="human"
+          />
+        </div>
+      ),
+    },
+  ]);
 
   function minus() {
     if (guestsCount > 1) {
@@ -36,16 +217,7 @@ export function GuestsCounter() {
       return;
     }
     setGuestCount(guestsCount + 1);
-
-    const humans = {
-      image: (
-        <div>
-          <img src="images/human2.avif" alt="human" />
-          {/* <p>HELLO</p> */}
-        </div>
-      ),
-    };
-    setAddedHumanImg([...addedHumanImg, humans]);
+    setAddedHumanImg([...addedHumanImg, humans[guestsCount]]);
     console.log(addedHumanImg);
   }
 
@@ -56,13 +228,13 @@ export function GuestsCounter() {
   }, [guestsCount]);
   return (
     <div className="flex justify-center items-center flex-col">
-      <div className="w-dvw flex justify-center items-center mb-5 gap-3">
+      <div className="w-[1000px] flex justify-center items-center mb-5 ">
         {addedHumanImg.map((item: any, index: number) => (
           <div>{item.image}</div>
         ))}
       </div>
       <div>How many guests can fit comfortably in your space?</div>
-      <div className="flex items-center max-w-60">
+      <div className="flex items-center max-w-80">
         <button
           onClick={minus}
           className={`border border-gray-300 w-8 h-8 rounded-full flex justify-center items-center text-gray-400 ${
