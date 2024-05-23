@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Suspense } from "react";
 import { useEffect, useState } from "react";
-import { HomePageCards } from "../homePageCard/HomePageCard";
+import { HomePageCards } from "../../../components/homePageCard/HomePageCard";
 import { CircularProgress, LinearProgress } from "@mui/joy";
 
 export default function HostReservation() {
