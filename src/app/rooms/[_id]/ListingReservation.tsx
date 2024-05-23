@@ -8,7 +8,17 @@ import {
   Typography,
 } from "@mui/joy";
 import { NumericFormat } from "react-number-format";
-import { useDate, useGuests, useListingDetails, useAdult, useChildren, useInfant, usePet, useDays, usePayment } from "../../globals";
+import {
+  useDate,
+  useGuests,
+  useListingDetails,
+  useAdult,
+  useChildren,
+  useInfant,
+  usePet,
+  useDays,
+  usePayment,
+} from "../../globals";
 import { DateRangePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
@@ -17,19 +27,19 @@ import { useEffect } from "react";
 
 export default function ListingReservation() {
   const { date, setDate }: any = useDate();
-  const { listingDetails } : any = useListingDetails();
-  const { adultNumber } : any = useAdult();
-  const { childrenNumber } : any = useChildren();
+  const { listingDetails }: any = useListingDetails();
+  const { adultNumber }: any = useAdult();
+  const { childrenNumber }: any = useChildren();
 
-  const { setDaysNumber } : any = useDays();
-  const { setTotalPayment } : any = usePayment();
-  const { clientNumber } : any = useGuests();
+  const { setDaysNumber }: any = useDays();
+  const { setTotalPayment }: any = usePayment();
+  const { clientNumber }: any = useGuests();
 
-  const totalDays = 0 - date[0].diff(date[1], "day")
+  const totalDays = 0 - date[0].diff(date[1], "day");
 
-  const clientToCharge = adultNumber + childrenNumber
-  const priceBeforeFee = totalDays * listingDetails.price * clientToCharge
-  const totalPrice = priceBeforeFee + 15
+  const clientToCharge = adultNumber + childrenNumber;
+  const priceBeforeFee = totalDays * listingDetails.price * clientToCharge;
+  const totalPrice = priceBeforeFee + 15;
 
   useEffect(() => {
     setDaysNumber(totalDays);
@@ -94,7 +104,9 @@ export default function ListingReservation() {
 
       <div className="grid gap-4">
         <div className="flex w-full justify-between">
-          <Typography>{listingDetails.price} $ x {totalDays} nights</Typography>
+          <Typography>
+            {listingDetails.price} $ x {totalDays} nights
+          </Typography>
           <NumericFormat
             value={priceBeforeFee}
             thousandSeparator=","

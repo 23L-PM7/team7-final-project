@@ -9,11 +9,10 @@ import MenuButton from "@mui/joy/MenuButton";
 import Dropdown from "@mui/joy/Dropdown";
 
 export default function Dropdown4() {
-  const { image4, setImage4 } = useBecomeHost();
+  const { image5, setImage5 } = useBecomeHost();
   function deletePhoto() {
     if (window.confirm("Are you sure delete this photo?")) {
-      setImage4("");
-      console.log("HEllo");
+      setImage5("");
       return;
     }
   }
