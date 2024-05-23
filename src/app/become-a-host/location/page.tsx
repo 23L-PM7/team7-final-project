@@ -28,7 +28,7 @@ export default function Location() {
   }
 
   return (
-    <div className="container mx-auto flex justify-center items-center pt-28">
+    <div className="container mx-auto flex justify-center items-center pt-32">
       <div className=" w-[630px]  ">
         <h1 className="text-3xl font-medium mb-2">
           Where's your place located?

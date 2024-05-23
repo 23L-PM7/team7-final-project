@@ -13,8 +13,7 @@ import { Loading } from "../Loading";
 import { HeartButton } from "./HeartButton";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from 'next/navigation'
-
+import { useSearchParams } from "next/navigation";
 
 export function HomePageCards() {
   const [cards, setCards] = useState([]);
@@ -93,19 +92,21 @@ export function HomePageCards() {
                         <img
                           src={image}
                           alt=""
-                          className={`w-full flex items-center max-w-xs transition duration-300 ease-in-out hover:scale-110 h-full object-cove`}
+                          onClick={() => pushToListing(card._id)}
+                          className={`w-full flex items-center max-w-xs transition cursor-pointer duration-300 ease-in-out hover:scale-110 h-full object-cove`}
                         />
                       </div>
                     </SwiperSlide>
                   ))}
               </Swiper>
 
-              {/* <div className="absolute top-1  right-1 z-10">
-                <HeartButton />
-              </div> */}
+              <div className="absolute top-1  right-1 z-10">
+                {/* <HeartButton /> */}
+                <ShareButton />
+              </div>
 
               <div
-                className="flex flex-col justify-start items-start "
+                className="flex flex-col justify-start cursor-pointer items-start "
                 onClick={() => pushToListing(card._id)}
               >
                 <div className="flex justify-between">
