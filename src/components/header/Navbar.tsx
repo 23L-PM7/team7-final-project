@@ -18,7 +18,7 @@ const NavBar = () => {
         {/* </Container> */}
       </div>
       <Filter/>
-      <BasicModal/>
+      {/* <BasicModal/> */}
     </header>
   );
 };

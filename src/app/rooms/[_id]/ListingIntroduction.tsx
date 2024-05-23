@@ -120,20 +120,9 @@ export function ListingIntroduction() {
         {/* calendar */}
 
         <div>
-          {/* <DateRange /> */}
           <Calendar />
         </div>
 
-        <div className="flex">
-          {/* <DateRange /> */}
-          {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateCalendar onChange={(newValue) => setCheckIn(newValue)} />
-            </LocalizationProvider>
-  
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateCalendar onChange={(newValue) => setCheckOut(newValue)} />
-            </LocalizationProvider> */}
-        </div>
       </div>
       <div className="w-2/6">
         <ListingReservation />
@@ -151,6 +140,23 @@ const listing = {
   aboutPlace:
     "Local herdsman Ochir and his wife Tsegi will welcome you in their traditional home yurt. The ger is located at the heart of beautiful Orkhon Valley near the Orkhon river. You will see and experience the authentic lifestyle of herders. This place provides unique opportunities to slow down and connect with nature. You can participate in the nomadic life as much or as little as you’re interested in. Price is inclusive of common meals. Activities can be seen on Guest access.",
 };
+
+const listingMain = {
+_id: "664b275d7ee421050cce3ad9",
+title: "Entire rental unit in Madrid, Spain",
+price: 193,
+images: "",
+bedroomCount: 2,
+bathroomCount: 2,
+guestsCount: 6,
+bedCount: 6,
+description: "Located in one of the most spectacular buildings in Madrid. The hallwa…",
+offerTypes: "",
+roomType: "1",
+type: "Top city",
+location: "Mongolia",
+region: "Western Mongolia",
+}
 
 const host = {
   name: "Bayarmaa",

@@ -11,6 +11,9 @@ const Map = () =>{
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const search = searchParams.get('map')
+
+  // console.log(search)
 
   const createQueryString = React.useCallback(
     (name: string, value: string) => {

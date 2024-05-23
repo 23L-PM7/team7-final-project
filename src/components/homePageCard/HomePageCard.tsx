@@ -12,11 +12,16 @@ import { IoStarSharp } from "react-icons/io5";
 import { Loading } from "../Loading";
 import { HeartButton } from "./HeartButton";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from 'next/navigation'
+
 
 export function HomePageCards() {
   const [cards, setCards] = useState([]);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const searchParams = useSearchParams()
+ 
+  const categoriesFilter = searchParams.get('categories')
 
   function fetchCards() {
     setLoading(true);
@@ -33,14 +38,22 @@ export function HomePageCards() {
   const pushToListing = (_id: string) => {
     router.push(`/rooms/${_id}`);
   };
+  // console.log({ cards });
 
   if (loading) return <Loading />;
 
+  const filteredCards = cards.filter((card:any) => {
+        if (!categoriesFilter) {
+          return true // Show all cards if no filter is applied
+        }
+        return card.type === categoriesFilter
+      })
+  // if (loading) return <Loading />;
   return (
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
         <div className="grid mt-32  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 mx-auto gap-10">
-          {cards.map((card: any, index) => (
+          {filteredCards.map((card: any, index) => (
             <div key={card._id} className="flex flex-col  relative">
               <Swiper
                 cssMode={true}

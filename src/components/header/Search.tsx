@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import DateRange from "../LittleMenus/DateRange";
 import Map from "../LittleMenus/Map";
+import AddGuest from "../LittleMenus/AddGuest";
 
 const Search = () => {
   const [selected, setSelected] = useState(true)
@@ -44,7 +45,7 @@ const Search = () => {
           restDelta: 0.001
         }
       }}>
-      <div className="w-[760px] cursor-pointer mx-auto rounded-full border px-5 py-2 lg:flex hidden">
+      <div className="w-[780px] cursor-pointer mx-auto rounded-full border px-5 py-2 lg:flex hidden">
            <div className="flex flex-row items-center justify-between">
             {/* <div className="flex flex-col justify-start pr-12">
               <p className="text-sm font-semibold ">Where</p>
@@ -69,10 +70,11 @@ const Search = () => {
             </div>
             </MenuButton> */}
         <div className="flex gap-3 justify-end flex-row text-sm text-gray-600 items-center pl-6 pr-2">
-          <div className="flex flex-col justify-end">
+          <AddGuest/>
+          {/* <div className="flex flex-col justify-end">
             <p className="hidden sm:block">Any guest</p>
             <p className="text-xs text-gray-400">Add guest</p>
-          </div>
+          </div> */}
           <div className="rounded-full p-2 bg-rose-500 text-white ">
           <BiSearch size={18}/>
           </div>
