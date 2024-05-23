@@ -29,7 +29,6 @@ const Search = () => {
       window.removeEventListener('scroll', handleScroll);
   };
 }, []);
-  console.log(selected)
   if(selected){
     return (
       <div>
