@@ -38,7 +38,7 @@ export default function BasicModal() {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
+      <Button variant="outlined" color="neutral" size='lg' onClick={() => setOpen(true)}>
         Filter
       </Button>
       <Modal
@@ -150,6 +150,12 @@ export default function BasicModal() {
                   <Checkbox size="lg" label="dryer" variant="solid" defaultChecked />
                   <Checkbox size="lg" label="heating" variant="solid" defaultChecked />
                 </div>
+              </div>
+              <div className='flex justify-between mt-4'>
+              <p className='flex justify-center items-center text-black font-medium'>Clear all</p>
+              <Button color="neutral"
+                onClick={function(){}}
+                size="lg">Button</Button>
               </div>
             </div>
           </Typography>
