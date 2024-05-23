@@ -1,8 +1,8 @@
-import { useBecomeHost } from "../../src/app/become-a-host/store";
 import { useEffect, useState } from "react";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
-import { useNextButtonClickable } from "../../src/components/newListHeaderFooter/ProgressFooter";
+import { useNextButtonClickable } from "../newListHeaderFooter/ProgressFooter";
+import { useBecomeHost } from "../../app/become-a-host/store";
 
 const humans = [
   {
