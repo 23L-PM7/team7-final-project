@@ -8,23 +8,21 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const data = await dbRequest("reservation", "insertOne", {
+  const reservationData = await request.json();
+
+  const createReservation = await dbRequest("reservation", "insertOne", {
     document: {
-      id: "",
-      userId: "",
-      listingId: "",
-      startDate: "",
-      endDate: "",
-      createdAt: "",
-      totalPrice: "",
+      ...reservationData,
     },
   });
 
-  return Response.json(data);
+  return Response.json(createReservation);
 }
 
 export async function PUT(request: Request) {
-  const data = await dbRequest("reservation", "updateOne", {
+  const reservationData = await request.json();
+
+  const updateReservation = await dbRequest("reservation", "updateOne", {
     filter: { id: {} },
     update: {
       set: {
@@ -39,7 +37,7 @@ export async function PUT(request: Request) {
     },
   });
 
-  return Response.json(data);
+  return Response.json(updateReservation);
 }
 
 export async function DELETE(request: Request) {

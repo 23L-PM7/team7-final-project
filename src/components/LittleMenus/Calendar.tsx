@@ -8,10 +8,10 @@ import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
 import Button from '@mui/joy/Button';
 import dayjs, { Dayjs } from 'dayjs';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import { useRouter } from 'next/router';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
-import { useDate } from '../../app/globals';
+import { useDate, useDays } from '../../app/globals';
 
 const Calendar = () => {
     const router = useRouter()
@@ -21,8 +21,14 @@ const Calendar = () => {
     const { formattedDate , getFormattedDate }:any = useDate();
     const search = searchParams.get('date')?.toString
 
-    // console.log(getFormattedDate(date[0]));
-    // console.log(getFormattedDate(date[1])); // Output: Jan 1 // Output: Jan 1
+    const { daysNumber, setDaysNumber } : any = useDays();
+    const totalDays = 0 - date[0].diff(date[1], "day")
+
+    useEffect(() => {
+        setDaysNumber(totalDays);
+      }, [totalDays]);
+
+      console.log(daysNumber);
 
     const createQueryString = React.useCallback(
         (name: string, startValue: string, endValue: string) => {
