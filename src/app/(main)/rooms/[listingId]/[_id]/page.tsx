@@ -12,7 +12,9 @@ import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useListingDetails } from "../../../globals";
+
+import { ShareButton } from "../../../../../components/homePageCard/ShareButton";
+import { useListingDetails } from "../../../../globals";
 
 export default function Listing() {
   const setListingDetails: any = useListingDetails(
@@ -51,9 +53,7 @@ export default function Listing() {
       <div className="flex justify-between items-center">
         <Typography level="h3">Nomadic stay at Orkhon Valley</Typography>
         <div className="flex gap-2">
-          <Button startDecorator={<LuShare />} variant="plain" color="neutral">
-            Share
-          </Button>
+          <ShareButton />
           <Button startDecorator={<LuHeart />} variant="plain" color="neutral">
             Save
           </Button>

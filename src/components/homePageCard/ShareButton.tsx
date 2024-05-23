@@ -7,7 +7,7 @@ import { IoShareOutline } from "react-icons/io5";
 import { IoIosCopy } from "react-icons/io";
 import { FaFacebookMessenger } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { FaSquareWhatsapp } from "react-icons/fa6";
+import { FaRegHeart, FaSquareWhatsapp } from "react-icons/fa6";
 import { BiSolidMessageSquareDetail } from "react-icons/bi";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
@@ -21,8 +21,7 @@ export function ShareButton() {
     <React.Fragment>
       <div onClick={() => setOpen(true)}>
         <div className="text-white text-xl relative hover:opacity-80 transition cursor-pointer">
-          {/* <FaRegHeart /> */}
-          <div className="border rounded-full p-2 bg-white ">
+          <div className="border rounded-full p-2 bg-white text-black ">
             <IoShareOutline />
           </div>
         </div>
