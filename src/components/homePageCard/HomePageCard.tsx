@@ -11,6 +11,7 @@ import axios from "axios";
 import { IoStarSharp } from "react-icons/io5";
 import { Loading } from "../Loading";
 import { HeartButton } from "./HeartButton";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from 'next/navigation'
 

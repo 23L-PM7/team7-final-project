@@ -1,30 +1,27 @@
 "use client";
 import * as React from 'react';
-import { places } from "../../app/become-a-host/structure/page";
 import BasicModal from "./Modal";
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
-
+import { House } from '../icons/amenitiesIcons/House';
+import { Ger } from '../icons/Ger';
+import { TopCity } from '../icons/TopSities';
+import { CountrySide } from '../icons/CountrySide';
+import { Rooms } from '../icons/Rooms';
+import { Lake } from '../icons/Lake';
+import { Farms } from '../icons/Farms';
 import Container from "../Container";
 
-const fakePlaces = [
-  {
-    id: '1',
-    label: 'Beach',
-    image: <div>Beach Image</div>,
-  },
-  {
-    id: '2',
-    label: 'Hotel',
-    image: <div>Hotel Image</div>,
-  },
-  {
-    id: '3',
-    label: 'Modern',
-    image: <div>Modern Image</div>,
-  },
-  // Add more fake places as needed
+const places = [
+  { image: <TopCity />, title: "Top city", id: "1", label: "Top city"},
+  { image: <Ger />, title: "Yurts", id: "2", label: "Yurts"},
+  { image: <Rooms />, title: "Rooms", id: "3", label: "Rooms"},
+  { image: <CountrySide />, title: "Countryside", id: "4", label: "Countryside"},
+  { image: <Lake />, title: "Lake", id: "5" ,label: "Lake"},
+  { image: <Farms />, title: "Farms", id: "6", label: "Farms"},
+  { image: <House />, title: "House", id: "7", label: "House"},
 ];
+
 
 const Filter = () => {
   const router = useRouter()
@@ -45,7 +42,7 @@ const Filter = () => {
   const isMainPage = pathname === "/";
 
   // Is Main Page
-  const filteredCards = fakePlaces.filter((place) => {
+  const filteredCards = places.filter((place) => {
     if (!categoriesFilter) {
       return true; // Show all cards if no filter is applied
     }
