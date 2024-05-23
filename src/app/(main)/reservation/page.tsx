@@ -1,28 +1,28 @@
 "use client";
 
 import * as React from "react";
+import Sheet from "@mui/joy/Sheet";
+import Button from "@mui/joy/Button";
+
+import Typography from "@mui/joy/Typography";
 import { FcGoogle } from "react-icons/fc";
 import { ImAppleinc } from "react-icons/im";
 import { AiFillFacebook } from "react-icons/ai";
+import Modal from "@mui/joy/Modal";
+import ModalClose from "@mui/joy/ModalClose";
 import { useRouter } from "next/navigation";
-import { useDate, useDays, useGuests } from "../globals";
-import { DateRangePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionGroup,
-  AccordionSummary,
-  Divider,
-  Typography,
-} from "@mui/joy";
+import Calendar from "../../components/LittleMenus/Calendar";
 import { GuestCounter } from "../../components/counter/ReservationGuestsCounter/GuestCounter";
+import { useDate, useGuests } from "../globals";
+
+// import DateRange from "@components/LittleMenus/DateRange";
 
 export default function Reservation() {
+  const [openDate, setOpenDate] = React.useState<boolean>(false);
+  const [openGuest, setOpenGuest] = React.useState<boolean>(false);
   const { date, setDate }: any = useDate();
-  const { daysNumber }: any = useDays();
-  const { clientNumber }: any = useGuests();
+  const { guestsNumber, setGuestsNumber }: any = useGuests();
+  // const { days, setDays }: any = useDays();
 
   const router = useRouter();
 
@@ -40,50 +40,114 @@ export default function Reservation() {
         Confirm and pay
       </div>
       <div className="flex w-full">
-        <div className="w-[600px] flex flex-col">
-          <div className="mb-5 pb-5 flex flex-col w-full h-48  justify-between ">
+        <div className="w-1/2 flex flex-col">
+          <div className="mb-5 pb-5 flex flex-col w-full h-48 border-b-2 justify-between ">
             <h3 className="text-[22px] font-bold">Your trip</h3>
-
-            <div className="rounded-xl grid gap-6 mb-60 w-[570px]">
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="font-bold">Dates</h3>
+                <p>{date.toString()}</p>
+              </div>
               <div>
-                <div className="p-2 mb-2">
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DemoContainer components={["DateRangeCalendar"]}>
-                      <DateRangePicker
-                        sx={{ border: 0 }}
-                        slotProps={{
-                          textField: ({ position }) => ({
-                            label:
-                              position === "start" ? "check-in" : "check-out",
-                          }),
-                        }}
-                        value={date}
-                        onChange={(newDate) => setDate(newDate)}
-                      />
-                    </DemoContainer>
-                  </LocalizationProvider>
-                </div>
+                <React.Fragment>
+                  <Button
+                    variant="outlined"
+                    color="neutral"
+                    onClick={() => setOpenDate(true)}
+                    className="font-bold"
+                  >
+                    Edit
+                  </Button>
+                  <Modal
+                    aria-labelledby="modal-title"
+                    aria-describedby="modal-desc"
+                    open={openDate}
+                    onClose={() => setOpenDate(false)}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Sheet
+                      variant="outlined"
+                      sx={{
+                        maxWidth: 800,
+                        borderRadius: "md",
+                        p: 3,
+                        boxShadow: "lg",
+                      }}
+                    >
+                      <ModalClose variant="plain" sx={{ m: 1 }} />
+                      <Typography
+                        component="h2"
+                        id="modal-title"
+                        level="h4"
+                        textColor="inherit"
+                        fontWeight="lg"
+                        mb={1}
+                      >
+                        <Calendar />
+                      </Typography>
+                    </Sheet>
+                  </Modal>
+                </React.Fragment>
+              </div>
+            </div>
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <h3 className="font-bold">Guests</h3>
+                <h3>{guestsNumber}</h3>
+              </div>
+              <div>
+                <React.Fragment>
+                  <Button
+                    variant="outlined"
+                    color="neutral"
+                    onClick={() => setOpenGuest(true)}
+                  >
+                    Edit
+                  </Button>
+                  <Modal
+                    aria-labelledby="modal-title"
+                    aria-describedby="modal-desc"
+                    open={openGuest}
+                    onClose={() => setOpenGuest(false)}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Sheet
+                      variant="outlined"
+                      sx={{
+                        maxWidth: 800,
 
-                <div className="absolute rounded bg-white border-2 p-2 items.center w-[570px]">
-                  <AccordionGroup>
-                    <Accordion>
-                      <AccordionSummary>
-                        <div>
-                          <Typography level="body-xs">guest</Typography>
-                          <Typography>{clientNumber} guests</Typography>
-                        </div>
-                      </AccordionSummary>
-                      <AccordionDetails>
+                        borderRadius: "md",
+                        p: 3,
+                        boxShadow: "lg",
+                      }}
+                    >
+                      <ModalClose variant="plain" sx={{ m: 1 }} />
+                      <Typography
+                        component="h2"
+                        id="modal-title"
+                        level="h4"
+                        textColor="inherit"
+                        fontWeight="lg"
+                        mb={1}
+                      >
                         <GuestCounter />
-                      </AccordionDetails>
-                    </Accordion>
-                  </AccordionGroup>
-                </div>
+                      </Typography>
+                    </Sheet>
+                  </Modal>
+                </React.Fragment>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col w-full h-48 justify-between">
+          <div className=" flex flex-col w-full h-48  justify-between">
             <div className="flex justify-between border-2 rounded p-4">
               <div>
                 <p className="text-sm text-slate-400">Country code</p>
