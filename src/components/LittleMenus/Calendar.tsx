@@ -5,6 +5,7 @@ import { LocalizationProvider, monthCalendarClasses } from '@mui/x-date-pickers-
 import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
+import Button from '@mui/joy/Button';
 import dayjs, { Dayjs } from 'dayjs';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -17,16 +18,17 @@ const Calendar = () => {
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const { date, setDate }: any = useDate();
+    const { formattedDate , getFormattedDate }:any = useDate();
     const search = searchParams.get('date')?.toString
 
-    console.log('ssds' ,search)
-
+    // console.log(getFormattedDate(date[0]));
+    // console.log(getFormattedDate(date[1])); // Output: Jan 1 // Output: Jan 1
 
     const createQueryString = React.useCallback(
-        (name: string, value: string) => {
+        (name: string, startValue: string, endValue: string) => {
             const params = new URLSearchParams(searchParams.toString())
-            params.set(name, value)
-
+            params.set(name, `${startValue}  ${endValue}`)
+    
             return params.toString()
         },
         [searchParams]
@@ -37,7 +39,9 @@ const Calendar = () => {
             <DateRangeCalendar
                 value={date}
                 onChange={(newDate) => setDate(newDate)} />
-            <Link href={pathname + '?' + createQueryString('date', date.toString())}>ok</Link>
+            <Link href={pathname + '?' + createQueryString('date', getFormattedDate(date[0]),getFormattedDate(date[1]))}>
+                <Button className='ml-4'>Done</Button>
+            </Link>
         </DemoContainer>
     </LocalizationProvider>
 }

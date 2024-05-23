@@ -65,7 +65,7 @@ const Filter = () => {
       }}
     >
       <Container>
-        <div className="flex flex-row gap-6 items-center cursor-pointer justify-between overflow-x-auto">
+        <div className="flex w-10/12 mx-auto flex-row gap-6 items-center cursor-pointer justify-between overflow-x-auto">
         {places.map((place) => (
           <div  onClick={() => {
             router.push(pathname + '?' + createQueryString('categories' , place.label))

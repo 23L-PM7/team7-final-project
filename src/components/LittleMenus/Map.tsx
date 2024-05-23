@@ -13,7 +13,6 @@ const Map = () =>{
   const searchParams = useSearchParams()
   const search = searchParams.get('map')
 
-  // console.log(search)
 
   const createQueryString = React.useCallback(
     (name: string, value: string) => {
@@ -24,6 +23,7 @@ const Map = () =>{
     },
     [searchParams]
   )
+  if(!search){
     return (
       <Dropdown>
       <MenuButton variant="plain"  size="sm">
@@ -35,7 +35,7 @@ const Map = () =>{
             <Menu className="w-100% p-8 flex flex-col rounded-xl gap-3">
               <h1 className="text-lg font-semibold">Search by region</h1>
               <div className="grid grid-cols-2 gap-4 ">
-              <Link href={pathname + '?' + createQueryString('map', 'huvsgul')}>
+              <Link href={pathname + '?' + createQueryString('map', 'Central Mongolia')}>
           <Image
       alt="Airbnb"
       className="hidden rounded-lg cursor-pointer md:block border border-gray-400"
@@ -44,7 +44,7 @@ const Map = () =>{
       src="/images/Central Mongolia 1.JPG"
     />
           </Link> 
-          <Link href={pathname + '?' + createQueryString('map', 'omnogovi')}>
+          <Link href={pathname + '?' + createQueryString('map', 'Eastern Mongolia')}>
           <Image
       alt="Airbnb"
       className="hidden rounded-lg cursor-pointer md:block"
@@ -53,7 +53,7 @@ const Map = () =>{
       src="/images/Eastern Mongolia 1.JPG"
     />
           </Link> 
-          <Link href={pathname + '?' + createQueryString('map', 'suhbaatar')}>
+          <Link href={pathname + '?' + createQueryString('map', 'Montane Mongolia')}>
           <Image
       alt="Airbnb"
       className="hidden rounded-lg cursor-pointer md:block"
@@ -62,7 +62,7 @@ const Map = () =>{
       src="/images/Montane Mongolia 1.JPG"
     />
           </Link> 
-          <Link href={pathname + '?' + createQueryString('map', 'bayan olgii')}>
+          <Link href={pathname + '?' + createQueryString('map', ' Western Mongolia')}>
           <Image
       alt="Airbnb"
       className="hidden rounded-lg cursor-pointer md:block"
@@ -76,5 +76,59 @@ const Map = () =>{
       </Menu>
       </Dropdown>
     )
+  }else{
+    return (
+      <Dropdown>
+      <MenuButton variant="plain"  size="sm">
+            <div className="flex flex-col justify-start pr-12">
+              <p className="text-sm font-semibold w-1/4">Where</p>
+              <p className="text-xs text-gray-400 w-[120px]">{search}</p>
+            </div>
+        </MenuButton>
+            <Menu className="w-100% p-8 flex flex-col rounded-xl gap-3">
+              <h1 className="text-lg font-semibold">Search by region</h1>
+              <div className="grid grid-cols-2 gap-4 ">
+              <Link href={pathname + '?' + createQueryString('map', 'Central Mongolia')}>
+          <Image
+      alt="Airbnb"
+      className="hidden rounded-lg cursor-pointer md:block border border-gray-400"
+      height={300}
+      width={300}
+      src="/images/Central Mongolia 1.JPG"
+    />
+          </Link> 
+          <Link href={pathname + '?' + createQueryString('map', 'Eastern Mongolia')}>
+          <Image
+      alt="Airbnb"
+      className="hidden rounded-lg cursor-pointer md:block"
+      height={300}
+      width={300}
+      src="/images/Eastern Mongolia 1.JPG"
+    />
+          </Link> 
+          <Link href={pathname + '?' + createQueryString('map', 'Montane Mongolia')}>
+          <Image
+      alt="Airbnb"
+      className="hidden rounded-lg cursor-pointer md:block"
+      height={300}
+      width={300}
+      src="/images/Montane Mongolia 1.JPG"
+    />
+          </Link> 
+          <Link href={pathname + '?' + createQueryString('map', ' Western Mongolia')}>
+          <Image
+      alt="Airbnb"
+      className="hidden rounded-lg cursor-pointer md:block"
+      height={300}
+      width={300}
+      src="/images/Western Mongolia 1.JPG"
+    />
+          </Link> 
+              </div>
+          
+      </Menu>
+      </Dropdown>
+    )
+  }
 }
 export default Map
