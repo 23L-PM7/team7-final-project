@@ -1,49 +1,62 @@
-import { GuestCounter } from "../../../components/counter/ReservationGuestsCounter/GuestCounter";
+import { GuestCounter } from "../../../../components/counter/ReservationGuestsCounter/GuestCounter";
 import {
   Accordion,
   AccordionDetails,
+  AccordionGroup,
   AccordionSummary,
   Divider,
-  FormControl,
-  FormLabel,
-  Radio,
-  RadioGroup,
   Typography,
 } from "@mui/joy";
 import { NumericFormat } from "react-number-format";
-import { useDate , useGuests , useDays  } from "../../globals";
 import {
-  DateRangePicker,
-  LocalizationProvider,
-  MultiInputDateRangeField,
-} from "@mui/x-date-pickers-pro";
+  useDate,
+  useGuests,
+  useListingDetails,
+  useAdult,
+  useChildren,
+  useInfant,
+  usePet,
+  useDays,
+  usePayment,
+} from "../../../globals";
+import { DateRangePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { FormControlLabel } from "@mui/material";
-import Menu from "@mui/joy/Menu";
-import MenuButton from "@mui/joy/MenuButton";
-import MenuItem from "@mui/joy/MenuItem";
-import Dropdown from "@mui/joy/Dropdown";
 import Button from "@mui/joy/Button";
-import AccordionActions from '@mui/material/AccordionActions';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { FaChevronDown } from "react-icons/fa";
+import { useEffect } from "react";
 
 export default function ListingReservation() {
   const { date, setDate }: any = useDate();
-  const { daysNumber }: any = useDays();
+  const { listingDetails }: any = useListingDetails();
+  const { adultNumber }: any = useAdult();
+  const { childrenNumber }: any = useChildren();
+
+  const { setDaysNumber }: any = useDays();
+  const { setTotalPayment }: any = usePayment();
   const { clientNumber }: any = useGuests();
 
-  console.log(daysNumber);
+  const totalDays = 0 - date[0].diff(date[1], "day");
+
+  const clientToCharge = adultNumber + childrenNumber;
+  const priceBeforeFee = totalDays * listingDetails.price * clientToCharge;
+  const totalPrice = priceBeforeFee + 15;
+
+  useEffect(() => {
+    setDaysNumber(totalDays);
+  }, [totalDays]);
+
+  useEffect(() => {
+    setTotalPayment(totalPrice);
+  }, [totalPrice]);
 
   return (
-    <div className="w-2/6 h-[530px] p-6 rounded-xl border-[1px] border-[#DDDDDD] shadow-[0px_6px_16px_rgba(0,0,0,0.12)] grid gap-6">
+    <div className=" p-6 rounded-xl border-[1px] border-[#DDDDDD] shadow-[0px_6px_16px_rgba(0,0,0,0.12)] grid gap-6">
       <div className="flex items-center">
         <NumericFormat
-          value={27}
+          value={listingDetails.price}
           thousandSeparator=","
           suffix="$"
-          className="w-10 bg-transparent text-lg font-semibold"
+          className="w-16 bg-transparent text-lg font-semibold"
         />
         <Typography>night</Typography>
       </div>
@@ -67,21 +80,19 @@ export default function ListingReservation() {
             </LocalizationProvider>
           </div>
           <div className="border-t-[1px] border-[#000000] p-2 items.center">
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                <div>
-                  <Typography level="body-xs">guest</Typography>
-                  <Typography>{clientNumber} guests</Typography>
-                </div>
-              </AccordionSummary>
-              <AccordionDetails sx={{my: 4}}>
-                <GuestCounter />
-              </AccordionDetails>
-            </Accordion>
+            <AccordionGroup>
+              <Accordion>
+                <AccordionSummary>
+                  <div>
+                    <Typography level="body-xs">guest</Typography>
+                    <Typography>{clientNumber} guests</Typography>
+                  </div>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <GuestCounter />
+                </AccordionDetails>
+              </Accordion>
+            </AccordionGroup>
           </div>
         </div>
       </div>
@@ -93,33 +104,35 @@ export default function ListingReservation() {
 
       <div className="grid gap-4">
         <div className="flex w-full justify-between">
-          <Typography>$24 x 5 nights</Typography>
+          <Typography>
+            {listingDetails.price} $ x {totalDays} nights
+          </Typography>
           <NumericFormat
-            value={120}
+            value={priceBeforeFee}
             thousandSeparator=","
             suffix="$"
-            className="w-12 bg-transparent text-lg font-semibold"
+            className="w-16 bg-transparent text-lg font-semibold"
           />
         </div>
         <div className="flex w-full justify-between">
           <Typography>Airbnb service fee</Typography>
           <NumericFormat
-            value={27}
+            value={15}
             thousandSeparator=","
             suffix="$"
-            className="w-12 bg-transparent text-lg font-semibold"
+            className="w-16 bg-transparent text-lg font-semibold"
           />
         </div>
       </div>
       <Divider />
       <div className="flex w-full justify-between">
-        <Typography>Total before taxes</Typography>
+        <Typography>Total price</Typography>
         <NumericFormat
-          value={27}
+          value={totalPrice}
           allowLeadingZeros
           thousandSeparator=","
           suffix="$"
-          className="w-12 bg-transparent text-lg font-semibold"
+          className="w-16 bg-transparent text-lg font-semibold"
           disabled
         />
       </div>

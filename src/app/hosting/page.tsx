@@ -1,8 +1,8 @@
 "use client";
 
-import HostHeader from "@/components/hosting/HostHeader";
-import HostReservation from "@/components/hosting/HostReservation";
-import SortReservation from "@/components/hosting/SortReservation";
+import HostHeader from "../(main)/hosting/HostHeader";
+import HostReservation from "../(main)/hosting/HostReservation";
+import SortReservation from "../(main)/hosting/SortReservation";
 
 export default function hosting() {
   return (
