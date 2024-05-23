@@ -11,8 +11,9 @@ import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useListingDetails } from "../../../globals";
-import { ShareButton } from "../../../../components/homePageCard/ShareButton";
+import { useListingDetails } from "../../globals";
+import { ShareButton } from "../../../components/homePageCard/ShareButton";
+import { SinglePAgeHEader } from "../../../components/header/SinglePageHeader";
 
 export default function Listing() {
   const setListingDetails: any = useListingDetails(
@@ -47,28 +48,34 @@ export default function Listing() {
     );
 
   return (
-    <div className="container w-[1120px] mx-auto grid gap-6 my-6">
-      <div className="flex justify-between items-center">
-        <Typography level="h3">Nomadic stay at Orkhon Valley</Typography>
-        <div className="flex gap-2">
-          <ShareButton />
-          <Button startDecorator={<LuHeart />} variant="plain" color="neutral">
-            Save
-          </Button>
+    <>
+      <SinglePAgeHEader />
+      <div className="container w-[1120px] mx-auto grid gap-6 my-6">
+        <div className="flex justify-between items-center">
+          <Typography level="h3">Nomadic stay at Orkhon Valley</Typography>
+          <div className="flex gap-2">
+            <ShareButton />
+            <Button
+              startDecorator={<LuHeart />}
+              variant="plain"
+              color="neutral"
+            >
+              Save
+            </Button>
+          </div>
         </div>
-      </div>
 
-      <div className="w-full">
-        <ListingImage />
-      </div>
+        <div className="w-full">
+          <ListingImage />
+        </div>
 
-      <div className="w-full">
-        <ListingIntroduction />
-      </div>
+        <div className="w-full">
+          <ListingIntroduction />
+        </div>
 
-      <Divider />
+        <Divider />
 
-      {/* <div className="w-full">
+        {/* <div className="w-full">
         <ListingReview />
       </div>
 
@@ -78,13 +85,14 @@ export default function Listing() {
         <ListingLocations />
       </div> */}
 
-      <div className="w-full">
-        <ListingHost />
-      </div>
+        <div className="w-full">
+          <ListingHost />
+        </div>
 
-      {/* <div className="w-full">
+        {/* <div className="w-full">
         <ListingRules />
       </div> */}
-    </div>
+      </div>
+    </>
   );
 }

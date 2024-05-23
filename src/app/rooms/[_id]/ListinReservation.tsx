@@ -1,4 +1,4 @@
-import { GuestCounter } from "../../../../components/counter/ReservationGuestsCounter/GuestCounter";
+import { GuestCounter } from "../../../components/counter/ReservationGuestsCounter/GuestCounter";
 import {
   Accordion,
   AccordionDetails,
@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/joy";
 import { NumericFormat } from "react-number-format";
-import { useDate, useGuests, useDays } from "../../../globals";
+import { useDate, useGuests, useDays } from "../../globals";
 import {
   DateRangePicker,
   LocalizationProvider,

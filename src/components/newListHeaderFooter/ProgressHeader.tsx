@@ -12,7 +12,7 @@ export function ProgressHeader() {
           pathname === "/become-a-host/publish-celebration"
             ? "bg-white"
             : "bg-black"
-        } flex z-30 fixed left-0 right-0 top-0 bg-white justify-between conatiner mx-auto p-10`}
+        } flex z-30 fixed left-0 right-0 top-0 bg-white border justify-between conatiner mx-auto p-10`}
       >
         <AirbnbLogo />
         <div className="flex gap-3">
