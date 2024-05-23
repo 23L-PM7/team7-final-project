@@ -55,6 +55,7 @@ export default function Location() {
           }}
         >
           <Option value="Eastern Mongolia">Eastern Mongolia</Option>
+          <Option value="Eastern Mongolia">Ulaanbaatar</Option>
           <Option value="Western Mongolia">Western Mongolia</Option>
           <Option value="Central Mongolia">Central Mongolia</Option>
           <Option value="Montane Mongolia">Montane Mongolia</Option>

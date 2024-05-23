@@ -21,20 +21,33 @@ export function HomePageCards() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams()
- 
+  const mapFilter = searchParams.get('map')
   const categoriesFilter = searchParams.get('categories')
+
 
   function fetchCards() {
     setLoading(true);
     axios
-      .get("http://localhost:3000/api/listing")
-      .then((cards) => setCards(cards.data));
-    setLoading(false);
+      .get(`http://localhost:3000/api/listing?${searchParams.toString()}`)
+      .then((cards) => {
+        setCards(cards.data);
+        setLoading(false);
+      });
   }
+
+  // function fetchCards() {
+  //   setLoading(true);
+  //   axios
+  //    .get(`http://localhost:3000/api/listing`) 
+  //    .then((cards) => {
+  //       setCards(cards.data);
+  //       setLoading(false);
+  //     });
+  // }
 
   useEffect(() => {
     fetchCards();
-  }, []);
+  }, [searchParams.toString()]);
 
   const pushToListing = (_id: string) => {
     router.push(`/rooms/${_id}`);
@@ -44,11 +57,17 @@ export function HomePageCards() {
   if (loading) return <Loading />;
 
   const filteredCards = cards.filter((card:any) => {
-        if (!categoriesFilter) {
-          return true // Show all cards if no filter is applied
-        }
-        return card.type === categoriesFilter
-      })
+    if (!categoriesFilter ) {
+      return true // Show all cards if no filter is applied
+    }
+    return card.type === categoriesFilter
+  })
+ .filter((card:any) => {
+    if (!mapFilter) {
+      return true // Show all cards if no map filter is applied
+    }
+    return card.region === mapFilter
+  })
   // if (loading) return <Loading />;
   return (
     <>

@@ -2,7 +2,17 @@ import { dbRequest } from "../../../utils/dbRequest";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
-  const { documents } = await dbRequest("listing", "find");
+
+  const { searchParams } = new URL(request.url)
+  const map = searchParams.get('map');
+  const date = searchParams.get('date');
+
+  const { documents } = await dbRequest("listing", "find", {
+    filter: {
+      // region: map
+    }
+  });
+  // const { documents } = await dbRequest("listing", "find");
   return Response.json(documents);
 }
 
