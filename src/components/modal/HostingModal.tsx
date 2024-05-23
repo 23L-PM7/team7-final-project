@@ -24,17 +24,14 @@ export default function HostingModal() {
   );
   const [cards, setCards] = useState([]);
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams();
 
   const categoriesFilter = searchParams.get("categories");
 
   function fetchCards() {
-    setLoading(true);
     axios
       .get("http://localhost:3000/api/listing")
       .then((cards) => setCards(cards.data));
-    setLoading(false);
   }
 
   useEffect(() => {
@@ -45,15 +42,12 @@ export default function HostingModal() {
     router.push(`/rooms/${_id}`);
   };
 
-  if (loading) return <Loading />;
-
   const filteredCards = cards.filter((card: any) => {
     if (!categoriesFilter) {
       return true; // Show all cards if no filter is applied
     }
     return card.type === categoriesFilter;
   });
-  // if (loading) return <Loading />;
 
   return (
     <React.Fragment>
@@ -109,21 +103,17 @@ export default function HostingModal() {
                     onClick={() => pushToListing(card._id)}
                   >
                     <div className="flex justify-between">
-                      <div className="font-semibold text-lg w-60">
-                        {card.title}
+                      <div className="font-semibold text-lg">{card.title}</div>
+                    </div>
+                    <div className="flex gap-3">
+                      <div className="font-light  text-neutral-500 ">
+                        {card.location}
+                      </div>
+                      <div className="font-light text-neutral-500">
+                        {card.region}
                       </div>
                     </div>
 
-                    <div className="font-light  text-neutral-500 w-[300px]">
-                      {card.location}
-                    </div>
-                    <div className="font-light text-neutral-500">
-                      {card.region}
-                    </div>
-                    <div className="flex gap-1">
-                      {card.bedroomCount}{" "}
-                      <p className="text-neutral-500"> beds</p>
-                    </div>
                     <div className="font-light  text-neutral-500"></div>
                     <div className="flex gap-3">
                       <div className="font-medium flex gap-1">

@@ -42,7 +42,12 @@ export function HomePageCards() {
   };
   // console.log({ cards });
 
-  if (loading) return <Loading />;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center">
+        <Loading />
+      </div>
+    );
 
   const filteredCards = cards
     .filter((card: any) => {
@@ -57,7 +62,7 @@ export function HomePageCards() {
       }
       return card.region === mapFilter;
     });
-  // if (loading) return <Loading />;
+
   return (
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">

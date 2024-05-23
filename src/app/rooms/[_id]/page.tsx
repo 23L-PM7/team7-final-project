@@ -14,6 +14,7 @@ import axios from "axios";
 import { useListingDetails } from "../../globals";
 import { ShareButton } from "../../../components/homePageCard/ShareButton";
 import { SinglePAgeHEader } from "../../../components/header/SinglePageHeader";
+import { Loading } from "../../../components/Loading";
 
 export default function Listing() {
   const setListingDetails: any = useListingDetails(
@@ -42,8 +43,8 @@ export default function Listing() {
 
   if (!show)
     return (
-      <div className="size-6 mx-auto my-[300px]">
-        <CircularProgress size="lg" />
+      <div className="size-6 flex justify-center items-center mx-auto my-[300px]">
+        <Loading />
       </div>
     );
 
