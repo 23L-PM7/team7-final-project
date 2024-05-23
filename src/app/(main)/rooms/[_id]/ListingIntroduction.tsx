@@ -1,37 +1,37 @@
 import { Avatar, Badge, Box, Button, Divider, Typography } from "@mui/joy";
-import Calendar from "../../../components/LittleMenus/Calendar";
+import Calendar from "../../../../components/LittleMenus/Calendar";
 import ListingReservation from "./ListingReservation";
 import { IconContext } from "react-icons";
 import { PiMedalFill } from "react-icons/pi";
 import { IoIosStar } from "react-icons/io";
-import { useDays, useListingDetails, useDate } from "../../globals";
-import { useBecomeHost } from "../../become-a-host/store";
+import { useDays, useListingDetails, useDate } from "../../../globals";
+import { useBecomeHost } from "../../../become-a-host/store";
 import { useEffect } from "react";
-import { WiFi } from "../../../components/icons/amenitiesIcons/Wifa";
-import { House } from "../../../components/icons/amenitiesIcons/House";
-import { TV } from "../../../components/icons/amenitiesIcons/Tv";
-import { Kitchen } from "../../../components/icons/amenitiesIcons/Kitchen";
-import { Washer } from "../../../components/icons/amenitiesIcons/Washer";
-import { Car } from "../../../components/icons/amenitiesIcons/Car";
-import { Parking } from "../../../components/icons/amenitiesIcons/Parking";
-import { AirCondition } from "../../../components/icons/amenitiesIcons/AirCondition";
-import { WorkPlace } from "../../../components/icons/amenitiesIcons/WorkPlace";
-import { BBgrill } from "../../../components/icons/amenitiesIcons/BBQgrill";
-import { Piona } from "../../../components/icons/amenitiesIcons/Piona";
-import { Exercise } from "../../../components/icons/amenitiesIcons/Exercise";
-import { Ski } from "../../../components/icons/amenitiesIcons/Ski";
-import { BeachAccess } from "../../../components/icons/amenitiesIcons/BeachAccess";
-import { PoolTable } from "../../../components/icons/amenitiesIcons/PoolTable";
-import { Pool } from "../../../components/icons/amenitiesIcons/Pool";
-import { HotTub } from "../../../components/icons/amenitiesIcons/HotTub";
-import { Outdoor } from "../../../components/icons/amenitiesIcons/Outdoor";
-import { FirePit } from "../../../components/icons/amenitiesIcons/FirePit";
-import { Ratio } from "../../../components/icons/amenitiesIcons/Ratio";
-import { Lake } from "../../../components/icons/Lake";
-import { Shower } from "../../../components/icons/amenitiesIcons/Shower";
-import { SmokeAlarm } from "../../../components/icons/amenitiesIcons/SmokeAlarm";
-import { FirstAidKit } from "../../../components/icons/amenitiesIcons/FirstAidKit";
-import { Fire } from "../../../components/icons/amenitiesIcons/Fire";
+import { WiFi } from "../../../../components/icons/amenitiesIcons/Wifa";
+import { House } from "../../../../components/icons/amenitiesIcons/House";
+import { TV } from "../../../../components/icons/amenitiesIcons/Tv";
+import { Kitchen } from "../../../../components/icons/amenitiesIcons/Kitchen";
+import { Washer } from "../../../../components/icons/amenitiesIcons/Washer";
+import { Car } from "../../../../components/icons/amenitiesIcons/Car";
+import { Parking } from "../../../../components/icons/amenitiesIcons/Parking";
+import { AirCondition } from "../../../../components/icons/amenitiesIcons/AirCondition";
+import { WorkPlace } from "../../../../components/icons/amenitiesIcons/WorkPlace";
+import { BBgrill } from "../../../../components/icons/amenitiesIcons/BBQgrill";
+import { Piona } from "../../../../components/icons/amenitiesIcons/Piona";
+import { Exercise } from "../../../../components/icons/amenitiesIcons/Exercise";
+import { Ski } from "../../../../components/icons/amenitiesIcons/Ski";
+import { BeachAccess } from "../../../../components/icons/amenitiesIcons/BeachAccess";
+import { PoolTable } from "../../../../components/icons/amenitiesIcons/PoolTable";
+import { Pool } from "../../../../components/icons/amenitiesIcons/Pool";
+import { HotTub } from "../../../../components/icons/amenitiesIcons/HotTub";
+import { Outdoor } from "../../../../components/icons/amenitiesIcons/Outdoor";
+import { FirePit } from "../../../../components/icons/amenitiesIcons/FirePit";
+import { Ratio } from "../../../../components/icons/amenitiesIcons/Ratio";
+import { Lake } from "../../../../components/icons/Lake";
+import { Shower } from "../../../../components/icons/amenitiesIcons/Shower";
+import { SmokeAlarm } from "../../../../components/icons/amenitiesIcons/SmokeAlarm";
+import { FirstAidKit } from "../../../../components/icons/amenitiesIcons/FirstAidKit";
+import { Fire } from "../../../../components/icons/amenitiesIcons/Fire";
 
 export function ListingIntroduction() {
   const { listingDetails }: any = useListingDetails();
@@ -50,9 +50,7 @@ export function ListingIntroduction() {
         {/* title section */}
 
         <div>
-          <Typography level="h2">
-            {listingDetails.title}
-          </Typography>
+          <Typography level="h2">{listingDetails.title}</Typography>
           {/* <Typography>{listing.bedsNumber} beds, </Typography> */}
           <div className="flex items-center gap-2">
             <IoIosStar />{" "}
@@ -112,8 +110,6 @@ export function ListingIntroduction() {
 
         {/* room introoduction section */}
 
-
-
         <div className="grid grid-cols-2 gap-2 justify-start">
           <div></div>
           <div></div>
@@ -153,10 +149,12 @@ export function ListingIntroduction() {
         <Divider sx={{ width: 700 }} />
 
         <div>
-          <Typography level="h4"> {daysNumber} night at {listingDetails.title} </Typography>
+          <Typography level="h4">
+            {" "}
+            {daysNumber} night at {listingDetails.title}{" "}
+          </Typography>
           <Calendar />
         </div>
-
       </div>
       <div className="w-2/6">
         <ListingReservation />
@@ -184,13 +182,14 @@ const listingMain = {
   bathroomCount: 2,
   guestsCount: 6,
   bedCount: 6,
-  description: "Located in one of the most spectacular buildings in Madrid. The hallwa…",
+  description:
+    "Located in one of the most spectacular buildings in Madrid. The hallwa…",
   offerTypes: "",
   roomType: "1",
   type: "Top city",
   location: "Mongolia",
   region: "Western Mongolia",
-}
+};
 
 const host = {
   name: "Bayarmaa",

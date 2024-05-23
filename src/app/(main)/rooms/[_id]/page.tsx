@@ -12,14 +12,15 @@ import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useListingDetails } from "../../globals";
+import { useListingDetails } from "../../../globals";
 
 export default function Listing() {
-  const setListingDetails: any = useListingDetails((state: any) => state.setListingDetails);
+  const setListingDetails: any = useListingDetails(
+    (state: any) => state.setListingDetails
+  );
   const { _id } = useParams();
   const [loading, setLoading] = useState(true);
-  const [show, setShow] = useState(false)
-
+  const [show, setShow] = useState(false);
 
   function fecthListing() {
     axios
@@ -32,14 +33,18 @@ export default function Listing() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setShow(true)
-    }, 4000)
+      setShow(true);
+    }, 4000);
 
-    return () => clearTimeout(timeout)
+    return () => clearTimeout(timeout);
+  }, [show]);
 
-  }, [show])
-
-  if (!show) return <div className="size-6 mx-auto my-[300px]"><CircularProgress size="lg" /></div>;
+  if (!show)
+    return (
+      <div className="size-6 mx-auto my-[300px]">
+        <CircularProgress size="lg" />
+      </div>
+    );
 
   return (
     <div className="container w-[1120px] mx-auto grid gap-6 my-6">
