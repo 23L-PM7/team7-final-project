@@ -12,76 +12,6 @@ const humans = [
       </div>
     ),
   },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
-  {
-    image: (
-      <div>
-        <img src="/images/human1.avif" alt="human" />
-      </div>
-    ),
-  },
 ];
 export function GuestsCounter() {
   const [roomCount, _setRoomCount] = useState("");
@@ -110,7 +40,8 @@ export function GuestsCounter() {
     const humans = {
       image: (
         <div>
-          <img src="images/human1.avif" alt="" />
+          <img src="images/human2.avif" alt="human" />
+          {/* <p>HELLO</p> */}
         </div>
       ),
     };
