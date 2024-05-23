@@ -6,6 +6,8 @@ import NavBar from "../components/header/Navbar";
 import { LicenseInfo } from "@mui/x-license";
 import { motion } from "framer-motion";
 import Footer from "../components/footer/Footer";
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+
 
 LicenseInfo.setLicenseKey("YOUR_LICENSE_KEY");
 
@@ -23,11 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-[1400px]">
+      <UserProvider>
       <body className={inter.className}>
         <NavBar />
         {children}
         <Footer />
       </body>
+      </UserProvider>
     </html>
   );
 }

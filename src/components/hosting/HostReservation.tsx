@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { HomePageCards } from "../homePageCard/HomePageCard";
 import { CircularProgress, LinearProgress } from "@mui/joy";
 
+
+
+
 export default function HostReservation() {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -40,7 +43,7 @@ export default function HostReservation() {
             <LinearProgress />
           </div>
         )}
-        {!loading && <HomePageCards cards={getUserCards(cards)} />}
+        {!loading && <HomePageCards cards={getUserCards(cards)}/>}
       </div>
       <div className=" flex  justify-between mb-10 ">
         <h1 className="text-[30px] font-medium text-black">

@@ -12,6 +12,7 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/navigation";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function SignIn() {
   const router = useRouter();
@@ -29,6 +30,11 @@ export default function SignIn() {
   const SignUp = () => {
     router.push("/signup");
   };
+  const {user, error, isLoading} = useUser()
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+
+  console.log(user)
   
   return (
     <div className="w-[600px] h-[500px] mx-auto">
@@ -71,14 +77,16 @@ export default function SignIn() {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+         <div className="gap-2 flex flex-col"> <a href="/api/auth/login"
+            // type="submit"
+            // fullWidth
+            // variant="contained"
+            // sx={{ mt: 3, mb: 2 }}
           >
             Sign In
-          </Button>
+          </a>
+          <a href="/api/auth/logout">logout</a>
+          </div>
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
