@@ -69,7 +69,7 @@ const Filter = () => {
       }}
     >
       <Container>
-        <div className="flex flex-row gap-6 items-center cursor-pointer justify-between overflow-x-auto">
+        <div className="flex flex-row gap-6 items-center cursor-pointer justify-between  overflow-x-auto">
           {places.map((place) => (
             <div
               onClick={() => {

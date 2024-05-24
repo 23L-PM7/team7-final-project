@@ -80,7 +80,7 @@ const Search = () => {
             <p className="hidden sm:block">Any guest</p>
             <p className="text-xs text-gray-400">Add guest</p>
           </div> */}
-          <div className="rounded-full p-2 bg-rose-500 text-white ">
+          <div className="rounded-full p-2 bg-[#0B6BCB] text-white ">
           <BiSearch size={18}/>
           </div>
         </div>
@@ -127,7 +127,7 @@ const Search = () => {
         
         <div  onClick={() => setSelected(!selected)} className="flex gap-3 flex-row text-sm text-gray-600 items-center pl-6 pr-2">
           <p className="hidden sm:block font-semibold">Any guest</p>
-          <div  onClick={() => setSelected(!selected)} className="rounded-full p-2 bg-rose-500 text-white ">
+          <div  onClick={() => setSelected(!selected)} className="rounded-full p-2 bg-[#0B6BCB] text-white ">
             <BiSearch size={18} />
           </div>
         </div>
