@@ -21,14 +21,13 @@ const Calendar = () => {
     const { formattedDate , getFormattedDate }:any = useDate();
     const search = searchParams.get('date')?.toString
 
-    const { daysNumber, setDaysNumber } : any = useDays();
+    const { setDaysNumber } : any = useDays();
+
     const totalDays = 0 - date[0].diff(date[1], "day")
 
     useEffect(() => {
         setDaysNumber(totalDays);
       }, [totalDays]);
-
-      console.log(daysNumber);
 
     const createQueryString = React.useCallback(
         (name: string, startValue: string, endValue: string) => {

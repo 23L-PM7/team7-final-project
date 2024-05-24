@@ -24,8 +24,6 @@ export function GuestCounter() {
     setClientNumber(totalClient);
   }, [totalClient]);
 
-  console.log(clientNumber);
-
   return (
     <div className="flex flex-col gap-2">
       <AdultCounter />

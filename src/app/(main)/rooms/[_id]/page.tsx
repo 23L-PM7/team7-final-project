@@ -5,7 +5,7 @@ import { Button, CircularProgress, Divider, Typography } from "@mui/joy";
 import { LuHeart, LuShare } from "react-icons/lu";
 import { ListingImage } from "./ListingImage";
 import { ListingIntroduction } from "./ListingIntroduction";
-import { ListingReview } from "./ListingReview";
+// import { ListingReview } from "./ListingReview";
 import { ListingLocations } from "./ListingLocations";
 import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useListingDetails } from "../../../globals";
 import { ShareButton } from "../../../../components/homePageCard/ShareButton";
+import Review from "../../../../components/review/review";
 
 export default function Listing() {
   const setListingDetails: any = useListingDetails(
@@ -67,14 +68,15 @@ export default function Listing() {
       </div>
 
       <Divider />
-
-      {/* <div className="w-full">
+{/* 
+      <div className="w-full">
         <ListingReview />
-      </div>
+        <Review />
+      </div> */}
 
       <Divider />
 
-      <div className="w-full">
+      {/* <div className="w-full">
         <ListingLocations />
       </div> */}
 

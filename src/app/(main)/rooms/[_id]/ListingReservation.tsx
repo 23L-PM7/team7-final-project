@@ -24,6 +24,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import Button from "@mui/joy/Button";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ListingReservation() {
   const { date, setDate }: any = useDate();
@@ -48,6 +49,12 @@ export default function ListingReservation() {
   useEffect(() => {
     setTotalPayment(totalPrice);
   }, [totalPrice]);
+
+  const router =useRouter()
+
+  const reservation =()=>{
+router.push("/reservation")
+  }
 
   return (
     <div className=" p-6 rounded-xl border-[1px] border-[#DDDDDD] shadow-[0px_6px_16px_rgba(0,0,0,0.12)] grid gap-6">
@@ -98,7 +105,7 @@ export default function ListingReservation() {
       </div>
 
       <div className="grid gap-4">
-        <Button>Reserve</Button>
+        <Button onClick={reservation}>Reserve</Button>
         <Typography>You won't be charged yet</Typography>
       </div>
 

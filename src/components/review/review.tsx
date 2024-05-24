@@ -36,7 +36,7 @@ export default function Review() {
   return (
     <React.Fragment>
       <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
-        Open modal
+        Show Comments
       </Button>
       <Modal
         aria-labelledby="modal-title"
@@ -87,7 +87,6 @@ export default function Review() {
                   </h3>
                 </div>
 
-                <div className="h-[250px] mt-10">overall rating</div>
                 <div className="flex flex-col">
                   <div className="flex w-full justify-between border-b-2 py-4 font-semibold ">
                     <div className="flex gap-2">
