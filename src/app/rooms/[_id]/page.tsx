@@ -5,7 +5,7 @@ import { Button, CircularProgress, Divider, Typography } from "@mui/joy";
 import { LuHeart, LuShare } from "react-icons/lu";
 import { ListingImage } from "./ListingImage";
 import { ListingIntroduction } from "./ListingIntroduction";
-import { ListingReview } from "./ListingReview";
+// import { ListingReview } from "./ListingReview";
 import { ListingLocations } from "./ListingLocations";
 import { ListingHost } from "./ListingHost";
 import { useParams } from "next/navigation";
@@ -75,15 +75,16 @@ export default function Listing() {
           <ListingIntroduction />
         </div>
 
-        <Divider />
-
-        {/* <div className="w-full">
-        <ListingReview />
-      </div>
-
       <Divider />
-
+{/* 
       <div className="w-full">
+        <ListingReview />
+        <Review />
+      </div> */}
+
+      {/* <Divider /> */}
+
+      {/* <div className="w-full">
         <ListingLocations />
       </div> */}
 
