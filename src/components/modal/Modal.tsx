@@ -80,9 +80,10 @@ export default function ModalReceit() {
     image2,
     image3,
     image4,
+    image5,
   } = useBecomeHost();
 
-  const images = [image, image1, image2, image3, image4];
+  const images = [image, image1, image2, image3, image4, image5];
 
   return (
     <React.Fragment>

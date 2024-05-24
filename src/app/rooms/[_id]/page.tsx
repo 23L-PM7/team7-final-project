@@ -13,8 +13,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useListingDetails } from "../../globals";
 import { ShareButton } from "../../../components/homePageCard/ShareButton";
-import { SinglePAgeHEader } from "../../../components/header/SinglePageHeader";
+
 import { Loading } from "../../../components/Loading";
+import { SinglePageHeader } from "../../../components/header/SinglePageHeader";
 
 export default function Listing() {
   const setListingDetails: any = useListingDetails(
@@ -50,7 +51,7 @@ export default function Listing() {
 
   return (
     <>
-      <SinglePAgeHEader />
+      <SinglePageHeader />
       <div className="container w-[1120px] mx-auto grid gap-6 my-6">
         <div className="flex justify-between items-center">
           <Typography level="h3">Nomadic stay at Orkhon Valley</Typography>

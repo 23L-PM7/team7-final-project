@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import Search from "./Search";
 import User from "./User";
 
-export function SinglePAgeHEader() {
+export function SinglePageHeader() {
   return (
     <div className="container w-[1120px] mx-auto grid gap-6 my-6">
       <div className="py-4 border-b-[1px]">

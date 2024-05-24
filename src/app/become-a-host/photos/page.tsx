@@ -169,6 +169,7 @@ export default function ListPhoto() {
             )}
           </div>
           {image5 && (
+            // MORE FILE
             <div className="relative mr-[346px]">
               {!image4 && (
                 <UploadFileMore value={image4} onChange={setImage4} />
