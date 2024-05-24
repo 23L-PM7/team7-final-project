@@ -160,7 +160,7 @@ export default function ListPhoto() {
                 src={image5}
               />
             )}
-            {image && (
+            {image5 && (
               <div className="flex justify-between">
                 <div className="absolute top-4 right-4 z-10">
                   <Dropdown4 />
@@ -170,7 +170,7 @@ export default function ListPhoto() {
           </div>
           {image5 && (
             // MORE FILE
-            <div className="relative mr-[346px]">
+            <div className="relative mr-[346px] mb-[100px]">
               {!image4 && (
                 <UploadFileMore value={image4} onChange={setImage4} />
               )}

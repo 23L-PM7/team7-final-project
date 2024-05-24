@@ -14,7 +14,7 @@ export default function Dropdown3() {
   function deletePhoto() {
     if (window.confirm("Are you sure delete this photo3?")) {
       setImage3("");
-      toast.error("Event has been deleted3");
+      toast.error("image is successfully deleted");
       return;
     }
   }

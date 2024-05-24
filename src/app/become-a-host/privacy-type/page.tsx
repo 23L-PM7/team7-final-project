@@ -44,7 +44,7 @@ export default function PrivacyType() {
 
   const handleSelectPlace = (place: Place) => {
     const { image, ...other } = place;
-    setRoomType(place.id);
+    setRoomType(place.title);
     localStorage.setItem("place", JSON.stringify(other));
   };
 
@@ -64,7 +64,7 @@ export default function PrivacyType() {
           <div
             onClick={() => handleSelectPlace(place)}
             className={`${
-              roomType === place.id
+              roomType === place.title
                 ? "bg-[#F7F7F7] border-black border-2 "
                 : "bg-white"
             } hover:border-black border rounded-xl h-[96px] mb-4 flex justify-between p-5`}

@@ -7,12 +7,14 @@ import ListDivider from "@mui/joy/ListDivider";
 import MoreVert from "@mui/icons-material/MoreVert";
 import MenuButton from "@mui/joy/MenuButton";
 import Dropdown from "@mui/joy/Dropdown";
+import { toast } from "sonner";
 
 export default function Dropdown4() {
   const { image5, setImage5 } = useBecomeHost();
   function deletePhoto() {
-    if (window.confirm("Are you sure delete this photo?")) {
+    if (window.confirm("Are you sure delete this photo?22")) {
       setImage5("");
+      toast.error("image is successfully deleted");
       return;
     }
   }
