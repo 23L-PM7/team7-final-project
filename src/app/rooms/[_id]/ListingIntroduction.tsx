@@ -32,6 +32,10 @@ import { Shower } from "../../../components/icons/amenitiesIcons/Shower";
 import { SmokeAlarm } from "../../../components/icons/amenitiesIcons/SmokeAlarm";
 import { FirstAidKit } from "../../../components/icons/amenitiesIcons/FirstAidKit";
 import { Fire } from "../../../components/icons/amenitiesIcons/Fire";
+import { GuestsIcon } from "../../../components/icons/Guests";
+import { BedroomIcon } from "../../../components/icons/BedroomIcon";
+import { BathroomIcon } from "../../../components/icons/BathroomIcon";
+import { BedIcon } from "../../../components/icons/BedIcon";
 
 export function ListingIntroduction() {
   const { listingDetails }: any = useListingDetails();
@@ -42,7 +46,7 @@ export function ListingIntroduction() {
     setOfferTypes(listingDetails.offerTypes);
   }, []);
 
-  console.log(offerTypes);
+  console.log(listingDetails);
 
   return (
     <div className="flex">
@@ -111,10 +115,26 @@ export function ListingIntroduction() {
         {/* room introoduction section */}
 
         <div className="grid grid-cols-2 gap-2 justify-start">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div className="flex gap-4 items-center">
+            <GuestsIcon />
+            <Typography level="h4">{listingDetails.guestsCount}</Typography>
+            <Typography>Guests can fit into our place</Typography>
+          </div>
+          <div className="flex gap-4 items-center">
+            <BedroomIcon />
+            <Typography level="h4">{listingDetails.bedroomCount}</Typography>
+            <Typography>bedroom</Typography>
+          </div>
+          <div className="flex gap-4 items-center">
+            <BathroomIcon />
+            <Typography level="h4">{listingDetails.bathroomCount}</Typography>
+            <Typography>bathroom</Typography>
+          </div>
+          <div className="flex gap-4 items-center">
+            <BedIcon />
+            <Typography level="h4">{listingDetails.bedCount}</Typography>
+            <Typography>bed</Typography>
+          </div>
         </div>
 
         <Divider sx={{ width: 700 }} />
