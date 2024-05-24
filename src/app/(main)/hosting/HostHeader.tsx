@@ -1,52 +1,27 @@
 "use client";
-import Button from "@mui/joy/Button";
-import IconButton from "@mui/material/IconButton";
+
 import { IoIosNotificationsOutline } from "react-icons/io";
-import {
-  IoNotificationsCircleOutline,
-  IoNotificationsCircleSharp,
-  IoNotificationsOffCircleSharp,
-} from "react-icons/io5";
-import { MdNotificationsNone } from "react-icons/md";
+import { LogoNewSmall } from "../../../components/icons/LogoNewSmall";
+
 export default function HostHeader() {
   return (
-    <div className="flex justify-between mb-20">
+    <div className="flex py-5 container mx-auto justify-between mb-20">
       <div>
-        <img
-          className=" w-15 h-11 pl-4 pt-2	"
-          src="/images/airbnb-logo.png"
-          alt=""
-        />
+        <LogoNewSmall />
       </div>
       <div className="flex gap-2 text-md ">
-        <Button color="neutral" variant="plain">
-          Today
-        </Button>
-        <Button color="neutral" variant="plain">
-          Calender
-        </Button>
-        <Button color="neutral" variant="plain">
-          Listings
-        </Button>
-        <Button color="neutral" variant="plain">
-          Inbox
-        </Button>
-        <Button color="neutral" variant="plain">
-          Menu
-        </Button>
+        <a
+          className="hidden md:block hover:flex justify-center items-center  rounded-full transition hover:bg-neutral-200 cursor-pointer text-sm py-2 px-4 font-semibold "
+          href="/overview"
+          color="neutral"
+        >
+          Create New List
+        </a>
       </div>
-      <div className="flex gap-10 pr-10 pt-2">
-        <button className="rounded-full border-2  border-slate-500 w-9">
-          <IoIosNotificationsOutline
-            size={30}
-            color="black"
-            className="mr-10 ml-0.5"
-          />
-        </button>
-        <button className=" rounded-full border-2   bg-black text-sm w-9 h-9 border-slate-500 text-white">
-          T
-        </button>
-      </div>
+
+      <button className=" rounded-full border-2   bg-black text-sm w-9 h-9 border-slate-500 text-white">
+        T
+      </button>
     </div>
   );
 }

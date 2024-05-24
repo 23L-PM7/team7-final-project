@@ -18,7 +18,6 @@ export default function Home() {
 //   const categoriesFilter = searchParams.get('categories')
 //   // const [cardsData, setCardsData] = React.useState([]);
 
-
 //   // React.useEffect(() => {
 //   //   const fetchData = async () => {
 //   //     try {

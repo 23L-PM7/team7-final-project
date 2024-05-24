@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
 import { create } from "zustand";
-import * as React from 'react';
-import { DateRange } from '@mui/x-date-pickers-pro/models';
-import dayjs, { Dayjs } from 'dayjs';
+import * as React from "react";
+import { DateRange } from "@mui/x-date-pickers-pro/models";
+import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 
 // for reservation dates
@@ -11,7 +11,7 @@ import { useState } from "react";
 export const useDate = create((set) => ({
   date: [dayjs(Date.now()), dayjs(Date.now())],
   setDate: (newDate: Date) => set(() => ({ date: newDate })),
-  getFormattedDate: (date: Dayjs) => date.format('MMM D'), // Add this function
+  // getFormattedDate: (date: Dayjs) => date.format('MMM D'), // Add this function
 }));
 
 export const useDays = create((set) => ({
@@ -23,29 +23,34 @@ export const useDays = create((set) => ({
 
 export const usePayment = create((set) => ({
   totalPayment: 0,
-  setTotalPayment: (newNumber: Number) => set(() => ({ totalPayment: newNumber })),
+  setTotalPayment: (newNumber: Number) =>
+    set(() => ({ totalPayment: newNumber })),
 }));
 
 // for reservation guests
 
 export const useGuests = create((set) => ({
   clientNumber: 0,
-  setClientNumber: (newNumber: Number) => set(() => ({ clientNumber: newNumber })),
+  setClientNumber: (newNumber: Number) =>
+    set(() => ({ clientNumber: newNumber })),
 }));
 
 export const useAdult = create((set) => ({
   adultNumber: 0,
-  setAdultNumber: (newNumber: Number) => set(() => ({ adultNumber: newNumber })),
+  setAdultNumber: (newNumber: Number) =>
+    set(() => ({ adultNumber: newNumber })),
 }));
 
 export const useChildren = create((set) => ({
   childrenNumber: 0,
-  setChildrenNumber: (newNumber: Number) => set(() => ({ childrenNumber: newNumber })),
+  setChildrenNumber: (newNumber: Number) =>
+    set(() => ({ childrenNumber: newNumber })),
 }));
 
 export const useInfant = create((set) => ({
   infantNumber: 0,
-  setInfantNumber: (newNumber: Number) => set(() => ({ infantNumber: newNumber })),
+  setInfantNumber: (newNumber: Number) =>
+    set(() => ({ infantNumber: newNumber })),
 }));
 
 export const usePet = create((set) => ({
@@ -55,7 +60,7 @@ export const usePet = create((set) => ({
 
 // for listing details
 
-export const useListingDetails = create ((set) => ({
+export const useListingDetails = create((set) => ({
   listingDetails: [],
-  setListingDetails: (newList : any) => set(() => ({ listingDetails: newList }))
-}))
+  setListingDetails: (newList: any) => set(() => ({ listingDetails: newList })),
+}));
