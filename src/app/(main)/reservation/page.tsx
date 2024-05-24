@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { ImAppleinc } from "react-icons/im";
 import { AiFillFacebook } from "react-icons/ai";
 import { useRouter } from "next/navigation";
-import { useDate, useDays, useGuests } from "../../globals";
+import { useDate, useDays, useGuests, useListingDetails, useAdult, useChildren, useInfant, usePet } from "../../globals";
 import { DateRangePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
@@ -18,13 +18,74 @@ import {
   Typography,
 } from "@mui/joy";
 import { GuestCounter } from "../../../components/counter/ReservationGuestsCounter/GuestCounter";
+import axios from "axios";
+import { toast } from "sonner";
+import { useState, useEffect } from "react";
 
 export default function Reservation() {
   const { date, setDate }: any = useDate();
-  const { daysNumber }: any = useDays();
   const { clientNumber }: any = useGuests();
-
+  const { daysNumber, setDaysNumber }: any = useDays();
+  const { listingDetails } : any = useListingDetails();
+  const { adultNumber } : any = useAdult();
+  const { childrenNumber } : any = useChildren();
+  const { infantNumber } : any = useInfant();
+  const { petNumber } : any = usePet();
   const router = useRouter();
+
+  const [listingId, setListingId] = useState("");
+  const [startDate, setStartdDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [adult, setAdult] = useState(0);
+  const [children, setChildren] = useState(0);
+  const [infant, setInfant] = useState(0);
+  const [pet, setPet] = useState(0);
+
+  const totalDays = 0 - date[0].diff(date[1], "day")
+
+  const clientToCharge = adultNumber + childrenNumber;
+  const priceBeforeFee = totalDays * listingDetails.price * clientToCharge;
+  const totalPrice = priceBeforeFee + 15;
+
+  useEffect(() => {
+    setDaysNumber(totalDays);
+  }, [date]);
+
+  useEffect(() => {
+    setListingId(listingDetails._id);
+    setStartdDate(date[0]);
+    setEndDate(date[1]);
+    setAdult(adultNumber);
+    setChildren(childrenNumber);
+    setInfant(infantNumber);
+    setPet(petNumber);
+  }, [totalPrice]);
+
+  const newReservationRequest = async () => {
+    const reservationData = {
+      listingId,
+      startDate,
+      endDate,
+      totalPrice,
+      adult,
+      children,
+      infant,
+      pet,
+    };
+
+    await axios
+      .post("http://localhost:3000/api/reservation", { ...reservationData })
+      .then(() => {
+        toast.success(`"${listingDetails.title}" түрээслэх хүсэлт амжилтта үүслээ.`);
+        homePage;
+      });
+  };
+
+  console.log(listingId);
+
+  const homePage = () => {
+    router.push("/");
+  };
 
   const SignIn = () => {
     router.push("/signin");
@@ -37,7 +98,7 @@ export default function Reservation() {
   return (
     <div className="mx-auto w-[1300px] h-screen justify-center font-circular pt-20">
       <div className="flex justify-start items-center h-[116px] text-[32px] font-extrabold">
-        Confirm and pay
+        Reservation
       </div>
       <div className="flex w-full">
         <div className="w-[600px] flex flex-col">
@@ -64,7 +125,7 @@ export default function Reservation() {
                   </LocalizationProvider>
                 </div>
 
-                <div className="absolute rounded bg-white border-2 p-2 items.center w-[570px]">
+                <div className="absolute rounded bg-white p-2 items.center w-[570px]">
                   <AccordionGroup>
                     <Accordion>
                       <AccordionSummary>
@@ -83,20 +144,21 @@ export default function Reservation() {
             </div>
           </div>
 
-          <div className="flex flex-col w-full h-48 justify-between">
-            <div className="flex justify-between border-2 rounded p-4">
+          <div className="flex gap-2 w-full justify-between mb-4">
+
+            <div className="flex justify-between rounded p-4 w-1/3">
               <div>
                 <p className="text-sm text-slate-400">Country code</p>
-                <select className="text-xl">
+                <select className="text-sm">
                   <option value="">Mongolia (+976)</option>
-                  <option value="">Russia (+976)</option>
-                  <option value="">China (+976)</option>
+                  <option value="">Russia (+7)</option>
+                  <option value="">China (+86)</option>
                 </select>
               </div>
             </div>
 
             <input
-              className="flex justify-between border-2 rounded p-5 h-full text-xl"
+              className="flex justify-between rounded p-5 w-2/3 text-xl"
               type="text"
               placeholder="Phone number"
             />
@@ -113,9 +175,9 @@ export default function Reservation() {
 
             <button
               className="w-full bg-red-500 h-[52px] rounded text-white font-bold mb-5"
-              onClick={SignIn}
+              onClick={newReservationRequest}
             >
-              Sign-in to Continue
+              Reserve
             </button>
             <button className="mb-5" onClick={SignUp}>
               Not registered yet? Sign-up
@@ -138,40 +200,43 @@ export default function Reservation() {
         </div>
 
         {/* price */}
+
         <div className="ml-28 w-1/2 flex flex-col border-2 rounded-xl h-96 p-5">
           <div className="flex gap-5 pb-5 border-b-2">
             <div className="border-2 rounded-xl w-[104px] h-[104px]">
               <img
                 className="w-full h-full"
-                src="/images/zostel.avif"
+                src={listingDetails.images[0]}
                 alt="zostel"
               />
             </div>
             <div className="flex flex-col justify-around">
+
               <div>
                 <h3 className="font-semibold">
-                  Zostel Shangarh | Standard Private Room
+                  {listingDetails.title}
                 </h3>
-                <h3 className="font-semibold">Private Room</h3>
+                <h3 className="font-semibold">{listingDetails.type}</h3>
               </div>
 
               <h3>Room in hostel</h3>
+
             </div>
           </div>
           <div>
             <h3 className="py-5 text-[22px] font-bold">Price details</h3>
             <div className="flex justify-between py-3 ">
-              <h3>$23.96 x 5 nights</h3>
-              <h3>$119.80</h3>
+              <h3>{listingDetails.price} $ x {daysNumber} nights</h3>
+              <h3>${priceBeforeFee}</h3>
             </div>
             <div className=" py-3 flex justify-between">
               <h3>Taxes</h3>
-              <h3>$14.38</h3>
+              <h3>$15</h3>
             </div>
           </div>
           <div className=" py-3 flex justify-between border-t-2">
             <h3>Total (USD)</h3>
-            <h3>$134.18</h3>
+            <h3>${totalPrice}</h3>
           </div>
         </div>
       </div>

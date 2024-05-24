@@ -26,7 +26,7 @@ export function UploadFile({ value, onChange }: any) {
       if (res.ok) {
         const { secure_url } = await res.json();
         onChange(secure_url);
-        toast.success("Image has been created.");
+        toast.success("image is successfully uploaded");
         setUploading(false);
       }
     } catch (e) {
@@ -80,7 +80,7 @@ export function UploadFileMore({ value, onChange }: any) {
       if (res.ok) {
         const { secure_url } = await res.json();
         onChange(secure_url);
-        toast.success("image-5 has been created.");
+        toast.success("image is successfully uploaded");
         setUploading(false);
       }
     } catch (e) {

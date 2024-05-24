@@ -67,7 +67,10 @@ export function HomePageCards() {
     <>
       <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32  z-0">
         <div className="grid mt-32  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 mx-auto gap-10">
-          {filteredCards.map((card: any, index) => (
+          {filteredCards
+          .slice(0)
+          .toReversed()
+          .map((card: any, index) => (
             <motion.div initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }} key={card._id} className="flex flex-col  relative">

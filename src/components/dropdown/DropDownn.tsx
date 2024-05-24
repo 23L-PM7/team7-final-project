@@ -9,7 +9,7 @@ export default function Dropdownn() {
   function deletePhoto() {
     if (window.confirm("Are you sure delete this photo?")) {
       setImage("");
-      toast.success("Event has not been deleted");
+      toast.success("image is successfully deleted");
       return;
     }
   }

@@ -13,7 +13,7 @@ export default function DropdownAddImage() {
   const { image4, setImage4 } = useBecomeHost();
   function deletePhoto() {
     if (window.confirm("Are you sure delete this photo?")) {
-      toast.error("Event has not been created");
+      toast.error("Event has not been deleted");
       setImage4("");
       return;
     }
