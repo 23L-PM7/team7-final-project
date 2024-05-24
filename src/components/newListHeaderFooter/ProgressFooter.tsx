@@ -43,6 +43,7 @@ export function ProgressFooter() {
     image2,
     image3,
     image4,
+    image5,
     bedroomCount,
     bathroomCount,
     bedCount,
@@ -60,7 +61,7 @@ export function ProgressFooter() {
       const response = await axios.post("/api/listing", {
         title,
         price,
-        images: [image, image1, image2, image3, image4],
+        images: [image, image1, image2, image3, image4, image5],
         bedroomCount,
         bathroomCount,
         guestsCount,

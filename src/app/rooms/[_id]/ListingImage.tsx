@@ -1,7 +1,7 @@
 import { ImageList, ImageListItem } from "@mui/material";
 import { Stack } from "@mui/system";
 import { TbUvIndex } from "react-icons/tb";
-import { useListingDetails } from "../../../globals";
+import { useListingDetails } from "../../globals";
 
 function srcset(image: string, size: number, rows = 1, cols = 1) {
   return {

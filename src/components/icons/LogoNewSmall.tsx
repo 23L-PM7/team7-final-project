@@ -3,23 +3,19 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const Logo = () => {
+export function LogoNewSmall() {
   const router = useRouter();
 
   const refresh = () => {
     router.push("/");
   };
-
   return (
     <Image
       onClick={refresh}
       alt="Airbnb"
-      className="hidden cursor-pointer md:block"
-      height={100}
-      width={100}
-      src="/images/NewLogo.png"
+      height={80}
+      width={80}
+      src="/images/NewLogoNoName-1.png"
     />
   );
-};
-
-export default Logo;
+}

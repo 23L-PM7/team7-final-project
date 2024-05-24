@@ -1,5 +1,5 @@
 "use client";
-import ModalReceit from "../../../components/Modal";
+import ModalReceit from "../../../components/modal/Modal";
 import { LuCalendarCheck } from "react-icons/lu";
 import { MdCalendarToday } from "react-icons/md";
 import { SlPencil } from "react-icons/sl";
