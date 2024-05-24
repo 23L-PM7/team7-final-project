@@ -12,9 +12,15 @@ export function ProgressHeader() {
           pathname === "/become-a-host/publish-celebration"
             ? "bg-white"
             : "bg-black"
-        } flex z-30 fixed left-0 right-0 top-0 bg-white border justify-between conatiner mx-auto p-10`}
+        } flex z-30 fixed left-0 right-0 top-0 bg-white justify-between conatiner mx-auto p-10`}
       >
-        <AirbnbLogo />
+        <a href="/">
+          <img
+            className="w-[50px] h-[50px]"
+            src="/images/LogoNewList.png"
+            alt=""
+          />
+        </a>
         <div className="flex gap-3">
           <button className="border w-[100px] px-[16px] h-10 flex justify-center items-center rounded-3xl">
             Questions?

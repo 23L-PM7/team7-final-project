@@ -21,6 +21,8 @@ export default function HostReservation() {
     fetchCards();
   }, []);
 
+  console.log(cards);
+
   const getUserCards = (cards: any) => {
     const res = cards.filter((card: any) => card.userId === "testUser");
     return res;

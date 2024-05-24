@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
-export function HostingPageCard() {
+export function HostingPageCard({ size }: any) {
   const [cards, setCards] = useState([]);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
