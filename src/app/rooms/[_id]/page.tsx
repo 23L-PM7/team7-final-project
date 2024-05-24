@@ -82,7 +82,7 @@ export default function Listing() {
         <Review />
       </div> */}
 
-      <Divider />
+      {/* <Divider /> */}
 
       {/* <div className="w-full">
         <ListingLocations />

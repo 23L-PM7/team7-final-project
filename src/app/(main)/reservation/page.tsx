@@ -77,7 +77,7 @@ export default function Reservation() {
       .post("http://localhost:3000/api/reservation", { ...reservationData })
       .then(() => {
         toast.success(`"${listingDetails.title}" түрээслэх хүсэлт амжилтта үүслээ.`);
-        homePage();
+        homePage;
       });
   };
 
