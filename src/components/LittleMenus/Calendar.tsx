@@ -45,9 +45,9 @@ const Calendar = () => {
           value={date}
           onChange={(newDate) => setDate(newDate)}
         />
-        {/* <Link href={pathname + '?' + createQueryString('date', getFormattedDate(date[0]),getFormattedDate(date[1]))}>
+        <Link href={pathname + '?' + createQueryString('date', getFormattedDate(date[0]),getFormattedDate(date[1]))}>
                 <Button className='ml-4'>Done</Button>
-            </Link> */}
+        </Link>
       </DemoContainer>
     </LocalizationProvider>
   );

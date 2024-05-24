@@ -11,7 +11,7 @@ import { useState } from "react";
 export const useDate = create((set) => ({
   date: [dayjs(Date.now()), dayjs(Date.now())],
   setDate: (newDate: Date) => set(() => ({ date: newDate })),
-  // getFormattedDate: (date: Dayjs) => date.format('MMM D'), // Add this function
+  getFormattedDate: (date: Dayjs) => date.format('MMM D'),
 }));
 
 export const useDays = create((set) => ({
