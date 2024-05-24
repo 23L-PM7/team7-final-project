@@ -20,34 +20,66 @@ const User = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
 
-  return (
-    <Dropdown>
-      <div className="relative">
-        <div className="flex flex-row items-center gap-3">
-          <a
-            href="/hosting"
-            className="hidden md:block rounded-full transition hover:bg-neutral-200 cursor-pointer text-sm py-3 px-4 font-semibold"
-          >
-            Switch to hosting
-          </a>
-          <MenuButton className="p-4 md:py-1 md:px-2 border-[1px] rounded-full border-neutral-200 flex flex-row items-center gap-3 cursor-pointer  hover:shadow-md transition text-xl">
-            <AiOutlineMenu size={18} />
-            <div className="hidden md:block">
-              <Profile />
-            </div>
-          </MenuButton>
-
-          <Menu className="w-1/12">
-            <MenuItem>
-              <a href="/api/auth/login">Sign Up</a>
-            </MenuItem>
-            <MenuItem>
-              <a href="/api/auth/login">Login</a>
-            </MenuItem>
-          </Menu>
+  if(!user){
+    return (
+      <Dropdown>
+        <div className="relative">
+          <div className="flex flex-row items-center gap-3">
+            <a
+              href="/hosting"
+              className="hidden md:block rounded-full transition hover:bg-neutral-200 cursor-pointer text-sm py-3 px-4 font-semibold"
+            >
+              Switch to hosting
+            </a>
+            <MenuButton className="p-4 md:py-1 md:px-2 border-[1px] rounded-full border-neutral-200 flex flex-row items-center gap-3 cursor-pointer  hover:shadow-md transition text-xl">
+              <AiOutlineMenu size={18} />
+              <div className="hidden md:block ">
+                <Profile />
+              </div>
+            </MenuButton>
+  
+            <Menu className="w-1/12">
+              {/* <MenuItem>
+                <a href="/api/auth/login">Sign Up</a>
+              </MenuItem> */}
+              <MenuItem>
+                <a href="/api/auth/login">Login</a>
+              </MenuItem>
+            </Menu>
+          </div>
         </div>
-      </div>
-    </Dropdown>
-  );
+      </Dropdown>
+    );
+  }else{
+    return (
+      <Dropdown>
+        <div className="relative">
+          <div className="flex flex-row items-center gap-3">
+            <a
+              href="/hosting"
+              className="hidden md:block rounded-full transition hover:bg-neutral-200 cursor-pointer text-sm py-3 px-4 font-semibold"
+            >
+              Switch to hosting
+            </a>
+            <MenuButton className="p-4 md:py-1 md:px-2 border-[1px]  rounded-full border-neutral-200 flex flex-row items-center gap-3 cursor-pointer  hover:shadow-md transition text-xl">
+              {/* <AiOutlineMenu size={18} /> */}
+              <div className="hidden md:block h-5">
+                <Profile />
+              </div>
+            </MenuButton>
+  
+            <Menu className="w-1/12">
+              <MenuItem>
+                <a href="/api/auth/login">Account</a>
+              </MenuItem>
+              <MenuItem>
+                <a href="/api/auth/logout">Log out</a>
+              </MenuItem>
+            </Menu>
+          </div>
+        </div>
+      </Dropdown>
+    );
+  }
 };
 export default User;

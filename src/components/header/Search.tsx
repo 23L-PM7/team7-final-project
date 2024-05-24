@@ -16,8 +16,6 @@ const Search = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const searchParams = useSearchParams()
   const roomFilter = searchParams.get('rooms')
-
-  console.log(roomFilter)
   const handleScroll = () => {
     const position = window.scrollY;
     setScrollPosition(position);

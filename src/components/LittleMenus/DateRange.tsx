@@ -14,7 +14,6 @@ const DateRange = () => {
   const start = searchParams.get('date')
   // console.log(getFormattedDate(date[0]));
   // console.log(getFormattedDate(date[1]));
-  console.log(formattedDate);
   const handleOpenChange = React.useCallback(
     (event: React.SyntheticEvent | null, isOpen: boolean) => {
       setOpen(isOpen);
@@ -22,7 +21,6 @@ const DateRange = () => {
     [],
   );
 
-  console.log(start)
   React.useEffect(() => {
     setOpen(false);
   }, [start]);
