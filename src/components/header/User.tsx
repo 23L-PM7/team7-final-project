@@ -12,9 +12,12 @@ const User = () => {
     <Dropdown>
       <div className="relative">
         <div className="flex flex-row items-center gap-3">
-          <button className="hidden md:block rounded-full transition hover:bg-neutral-200 cursor-pointer text-sm py-3 px-4 font-semibold">
-            Airbnb your home
-          </button>
+          <a
+            href="/hosting"
+            className="hidden md:block rounded-full transition hover:bg-neutral-200 cursor-pointer text-sm py-3 px-4 font-semibold"
+          >
+            Switch to hosting
+          </a>
           <MenuButton className="p-4 md:py-1 md:px-2 border-[1px] rounded-full border-neutral-200 flex flex-row items-center gap-3 cursor-pointer  hover:shadow-md transition text-xl">
             <AiOutlineMenu size={18} />
             <div className="hidden md:block">
