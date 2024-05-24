@@ -228,7 +228,7 @@ export default function BasicModal() {
                 <p className="flex justify-center items-center text-black font-medium">
                   Clear all
                 </p>
-                <Button color="neutral" onClick={function () {}} size="lg">
+                <Button color="neutral"  onClick={() => setOpen(false)} size="lg">
                   Button
                 </Button>
               </div>

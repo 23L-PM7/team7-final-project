@@ -1,20 +1,16 @@
-"use client";
-import * as React from "react";
-import { DateRange } from "@mui/x-date-pickers-pro/models";
-import {
-  LocalizationProvider,
-  monthCalendarClasses,
-} from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { DateRangeCalendar } from "@mui/x-date-pickers-pro/DateRangeCalendar";
-import Button from "@mui/joy/Button";
-import dayjs, { Dayjs } from "dayjs";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-// import { useRouter } from 'next/router';
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import { useDate, useDays } from "../../app/globals";
+"use client"
+import * as React from 'react';
+import { DateRange } from '@mui/x-date-pickers-pro/models';
+import { LocalizationProvider, monthCalendarClasses } from '@mui/x-date-pickers-pro';
+import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
+import Button from '@mui/joy/Button';
+import dayjs, { Dayjs } from 'dayjs';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import { useDate, useDays } from '../../app/globals';
 
 const Calendar = () => {
   const router = useRouter();
@@ -31,7 +27,6 @@ const Calendar = () => {
     setDaysNumber(totalDays);
   }, [totalDays]);
 
-  console.log(daysNumber);
 
   const createQueryString = React.useCallback(
     (name: string, startValue: string, endValue: string) => {
@@ -50,9 +45,9 @@ const Calendar = () => {
           value={date}
           onChange={(newDate) => setDate(newDate)}
         />
-        {/* <Link href={pathname + '?' + createQueryString('date', getFormattedDate(date[0]),getFormattedDate(date[1]))}>
+        <Link href={pathname + '?' + createQueryString('date', getFormattedDate(date[0]),getFormattedDate(date[1]))}>
                 <Button className='ml-4'>Done</Button>
-            </Link> */}
+        </Link>
       </DemoContainer>
     </LocalizationProvider>
   );
