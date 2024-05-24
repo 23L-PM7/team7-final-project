@@ -7,17 +7,20 @@ import BasicModal from "./Modal";
 
 const NavBar = () => {
   return (
-    <header className=" w-full bg-white z-10 shadow-sm">
-      <div className="py-4 border-b-[1px]">
+    <header className="relative  w-full bg-white z-30 shadow-sm mb-[20px]">
+      <div className="py-4 fixed bg-white z-30 left-0 right-0 top-0 border-b-[1px]">
         <Container>
           <div className="flex mx-auto   items-center justify-between gap-3 md:gap-0">
-            <Logo />
-            <Search />
-            <User />
+            <Logo/>
+            <Search/>
+            <User/>
           </div>
         </Container>
       </div>
-      <Filter/>
+      <div className="fixed z-30 top-[85px] border-t-2 left-0 right-0 w-100% bg-white">
+      <Filter />
+      </div>
+    
       {/* <BasicModal/> */}
     </header>
   );

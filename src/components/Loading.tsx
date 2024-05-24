@@ -1,6 +1,6 @@
 export function Loading() {
   return (
-    <div className="flex flex-col gap-4 mt-4">
+    <div className="flex flex-col mt-[200px] gap-4">
       <div className="skeleton w-[300px] h-[290px]"></div>
       <div className="flex justify-between">
         <div className="skeleton h-4 w-32"></div>

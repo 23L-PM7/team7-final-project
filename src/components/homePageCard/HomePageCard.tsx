@@ -27,7 +27,7 @@ export function HomePageCards() {
   function fetchCards() {
     setLoading(true);
     axios
-      .get(`http://localhost:3000/api/listing?${searchParams.toString()}`)
+      .get(`http://localhost:3000/api/listing`)
       .then((cards) => {
         setCards(cards.data);
         setLoading(false);
@@ -70,10 +70,12 @@ export function HomePageCards() {
   // if (loading) return <Loading />;
   return (
     <>
-      <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32">
+      <div className="flex sm:p-8 md:p-25 xl:p-25 2xl:p-35 max-2xl:p-32  z-0">
         <div className="grid mt-32  grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 mx-auto gap-10">
           {filteredCards.map((card: any, index) => (
-            <div key={card._id} className="flex flex-col  relative">
+            <motion.div initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }} key={card._id} className="flex flex-col  relative">
               <Swiper
                 cssMode={true}
                 navigation={true}
@@ -132,7 +134,7 @@ export function HomePageCards() {
                   <div className="text-black text-md"></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

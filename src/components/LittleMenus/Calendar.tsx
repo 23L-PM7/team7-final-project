@@ -9,7 +9,6 @@ import Button from '@mui/joy/Button';
 import dayjs, { Dayjs } from 'dayjs';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-// import { useRouter } from 'next/router';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { useDate, useDays } from '../../app/globals';
 
@@ -28,7 +27,6 @@ const Calendar = () => {
         setDaysNumber(totalDays);
       }, [totalDays]);
 
-      console.log(daysNumber);
 
     const createQueryString = React.useCallback(
         (name: string, startValue: string, endValue: string) => {
